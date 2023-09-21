@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TXJQWKXWVC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TXJQWKXWVC');
+</script>
+    <meta charset="UTF-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClassePrepas</title>
+    <link rel="shortcut icon" href="./images/Pi-symbol.svg.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+  </head>
+  <body>
+    <header>
+      <h1>
+        Plateforme de Téléchargement de Cours pour Étudiants en Classe
+        Préparatoire
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="coursensa.html">Cours ENSA</a></li>
+          <li><a href="coursgegm.html">Cours GE-GM</a></li>
+          <li><a href="coursmipc.html">Cours MIPC</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <div class="theme">
+          <h2><em>Objectif de la page:</em></h2>
+        </div>
+        <p>
+          Bienvenue sur notre plateforme de téléchargement de cours dédiée aux
+          étudiants en <strong> classe préparatoire</strong>. Trouvez ici une variété de ressources
+          pédagogiques pour vous aider dans vos études. Parcourez nos catégories
+          de cours, téléchargez les documents et approfondissez vos
+          connaissances. Partagez également vos avis et commentaires pour
+          améliorer votre expérience d'apprentissage.
+        </p>
+        <div class="theme">
+          <h2>Catégories de cours:</h2>
+        </div>
+        <p>
+          Découvrez nos différentes catégories de cours spécialement conçues
+          pour répondre à vos besoins en classe préparatoire. Explorez chaque
+          section pour accéder aux cours, supports et ressources associés à
+          chaque matière. Qu'il s'agisse de mathématiques, de physique, de
+          chimie ou d'autres matières essentielles, notre plateforme est là pour
+          vous aider à réussir dans vos études.
+        </p>
+        
+        <div class="theme">
+          <h2>Avis et commentaires</h2>
+        </div>
+        <p>
+          Après avoir visité notre plateforme, merci de laisser vos retours et vos impressions sur les cours. Votre avis est
+          précieux pour nous et peut aider d'autres étudiants à prendre une
+          décision éclairée.
+        </p>
+        <p>Nous vous invitons alors à remplir le formulaire suivant:</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXn9gVJUW0fJwaaLa66fb0Ln-NdOV-FC74klohmBW3JvHc_g/viewform?usp=sf_link" target="_blank">Formulaire à remplir</a>
+        <br />
+
+        <hr />
+      </section>
+      <button onclick="scrollToTop()" class="retour" href="#haut-de-page" id="retour-haut" ><i class="fa-solid fa-arrow-turn-up"></i></button>
+    </main>
+
+    <footer>
+      <p><p>Email <i class="fa-solid fa-envelope fa-beat fa-2xs"></i> : efrayim.abou@gmail.com</p>
+      <p>Telephone <i class="fa-solid fa-phone fa-beat fa-2xs"></i> : +212 636272846</p>
+      <div>
+        <p>&copy; 2023 ClassePrepas.com - Tous droits réservés. <strong id="jr">Efraruto.Jr</strong></p>
+      </div></p>
+    </footer>
+    <script>alert("Vous trouverez ici tous vos cours des Classes Prépas!! _Efraruto.Jr_");</script>
+    <script>
+      // Fonction pour vérifier ou définir le cookie
+      function checkOrSetCookie() {
+          // Vérifiez si un cookie indiquant la première visite existe
+          var isFirstVisit = !document.cookie.includes("visited=true");
+
+          // Si c'est la première visite, attendez 3 secondes et redirigez vers la page d'accueil
+          if (isFirstVisit) {
+              setTimeout(function () {
+                  window.location.href = "index.html"; // Remplacez par l'URL de votre page d'accueil
+              }, 3000); // 3000 millisecondes équivalent à 3 secondes
+              
+              // Définissez un cookie pour indiquer que l'utilisateur a déjà visité le site
+              document.cookie = "visited=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+          }
+      }
+
+      // Appelez la fonction pour vérifier ou définir le cookie au chargement de la page
+      window.onload = checkOrSetCookie;
+  </script>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+/* Réinitialisation des styles de base */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style du corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px){
+    body {
+        /* min-height: 500px;
+        width: 500px;  */
+        background-size: center/cover;
+        background-attachment: fixed;
+        /* white-space: 100px; */
+        /* margin-left: -40px;  */
+        /* margin-right: -40px;  */
+        float: none;
+    }
+}
+/* Style de l'en-tête */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+/* Style de la navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: beige;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #bdbdbd0a;
+    border-color: #000000;
+    text-decoration: underline;
+    /* text-decoration-style: wavy; */
+    text-decoration-color: #ffc400;
+}
+nav a:hover{
+    color: #f2ffc2;
+    background-color: #00000080;
+
+} 
+nav a:active{
+    color: #f2ffc2;
+}
+
+/* Style du contenu principal */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 90px 50px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    font-style: italic;
+    text-shadow: -3px 4px 20px #00000045;
+}
+
+main p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    /* font-weight: bold; */
+}
+
+/* Style du pied de page */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Styles spécifiques pour chaque page (ajoutez des sélecteurs spécifiques ici) */
+ul li{
+    list-style: none;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    
+}
+main ul li{
+    margin: 30px;}
+    ul li{
+        display: inline-block;
+    }
+    .scroll-link{
+        font-weight: bold;
+        color:beige;
+        list-style-type:none;
+        background-color: #000000;
+        border-radius: 25px;
+        text-decoration-line: none;
+        padding: 5px;
+        text-align: center;
+    }
+    .scroll-link:hover{
+        font-weight: bold;
+        color:beige;
+        list-style-type:none;
+        background-color: #1d1d1d;
+        border-radius: 25px;
+        text-decoration-line: none;
+        padding: 15px;
+        transition: 0.25s;
+    }
+    h3{
+        color: yellow;
+        text-transform: uppercase;
+        font-size: 25px;
+        letter-spacing: 1px;
+        text-shadow: -3px 4px 20px #fffd8b;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: #000000;
+        /* margin: 0 300px; */
+}
+
+ul li{
+    display: inline-block;
+}
+#a{
+    color: #836400;
+    text-decoration-line: underline;
+}
+#a:hover{
+    transition: 0.2s;
+    color: hsla(40, 95%, 9%, 0.999);
+}
+#jr{
+    color: #faffad;
+  }
+
+  #h1{
+    color: #000000;
+    font-style: italic;
+    font-size: 40px;
+    text-decoration: underline;
+  }
+
+  .retour{
+    text-decoration-line: none;
+    font-size: 15px;
+    color: rgb(158, 227, 255);
+    background-color: #000000;
+    border-radius: 10px;
+    padding: 10px;
+    font-family:  Courier, monospace;
+    margin-top: 40px;
+    margin-left: 300px;
+    margin-bottom: -50px;
+  }
+  .retour:hover{
+    background-color: #000000da;
+  }
+
+  h4{
+    font-size: 30px;
+    color: hwb(0 0% 100%);
+    background-color:hwb(0deg 0% 100% / 9%) ;
+    border: 10px;
+    border-radius: 10px;
+  }
+  h1{
+    margin-bottom: 10px;
+  }
