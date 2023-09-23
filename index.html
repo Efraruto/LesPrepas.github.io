@@ -19,22 +19,82 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    
+    <style>/* Styles pour l'icône de menu hamburger */
+      .mobile-menu-icon {
+          display: none; /* Masquer l'icône par défaut */
+          cursor: pointer;
+      }
+      
+      .bar {
+          width: 25px;
+          height: 3px;
+          background-color: #ffbb00;
+          margin: 4px 0;
+          margin-left: 5px;
+      }
+      nav a{
+        color: rgb(255, 255, 255);
+        /* text-decoration-color: black; */
+      }
+      
+      /* Styles pour les écrans de petite largeur (téléphones portables) */
+      @media screen and (max-width: 768px) {
+          .mobile-menu-icon {
+              display: block; /* Afficher l'icône pour les petits écrans */
+          }
+      
+          .mobile-nav {
+              display: none; /* Masquer le menu de navigation par défaut */
+              background-color: #000000;
+              padding: 100px 10px;
+              position: absolute;
+              top: 0px;
+              right: 10px;
+              width: 165px;
+              z-index: 2;
+              overflow-y: auto;
+              transition: transform 3s ease;
+          }
+      
+          .mobile-nav ul {
+              list-style: none;
+              padding: 0;
+          }
+      
+          .mobile-nav li {
+              margin-bottom: 100px;
+          }
+      }
+      
+      </style>
   </head>
-  <body>
+  <body>  
     <header>
+    <!-- Icône de menu hamburger pour les téléphones portables -->
+    <div class="mobile-menu-icon">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+  </div>
       <h1>
         Plateforme de téléchargement de Cours pour Étudiants en Classe
         Préparatoire
       </h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="coursensa.html">Cours ENSA</a></li>
-          <li><a href="coursgegm.html">Cours GE-GM</a></li>
-          <li><a href="coursmipc.html">Cours MIPC</a></li>
-        </ul>
-      </nav>
+        <nav class="mobile-nav">
+            <ul>
+             <li><a href="index.html">Accueil</a></li>
+             <li><a href="coursensa.html">Cours ENSA</a></li>
+             <li><a href="coursgegm.html">Cours GE-GM</a></li>
+             <li><a href="coursmipc.html">Cours MIPC</a></li>
+           </ul>
+          </nav>
+      
+<!-- <ul class="mobile-menu" id="mobile-menu">
+  <li><a href="index.html">Accueil</a></li>
+             <li><a href="coursensa.html">Cours ENSA</a></li>
+             <li><a href="coursgegm.html">Cours GE-GM</a></li>
+             <li><a href="coursmipc.html">Cours MIPC</a></li>
+</ul> -->
     </header>
 
     <main>
@@ -107,6 +167,19 @@
       // Appelez la fonction pour vérifier ou définir le cookie au chargement de la page
       window.onload = checkOrSetCookie;
   </script>
+  <script>// JavaScript pour activer/désactiver le menu de navigation mobile
+    const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+    const mobileNav = document.querySelector('.mobile-nav');
+    
+    mobileMenuIcon.addEventListener('click', function () {
+        if (mobileNav.style.display === 'block') {
+            mobileNav.style.display = 'none';
+        } else {
+            mobileNav.style.display = 'block';
+        }
+    });
+    
+    </script>
     <script src="index.js"></script>
   </body>
 </html>

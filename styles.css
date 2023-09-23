@@ -55,12 +55,17 @@ nav a {
     text-decoration: none;
     color: beige;
     font-size: 18px;
-    padding: 10px;
+    /* padding: 100px; */
     border-radius: 10px;
     background-color: #bdbdbd0a;
     border-color: #000000;
     text-decoration: underline;
     /* text-decoration-style: wavy; */
+    text-decoration-color: #ffc400;
+}
+#cours{
+    color:#ffc400 ;
+    text-decoration: underline;
     text-decoration-color: #ffc400;
 }
 nav a:hover{
@@ -163,9 +168,10 @@ ul li{
 
   #h1{
     color: #000000;
-    font-style: italic;
-    font-size: 40px;
+    /* font-style: italic; */
+    font-size: 35px;
     text-decoration: underline;
+    margin-top: -50px;
   }
 
   .retour{
