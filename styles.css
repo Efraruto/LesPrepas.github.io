@@ -85,6 +85,13 @@ main {
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.section{
+    max-width: 1000px;
+    margin: 20px -50px;
+    padding: 30px 0px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgb(0 0 0 / 95%);
+}
 
 main h2 {
     font-size: 24px;
