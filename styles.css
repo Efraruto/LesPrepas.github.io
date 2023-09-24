@@ -26,7 +26,16 @@ body {
         /* margin-right: -40px;  */
         float: none;
     }
+    #ouvrir{
+        display: block; /* ou display: inline-block; ou display: flex; selon vos besoins */
+      }
 }
+/* Styles pour les écrans de grande taille (par exemple, les ordinateurs de bureau) */
+@media screen and (min-width: 769px) {
+    #ouvrir {
+      display: none;
+    }
+  }
 /* Style de l'en-tête */
 header {
     background-color: #333;
@@ -100,7 +109,9 @@ main h2 {
     font-style: italic;
     text-shadow: -3px 4px 20px #00000045;
 }
-
+#classe{
+    margin-top: -30px;
+}
 main p {
     font-size: 16px;
     margin-bottom: 20px;
@@ -210,4 +221,8 @@ ul li{
   }
   h1{
     margin-bottom: 10px;
+  }
+  #ouvrir{
+    margin-top: 40px;
+    margin-bottom: -20px;
   }
