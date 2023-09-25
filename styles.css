@@ -14,6 +14,10 @@ body {
     padding: 0px;
     text-align: center;
 }
+.image{
+    max-width: 100%;
+  height: auto;
+}
 
 @media screen and (max-width: 768px){
     body {
@@ -111,6 +115,9 @@ main h2 {
 }
 #classe{
     margin-top: -30px;
+}
+#bas{
+    margin-top: 30px;
 }
 main p {
     font-size: 16px;
