@@ -84,7 +84,7 @@ nav a {
 nav a:hover{
     color: #f2ffc2;
     background-color: #00000080;
-
+    padding: 5px;
 } 
 nav a:active{
     color: #f2ffc2;
