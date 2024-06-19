@@ -1,197 +1,159 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TXJQWKXWVC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TXJQWKXWVC');
-  
-</script>
-    <meta charset="UTF-8" />
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ClassePrepas</title>
-    <link rel="shortcut icon" href="./images/Pi-symbol.svg.png" />
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>EtudesPrepas</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
+      rel="stylesheet"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <style>/* Styles pour l'icône de menu hamburger */
-      .mobile-menu-icon {
-          display: none; /* Masquer l'icône par défaut */
-          cursor: pointer;
-      }
-      
-      .bar {
-          width: 25px;
-          height: 3px;
-          background-color: #ffbb00;
-          margin: 4px 0;
-          margin-left: 5px;
-      }
-      nav a{
-        color: rgb(255, 255, 255);
-        text-shadow: white;
-        /* text-decoration-color: black; */
-      }
-      
-      /* Styles pour les écrans de petite largeur (téléphones portables) */
-      @media screen and (max-width: 768px) {
-          .mobile-menu-icon {
-              display: block; /* Afficher l'icône pour les petits écrans */
-          }
-      
-          .mobile-nav {
-              display: none; /* Masquer le menu de navigation par défaut */
-              background-color: #000000;
-              padding: 100px 10px;
-              position: absolute;
-              top: 0px;
-              right: 10px;
-              width: 165px;
-              z-index: 2;
-              overflow-y: auto;
-              transition: transform 3s ease;
-          }
-      
-          .mobile-nav ul {
-              list-style: none;
-              padding: 0;
-          }
-      
-          .mobile-nav li {
-              margin-bottom: 100px;
-          }
-      }
-      
-      </style>
+
   </head>
-  <body>  
+  <body>
     <header>
-    <!-- Icône de menu hamburger pour les téléphones portables -->
-    <div class="mobile-menu-icon">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-  </div>
-      <h1>
-        Plateforme de téléchargement de Cours pour Étudiants en Classe
-        Préparatoire
+      <h1 class="site-heading text-center text-faded d-none d-lg-block">
+        <span class="site-heading-upper text-primary mb-3"
+          >Plateforme de telechargements de ressources pour etudiants en</span
+        >
+        <span class="site-heading-lower">Classes Preparatoires</span>
       </h1>
-        <nav class="mobile-nav">
-            <ul>
-             <li><a id="cours" href="index.html">Accueil</a></li>
-             <li><a href="coursensa.html">Cours ENSA</a></li>
-             <li><a href="coursgegm.html">Cours GE-GM</a></li>
-             <li><a href="coursmipc.html">Cours MIPC</a></li>
-           </ul>
-          </nav>
-      
-<!-- <ul class="mobile-menu" id="mobile-menu">
-  <li><a href="index.html">Accueil</a></li>
-             <li><a href="coursensa.html">Cours ENSA</a></li>
-             <li><a href="coursgegm.html">Cours GE-GM</a></li>
-             <li><a href="coursmipc.html">Cours MIPC</a></li>
-</ul> -->
     </header>
-
-    <main>
-      <section>
-        <div class="theme">
-          <h2 id="classe"><em>Introduction et objectif du site:</em></h2>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNa">
+      <div class="container">
+        <a
+          class="navbar-brand text-uppercase fw-bold d-lg-none"
+          href="index.html"
+          >Classes Preparatoires</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase" href="index.html">Accueil</a>
+            </li>
+            <li class="nav-item px-lg-4">
+                <a id="na" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">ENSA</a>
+                <ul id="dropdown" class="dropdown-menu">
+                  <li><a class="dropdown-item" href="ensabm.html">ENSA Beni Mellal</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="ensakech.html">ENSA Marrakech</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="ensak.html">ENSA Kenitra</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="ensah.html">ENSA Al Hoceima</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="ensaa.html">ENSA Agadir</a></li>
+                </ul>            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase" href="gegm.html">GE-GM</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase" href="mipc.html">MIPC</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase" href="medecine.html">MEDECINE</a>
+            </li>
+          </ul>
         </div>
-        <p>
-          Bienvenue sur notre plateforme de téléchargement de cours dédiée aux
-          étudiants en <strong> classe préparatoire</strong>. Trouvez ici une variété de ressources
-          pédagogiques pour vous aider dans vos études. Parcourez nos catégories
-          de cours, téléchargez les documents et approfondissez vos
-          connaissances. Partagez également vos avis et commentaires pour
-          améliorer votre expérience d'apprentissage.
-        </p>
-        <img src="./images/etudiant.png" alt="imageintro" class="image">
-        <div class="theme">
-          <h2 id="bas">Les classes Préparatoires, c'est quoi?</h2>
-        </div>
-        <p>Les classes préparatoires à l'université (généralement avec une durée de deux 2 ans) sont des programmes d'enseignement supérieur conçus pour préparer les étudiants à une intégration réussie dans l'enseignement universitaire. Ils visent à renforcer les compétences académiques des étudiants, à combler d'éventuelles lacunes et à les familiariser avec les méthodes de travail universitaires. Ces classes préparatoires couvrent généralement un large éventail de matières générales et sont destinées à faciliter la transition entre l'enseignement secondaire et le niveau universitaire. Après avoir suivi ces programmes de deux ans (une durée qui varie selon les établissements), les étudiants sont mieux préparés à poursuivre des études universitaires dans le domaine de leur choix, c'est ce qu'on appelle généralement la specialisation.
-        </p>
-        
-        <div class="theme">
-          <h2>Catégories de cours:</h2>
-        </div>
-        <p>
-          Découvrez nos différentes catégories de cours spécialement conçues
-          pour répondre à vos besoins en classe préparatoire. Explorez chaque
-          section pour accéder aux cours, supports et ressources associés à
-          chaque matière. Qu'il s'agisse de mathématiques, de physique, de
-          chimie ou d'autres matières essentielles, notre plateforme est là pour
-          vous aider à réussir dans vos études.
-        </p>
-        
-        <div class="theme">
-          <h2>Avis et commentaires</h2>
-        </div>
-        <p>
-          Après avoir visité notre plateforme, merci de laisser vos retours et vos impressions sur les cours. Votre avis est
-          précieux pour nous et peut aider d'autres étudiants à prendre une
-          décision éclairée.
-        </p>
-        <p>Nous vous invitons alors à remplir le formulaire suivant:</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXn9gVJUW0fJwaaLa66fb0Ln-NdOV-FC74klohmBW3JvHc_g/viewform?usp=sf_link" target="_blank">Formulaire à remplir</a>
-        <br />
-
-        <hr />
-        <div id="ouvrir">
-        <p>Ouvrez l'onglet en haut à gauche de cette page pour voir les différentes pages du site.</p>
       </div>
-      </section>
+    </nav>
+    <section class="page-section clearfix">
+      <div class="container">
+        <div class="intro">
+          <img
+            class="intro-img img-fluid mb-3 mb-lg-0 rounded"
+            src="assets/img/intro.jpg"
+            alt="..."
+          />
+          <div class="intro-text left-0 text-center bg-fade p-5 rounded">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper"
+                >Intro et objectif du site</span
+              >
+              <span class="section-heading-lower">ETUDE PREPAS</span>
+            </h2>
+            <p class="mb-3">
+              Bienvenue sur notre plateforme de téléchargement de cours dédiée
+              aux étudiants en <strong> classe préparatoire</strong>. Trouvez
+              ici une variété de ressources pédagogiques pour vous aider dans
+              vos études. Parcourez nos catégories de cours, téléchargez les
+              documents et approfondissez vos connaissances. Partagez également
+              vos avis et commentaires pour améliorer votre expérience
+              d'apprentissage.
+            </p>
+            <div class="intro-button mx-auto">
+              <a class="btn btn-primary btn-xl" href="voirplus.html">VOIR PLUS...</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="page-section ct">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner bg-fade text-center rounded">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-upper"
+                  >Catégories de cours sur</span
+                >
+                <span class="section-heading-lower">ETUDE PREPAS</span>
+              </h2>
+              <p class="mb-0">
+                Découvrez nos différentes catégories de cours spécialement
+                conçues pour répondre à vos besoins en classe préparatoire.
+                Explorez chaque section pour accéder aux cours, supports et
+                ressources associés à chaque matière. Qu'il s'agisse de
+                mathématiques, de physique, de chimie ou d'autres matières
+                essentielles, notre plateforme est là pour vous aider à réussir
+                dans vos études.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <button onclick="scrollToTop()" class="retour" href="#haut-de-page" id="retour-haut" ><i class="fa-solid fa-arrow-turn-up"></i></button>
-    </main>
 
-    <footer>
-      <p><p>Email <i class="fa-solid fa-envelope fa-beat fa-2xs"></i> : efrayim.abou@gmail.com</p>
-      <p>Telephone <i class="fa-solid fa-phone fa-beat fa-2xs"></i> : +212 636272846</p>
-      <div>
-        <p>&copy; 2023 ClassePrepas.com - Tous droits réservés. <strong id="jr">Efraruto.Jr</strong></p>
-      </div></p>
+    </section>
+    <footer class="foote tex-faded text-center py-5">
+      <div class="container">
+        <!-- <p class="m-0 small">Copyright &copy; Your Website 2023</p> -->
+        <p><p class="m-0 small">Email <i class="fa-solid fa-envelope fa-beat fa-2xs"></i> : efrayim.abou@gmail.com</p>
+        <p class="m-0 small">Telephone <i class="fa-solid fa-phone fa-beat fa-2xs"></i> : +212 636272846</p>
+        <div class="container">
+          <p>&copy; 2023 EtudePrepas.com - Tous droits réservés. <strong id="jr">Efraruto.Jr</strong></p>
+        </div></p>
+      
     </footer>
-    <!-- <script>alert("Vous trouverez ici tous vos cours des Classes Prépas!! _Efraruto.Jr_");</script> -->
-    <script>
-      // Fonction pour vérifier ou définir le cookie
-      function checkOrSetCookie() {
-          // Vérifiez si un cookie indiquant la première visite existe
-          var isFirstVisit = !document.cookie.includes("visited=true");
-
-          // Si c'est la première visite, attendez 3 secondes et redirigez vers la page d'accueil
-          if (isFirstVisit) {
-              setTimeout(function () {
-                  window.location.href = "index.html"; // Remplacez par l'URL de votre page d'accueil
-              }, 3000); // 3000 millisecondes équivalent à 3 secondes
-              
-              // Définissez un cookie pour indiquer que l'utilisateur a déjà visité le site
-              document.cookie = "visited=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-          }
-      }
-
-      // Appelez la fonction pour vérifier ou définir le cookie au chargement de la page
-      window.onload = checkOrSetCookie;
-  </script>
-  <script>// JavaScript pour activer/désactiver le menu de navigation mobile
-    const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
-    const mobileNav = document.querySelector('.mobile-nav');
-    
-    mobileMenuIcon.addEventListener('click', function () {
-        if (mobileNav.style.display === 'block') {
-            mobileNav.style.display = 'none';
-        } else {
-            mobileNav.style.display = 'block';
-        }
-    });
-    
-    </script>
-    <script src="index.js"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
   </body>
 </html>
