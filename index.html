@@ -1,131 +1,139 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-bs-theme="light">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>EtudesPrepas</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Plateforme de ressources pour étudiants en Classes Préparatoires" />
+    <meta name="author" content="EtudesPrepas" />
+    <title>EtudesPrepas - Ressources CPGE</title>
+    <link rel="shortcut icon" href="./assets/img/logoep.jpeg" />
     <!-- Google fonts-->
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
-      rel="stylesheet"
-    />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <header>
-      <h1 class="site-heading text-center text-faded d-none d-lg-block">
-        <span class="site-heading-upper text-primary mb-3"
-          >Plateforme de telechargements de ressources pour etudiants en</span
-        >
-        <span class="site-heading-lower">Classes Preparatoires</span>
-      </h1>
-    </header>
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNa">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a
-          class="navbar-brand text-uppercase fw-bold d-lg-none"
-          href="index.html"
-          >Classes Preparatoires</a
-        >
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <a class="navbar-brand text-uppercase fw-bold" href="index.html">
+            <img src="./assets/img/logoep.jpeg" alt="Logo" width="45" height="45" class="d-inline-block align-text-top me-2 rounded-circle border border-2 border-primary p-1">Etudes_Prepas
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase" href="index.html">Accueil</a>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item px-lg-2">
+              <a class="nav-link text-uppercase active" href="index.html">Accueil</a>
             </li>
-            <li class="nav-item px-lg-4">
-                <a id="na" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">ENSA</a>
-                <ul id="dropdown" class="dropdown-menu">
+            <li class="nav-item px-lg-2 dropdown">
+                <a class="nav-link dropdown-toggle text-uppercase" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ENSA</a>
+                <ul class="dropdown-menu dropdown-menu-end">
                   <li><a class="dropdown-item" href="ensabm.html">ENSA Beni Mellal</a></li>
-                  <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="ensakech.html">ENSA Marrakech</a></li>
-                  <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="ensak.html">ENSA Kenitra</a></li>
-                  <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="ensah.html">ENSA Al Hoceima</a></li>
-                  <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="ensaa.html">ENSA Agadir</a></li>
-                </ul>            </li>
-            <li class="nav-item px-lg-4">
+                </ul>
+            </li>
+            <li class="nav-item px-lg-2">
               <a class="nav-link text-uppercase" href="gegm.html">GE-GM</a>
             </li>
-            <li class="nav-item px-lg-4">
+            <li class="nav-item px-lg-2">
               <a class="nav-link text-uppercase" href="mipc.html">MIPC</a>
             </li>
-            <li class="nav-item px-lg-4">
+            <li class="nav-item px-lg-2">
               <a class="nav-link text-uppercase" href="medecine.html">MEDECINE</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <section class="page-section clearfix">
+
+    <!-- Header -->
+    <header class="masthead text-center text-white d-flex flex-column justify-content-center align-items-center">
       <div class="container">
-        <div class="intro">
-          <img
-            class="intro-img img-fluid mb-3 mb-lg-0 rounded"
-            src="assets/img/intro.jpg"
-            alt="..."
-          />
-          <div class="intro-text left-0 text-center bg-fade p-5 rounded">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper"
-                >Intro et objectif du site</span
-              >
-              <span class="section-heading-lower">ETUDE PREPAS</span>
-            </h2>
-            <p class="mb-3">
-              Bienvenue sur notre plateforme de téléchargement de cours dédiée
-              aux étudiants en <strong> classe préparatoire</strong>. Trouvez
-              ici une variété de ressources pédagogiques pour vous aider dans
-              vos études. Parcourez nos catégories de cours, téléchargez les
-              documents et approfondissez vos connaissances. Partagez également
-              vos avis et commentaires pour améliorer votre expérience
-              d'apprentissage.
-            </p>
-            <div class="intro-button mx-auto">
-              <a class="btn btn-primary btn-xl" href="voirplus.html">VOIR PLUS...</a>
+        <img class="masthead-avatar mb-4 rounded-circle border border-4 border-primary shadow-lg floating-logo" src="./assets/img/logoep.jpeg" alt="Logo" width="150" height="150" data-aos="zoom-in" />
+        <h1 class="masthead-heading text-uppercase mb-0" data-aos="fade-down" data-aos-duration="1000">Classes Préparatoires</h1>
+        <div class="divider-custom divider-light my-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="divider-custom-line" style="height: 3px; background-color: #e6a756; width: 100px; margin: 0 auto;"></div>
+        </div>
+        <p class="masthead-subheading font-weight-light mb-0 h4" data-aos="fade-up" data-aos-delay="400">Plateforme de téléchargements de ressources pour étudiants</p>
+        <div class="mt-5" data-aos="fade-up" data-aos-delay="600">
+            <a class="btn btn-primary btn-xl text-uppercase me-3 shadow" href="#categories">Nos Cours</a>
+            <a class="btn btn-outline-light btn-xl text-uppercase shadow" href="#intro">Découvrir</a>
+        </div>
+      </div>
+      <!-- Scroll Down Arrow -->
+      <a class="scroll-down-arrow text-white" href="#intro">
+        <i class="fas fa-chevron-down fa-2x"></i>
+      </a>
+    </header>
+
+    <!-- Intro Section -->
+    <section class="page-section my-5 position-relative" id="intro">
+      <!-- Decorative background shape -->
+      <div class="position-absolute top-50 start-0 translate-middle-y bg-primary rounded-circle d-none d-lg-block" style="width: 400px; height: 400px; filter: blur(100px); z-index: -1; opacity: 0.1;"></div>
+      
+      <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="p-3 border border-4 border-primary rounded-3 shadow-lg bg-white position-relative">
+                    <img class="img-fluid rounded-3 w-100" src="assets/img/intro.png" alt="Introduction" id="intro-image" />
+                </div>
             </div>
-          </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="p-4 p-lg-5 bg-white rounded-3 shadow-lg border-start border-5 border-primary position-relative overflow-hidden">
+                    <!-- Watermark icon -->
+                    <i class="fas fa-graduation-cap position-absolute text-primary" style="bottom: -20px; right: -20px; font-size: 10rem; opacity: 0.05;"></i>
+                    
+                    <h2 class="section-heading mb-4 position-relative">
+                        <span class="section-heading-upper d-block text-primary fw-bold text-uppercase small mb-2"><i class="fas fa-bullseye me-2"></i>Intro et objectif du site</span>
+                        <span class="section-heading-lower d-block display-6 fw-bold">ETUDE PREPAS</span>
+                    </h2>
+                    <p class="mb-4 text-muted position-relative">
+                        Bienvenue sur notre plateforme de téléchargement de cours dédiée
+                        aux étudiants en <strong>classe préparatoire</strong>. Trouvez
+                        ici une variété de ressources pédagogiques pour vous aider dans
+                        vos études. Parcourez nos catégories de cours, téléchargez les
+                        documents et approfondissez vos connaissances.
+                    </p>
+                    <a class="btn btn-primary btn-lg rounded-pill px-4 shadow-sm position-relative" href="voirplus.html">VOIR PLUS <i class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
         </div>
       </div>
     </section>
-    <section class="page-section ct">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <div class="cta-inner bg-fade text-center rounded">
+
+    <!-- CTA Section -->
+    <section class="page-section py-5 position-relative" id="categories" style="background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);">
+      <div class="container position-relative z-1">
+        <div class="row justify-content-center">
+          <div class="col-xl-10" data-aos="zoom-in">
+            <div class="text-center text-white">
               <h2 class="section-heading mb-4">
-                <span class="section-heading-upper"
-                  >Catégories de cours sur</span
-                >
-                <span class="section-heading-lower">ETUDE PREPAS</span>
+                <span class="section-heading-upper d-block text-warning fw-bold text-uppercase small mb-2">Ressources Pédagogiques</span>
+                <span class="section-heading-lower d-block display-6 fw-bold">ETUDE PREPAS</span>
               </h2>
-              <p class="mb-0">
+              
+              <!-- Icons Row -->
+              <div class="d-flex justify-content-center gap-4 mb-4 text-warning fs-2">
+                  <i class="fas fa-square-root-variable" title="Mathématiques"></i>
+                  <i class="fas fa-atom" title="Physique"></i>
+                  <i class="fas fa-flask" title="Chimie"></i>
+                  <i class="fas fa-laptop-code" title="Informatique"></i>
+              </div>
+
+              <p class="mb-5 lead text-white-50 mx-auto" style="max-width: 800px;">
                 Découvrez nos différentes catégories de cours spécialement
                 conçues pour répondre à vos besoins en classe préparatoire.
                 Explorez chaque section pour accéder aux cours, supports et
@@ -134,27 +142,105 @@
                 essentielles, notre plateforme est là pour vous aider à réussir
                 dans vos études.
               </p>
-              <br>
-              <p>Si vous souhaitez télécharger notre Application Android, <a href="https://drive.google.com/file/d/1-4FH0Meba6V5henk9xfvezevfx-nFlCs/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Cliquez ici</a>.</p>
+              <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                  <a class="btn btn-outline-warning btn-lg px-5 py-3 rounded-pill fw-bold" href="https://drive.google.com/file/d/1-4FH0Meba6V5henk9xfvezevfx-nFlCs/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-android me-2 fa-lg"></i>Télécharger l'App
+                  </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <button onclick="scrollToTop()" class="retour" href="#haut-de-page" id="retour-haut" ><i class="fa-solid fa-arrow-turn-up"></i></button>
-
+      <!-- Overlay pattern -->
+      <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px; opacity: 0.05;"></div>
     </section>
-    <footer class="foote tex-faded text-center py-5">
+
+    <!-- Scroll to Top Button -->
+    <button type="button" class="btn btn-warning btn-floating btn-lg rounded-circle shadow" id="btn-back-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer footer-gradient text-white-50 border-top border-secondary pt-5 pb-4">
       <div class="container">
-        <!-- <p class="m-0 small">Copyright &copy; Your Website 2023</p> -->
-        <p><p class="m-0 small">Email <i class="fa-solid fa-envelope fa-beat fa-2xs"></i> : efrayim.abou@gmail.com</p>
-        <p class="m-0 small">Telephone <i class="fa-solid fa-phone fa-beat fa-2xs"></i> : +212 636272846</p>
-        <div class="container">
-          <p>&copy; 2023 EtudePrepas.com - Tous droits réservés. <strong id="jr">Efraruto.Jr</strong></p>
-        </div></p>
-      
+        <div class="row g-5 justify-content-between">
+            <!-- Brand & Contact -->
+            <div class="col-lg-4 text-center text-lg-start">
+                <a class="navbar-brand text-uppercase fw-bold text-white d-block mb-4 fs-3" href="index.html">
+                    <img src="./assets/img/logoep.jpeg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2 rounded-circle">Classes Préparatoires
+                </a>
+                <p class="mb-4">Votre plateforme de référence pour les ressources pédagogiques des classes préparatoires et écoles d'ingénieurs au Maroc.</p>
+                <div class="contact-info mb-4">
+                    <p class="mb-2"><i class="fa-solid fa-envelope me-3 text-primary"></i> efrayim.abou@gmail.com</p>
+                    <p class="mb-2"><i class="fa-solid fa-phone me-3 text-primary"></i> +212 636272846</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-lg-3 text-center text-lg-start">
+                <h5 class="text-white text-uppercase footer-heading">Navigation</h5>
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="footer-link">Accueil</a></li>
+                    <li><a href="gegm.html" class="footer-link">GE-GM</a></li>
+                    <li><a href="mipc.html" class="footer-link">MIPC</a></li>
+                    <li><a href="medecine.html" class="footer-link">Médecine</a></li>
+                </ul>
+            </div>
+
+            <!-- ENSA Links -->
+            <div class="col-lg-3 text-center text-lg-start">
+                <h5 class="text-white text-uppercase footer-heading">Réseau ENSA</h5>
+                <ul class="list-unstyled">
+                    <li><a href="ensabm.html" class="footer-link">ENSA Beni Mellal</a></li>
+                    <li><a href="ensakech.html" class="footer-link">ENSA Marrakech</a></li>
+                    <li><a href="ensak.html" class="footer-link">ENSA Kenitra</a></li>
+                    <li><a href="ensah.html" class="footer-link">ENSA Al Hoceima</a></li>
+                    <li><a href="ensaa.html" class="footer-link">ENSA Agadir</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="row border-top border-secondary pt-4 mt-5">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="m-0 small">&copy; 2023 EtudePrepas.com - Tous droits réservés.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <p class="m-0 small"> <strong class="text-warning">Efra.Jr</strong></p>
+            </div>
+        </div>
+      </div>
     </footer>
+
     <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+        offset: 100
+      });
+
+      // 3D Tilt Effect for Intro Image
+      const introImg = document.getElementById('intro-image');
+      if(introImg) {
+        introImg.addEventListener('mousemove', (e) => {
+          const { x, y, width, height } = introImg.getBoundingClientRect();
+          const centerPoint = { x: x + width / 2, y: y + height / 2 };
+          const degreeX = (e.clientY - centerPoint.y) * 0.02;
+          const degreeY = (e.clientX - centerPoint.x) * -0.02;
+          introImg.style.transform = `perspective(1000px) rotateX(${degreeX}deg) rotateY(${degreeY}deg)`;
+        });
+        introImg.addEventListener('mouseleave', () => {
+          introImg.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        });
+      }
+    </script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
   </body>

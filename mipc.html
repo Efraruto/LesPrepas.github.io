@@ -1,451 +1,289 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TXJQWKXWVC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TXJQWKXWVC');
-</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ClassePrepas</title>
-    <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="./images/Pi-symbol.svg.png" />
+    <title>ClassePrepas - MIPC</title>
     
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXJQWKXWVC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TXJQWKXWVC');
+    </script>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="./assets/img/logoep.jpeg" />
+    <!-- Custom Styles -->
     <style>
-      nav a{
-        margin-left: -10px;
+      body {
+        font-family: 'Lora', serif;
+        background-color: #212529;
+        background-image: linear-gradient(
+            rgb(0 0 0 / 65%),
+            rgb(129 129 129 / 65%)
+          ),
+          url(./assets/img/bg4.jpeg);
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        color: #f8f9fa;
+        padding-top: 76px;
+      }
+      .card {
+        background-color: rgba(255, 255, 255, 0.95);
+        border: none;
+        transition: transform 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      .section-title {
+        border-bottom: 3px solid #ffc107;
+        display: inline-block;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+      }
+      .scroll-link {
+        transition: all 0.3s;
+      }
+      .retour {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        z-index: 1000;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border: none;
+        background-color: #ffc107;
+        color: #000;
       }
     </style>
   </head>
   <body>
 
-    <header>
-      <h1 id="haut-de-page">Math-Info-Physique-Chimie</h1>
-      
-      <div id="cours">MIPC</div>
-    </header>
-    <nav id="nav">
-      <ul>
-        <li><a id="na" href="index.html">Accueil</a></li>
-        <li class="nav-item px-lg-4"><a id="ensaliste" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">ENSA</a>
-          <ul class="dropdown-menu">
-            <li id="dropdown"><a class="dropdown-item" href="ensabm.html">ENSA Beni Mellal</a></li>
-            <li id="dropdown"><hr class="dropdown-divider"></li>
-            <li id="dropdown"><a class="dropdown-item" href="ensakech.html">ENSA Marrakech</a></li>
-            <li id="dropdown" ><hr class="dropdown-divider"></li>
-            <li id="dropdown"><a class="dropdown-item" href="ensak.html">ENSA Kenitra</a></li>
-            <li id="dropdown"><hr class="dropdown-divider"></li>
-            <li id="dropdown"><a class="dropdown-item" href="ensah.html">ENSA Al Hoceima</a></li>
-            <li id="dropdown"><hr class="dropdown-divider"></li>
-                  <li id="dropdown"><a class="dropdown-item" href="ensaa.html">ENSA Agadir</a></li>
-          </ul></li>
-        <li><a id="na" href="gegm.html"> GE-GM</a></li>
-        <!-- <li><a href="coursmipc.html">Cours MIPC</a></li> -->
-      </ul>
-      
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+          <img src="./assets/img/logoep.jpeg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2 rounded-circle">
+          ClassePrepas
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">ENSA</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="ensabm.html">ENSA Beni Mellal</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="ensakech.html">ENSA Marrakech</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="ensak.html">ENSA Kenitra</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="ensah.html">ENSA Al Hoceima</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="ensaa.html">ENSA Agadir</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="gegm.html">GE-GM</a></li>
+            <li class="nav-item"><a class="nav-link active" href="mipc.html">MIPC</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
-    <main>
-      <h1 id="h1">MIPC:</h1>
-      <img class="image" src="./assets/img/mipc.jpg" alt="imgmipc">
-      <section> <section>
-        <br><p>
-        Voici les principaux modules que nous vous proposons dans cette section:
-      </p>
 
-      <ul class="sectiongegm">
-        <li>
-          <a class="scroll-link" href="#algebre" data-target="#algebre">ALGEBRE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#analyse" data-target="#analyse">ANALYSE</a>
-        </li>
-        
-        <li>
-          <a class="scroll-link" href="#th" data-target="#th"
-            >THERMODYNAMIQUE</a
-          >
-        </li>
-        <li>
-          <a class="scroll-link" href="#in" data-target="#in">INFORMATIQUE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#el" data-target="#el">ELECTRICITE</a>
-        </li>
+    <header class="container text-center text-white my-5">
+      <h1 class="display-4 fw-bold" id="haut-de-page" data-aos="fade-down">Math-Info-Physique-Chimie</h1>
+      <span class="badge bg-warning text-dark fs-5 mt-2" data-aos="zoom-in" data-aos-delay="200">MIPC</span>
+    </header>
 
-        <!-- <li><a class="scroll-link" href="#op" data-target="#op">OPTIQUE</a></li> -->
-        <li><a class="scroll-link" href="#ch" data-target="#ch">CHIMIE</a></li>
-        <!-- <li>
-          <a class="scroll-link" href="#eli" data-target="#eli"
-            >ELECTRONIQUE LINEAIRE</a
-          >
-        </li> -->
-        <li>
-          <a class="scroll-link" href="#me" data-target="#me">MECANIQUE</a>
-        </li>
-        <!-- <li>
-          <a class="scroll-link" href="#pbm" data-target="#pbm"
-            >PROPRIETES DE BASE DES MATERIAUX</a
-          >
-        </li> -->
-        <li>
-          <a class="scroll-link" href="#lc" data-target="#lc"
-            >LANGUE ET COMMUNICATION</a
-          >
-        </li>
-      </ul>
-      <section>
-        <h2>Détails des cours:</h2>
-      </div>
-      <p>
-        Dans cette section, vous trouverez les cours avec quelques résumés, TDs et TP. Il
-        vous suffit juste de cliquer sur le cours que vous recherchez pour le
-        télécharger <i class="fa-solid fa-download fa-bounce"></i>.
-      </p>
-      <div class="courses">
-        <h3 id="analyse">ANALYSE</h3>
-
-        <div>
-        <ul class="sectiongegm" >
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/XR52hIKb"
-              target="_blank"
-              >Analyse I</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/DNg2DQKb"
-              target="_blank"
-              >Analyse II</a
-            >
-          </li>
-          <br />
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/PJ4GyCDC"
-              target="_blank"
-              >Analyse III</a
-            >
-          </li>
-          <br />
-          <br />
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/bFgwyIbZ"
-              target="_blank"
-              >Analyse IV</a
-            >
-          </li>
-        </ul>
-        <br />
-        <h3 id="algebre">ALGEBRE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/iE5AkY6A"
-              target="_blank"
-              >Algèbre I</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/LUpQ2CyA"
-              target="_blank"
-              >Algèbre II</a
-            >
-          </li>
-          <!-- <li>
-            <a id="a"
-              href=""
-              target="_blank"
-              >Algèbre III</a
-            >
-          </li> -->
-        </ul>
-        <h3 id="in">INFORMATIQUE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/rJowlI6C"
-              target="_blank"
-              >Algorithmique et Programmation I</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/LZwmXSyY"
-              target="_blank"
-              >Algorithmique et Programmation II</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/nMpUUAQB"
-              target="_blank"
-              >Algorithmique et Programmation III</a
-            >
-          </li> 
-        </ul>
-        <h3 id="el">ELECTRICITE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/KFxmSYqC"
-              target="_blank"
-              >Circuit electrique et électronique</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/vUw2xSgB"
-              target="_blank"
-              >Electromagnétisme</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/bcoSFYqA"
-              target="_blank"
-              >Electricité</a
-            >
-          </li>
-          <!-- <li>
-            <a id="a"
-              href=""
-              target="_blank"
-              >Electronique</a
-            >
-          </li> -->
-        </ul>
-        <h3 id="ch">CHIMIE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/SA4SWSJR"
-              target="_blank"
-              >Réactivité chimique</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/uZwWBY5L"
-              target="_blank"
-              >Structure de la matiere</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/7Fo2jAqS"
-              target="_blank"
-              >Chimie minérale</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/XdoSEIba"
-              target="_blank"
-              >Chimie Organique</a
-            >
-          </li>
-        </ul>
-        <h3 id="me">MECANIQUE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/jQxSGQrY"
-              target="_blank"
-              >Mécanique du point matériel</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/SQxi1IzJ"
-              target="_blank"
-              >Mécanique des solides</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/aIxkkI7C"
-              target="_blank"
-              >Mécanique Quantique</a
-            >
-          </li>
-        </ul>
-        <!-- <h3 id="pbm">PROPRIETE DE BASE DES MATERIAUX</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href=""
-              target="_blank"
-              >Structure et Propriété de base des materiaux Cours</a
-            >
-          </li>
-        </ul> -->
-        <h3 id="ps">PROBABILITES ET STATISTIQUES</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/2Y50QYhL"
-              target="_blank"
-              >Probabilités et statistiques Cours</a
-            >
-          </li>
-        </ul>
-        <!-- <h3 id="op">OPTIQUE</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href=""
-              target="_blank"
-              >Optique géometrique</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href=""
-              target="_blank"
-              >Optique physique</a
-            >
-          </li>
-        </ul> -->
-        <h3 id="th">THERMODYNAMIQ</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/PJ5SSSiT"
-              target="_blank"
-              >Thermodynamique Cours</a
-            >
-          </li>
-        </ul>
-        <!-- <h3 id="eli">ELECTRONIQUE</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href=""
-              target="_blank"
-              >Electronique Linéaire Cours</a
-            >
-          </li>
-        </ul> -->
-        <h3 id="lc">LANGUE ET COMMUNICATION</h3>
-        <ul class="sectiongegm">
-          <!-- <li>
-            <a id="a"
-              href=""
-              target="_blank"
-              >LC I (Communication I)</a
-            >
-          </li> -->
-          <li>
-            
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/HFowkQQQ"
-              target="_blank"
-              >Langue et Communication II</a
-            >
-            
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/SQ5C2KzQ"
-              target="_blank"
-              >LC III </a
-            >
-          </li>
-        </ul>
+    <main class="container">
+      <!-- Intro -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10 text-center">
+          <img class="img-fluid rounded shadow mb-4" src="./assets/img/mipc.jpg" alt="MIPC" data-aos="fade-up" />
+          
+          <div class="card bg-dark text-white border-secondary p-4 shadow" data-aos="fade-up" data-aos-delay="100">
+            <p class="lead mb-0">
+              Dans cette section, vous trouverez les cours avec quelques résumés, TDs et TP. Il
+              vous suffit juste de cliquer sur le cours que vous recherchez pour le
+              télécharger <i class="fa-solid fa-download fa-bounce"></i>.
+            </p>
+          </div>
+        </div>
       </div>
 
+      <!-- Navigation Buttons -->
+      <div class="text-center mb-5" data-aos="fade-up">
+        <p class="text-white">Accès rapide aux modules :</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+          <a class="btn btn-outline-light scroll-link" href="#analyse" data-target="#analyse">ANALYSE</a>
+          <a class="btn btn-outline-light scroll-link" href="#algebre" data-target="#algebre">ALGEBRE</a>
+          <a class="btn btn-outline-light scroll-link" href="#th" data-target="#th">THERMODYNAMIQUE</a>
+          <a class="btn btn-outline-light scroll-link" href="#in" data-target="#in">INFORMATIQUE</a>
+          <a class="btn btn-outline-light scroll-link" href="#el" data-target="#el">ELECTRICITE</a>
+          <a class="btn btn-outline-light scroll-link" href="#ch" data-target="#ch">CHIMIE</a>
+          <a class="btn btn-outline-light scroll-link" href="#me" data-target="#me">MECANIQUE</a>
+          <a class="btn btn-outline-light scroll-link" href="#lc" data-target="#lc">LANGUE</a>
+        </div>
       </div>
-      <div>
-        <h4>BONUS!</h4>
-        <p>
-          Pour bonus, nous vous proposons les <strong> examens</strong> des quatres(4)
-          semestres de la FST (<strong>Beni Mellal</strong>).
-          Vous pouvez les télécharger à travers les liens ci-dessous:<i class="fa-sharp fa-solid fa-arrow-down"></i>
-        </p>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/zZ42xQYR"
-              target="_blank"
-              >Examen Semestre 1</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/uMoWiarD"
-              target="_blank"
-              >Examen Semestre 2</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/rMgUWAjD"
-              target="_blank"
-              >Examen Semestre 3</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/WRxwjaAQ"
-              target="_blank"
-              >Examen Semestre 4</a
-            >
-          </li>
-        </ul>
-      </div></section>
-      <br>
-      <button onclick="scrollToTop()" class="retour" href="#haut-de-page" id="retour-haut" ><i class="fa-solid fa-arrow-turn-up"></i></button>
+
+      <!-- Course Cards -->
+      <div class="row g-4 mb-5">
+        <!-- Analyse -->
+        <div class="col-md-6 col-lg-4" id="analyse" data-aos="fade-up">
+          <div class="card h-100">
+            <div class="card-header bg-primary text-white fw-bold">ANALYSE</div>
+            <div class="list-group list-group-flush">
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/XR52hIKb" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Analyse I</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/DNg2DQKb" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Analyse II</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/PJ4GyCDC" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Analyse III</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/bFgwyIbZ" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Analyse IV</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Algebre -->
+        <div class="col-md-6 col-lg-4" id="algebre" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100">
+            <div class="card-header bg-danger text-white fw-bold">ALGEBRE</div>
+            <div class="list-group list-group-flush">
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/iE5AkY6A" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Algèbre I</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/LUpQ2CyA" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Algèbre II</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Informatique -->
+        <div class="col-md-6 col-lg-4" id="in" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100">
+            <div class="card-header bg-success text-white fw-bold">INFORMATIQUE</div>
+            <div class="list-group list-group-flush">
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/rJowlI6C" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Algo & Prog I</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/LZwmXSyY" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Algo & Prog II</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/nMpUUAQB" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Algo & Prog III</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Electricite -->
+        <div class="col-md-6 col-lg-4" id="el" data-aos="fade-up">
+          <div class="card h-100">
+            <div class="card-header bg-info text-white fw-bold">ELECTRICITE</div>
+            <div class="list-group list-group-flush">
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/KFxmSYqC" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Circuit élec.</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/vUw2xSgB" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Electromagnétisme</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/bcoSFYqA" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Electricité</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chimie -->
+        <div class="col-md-6 col-lg-4" id="ch" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100">
+            <div class="card-header bg-warning text-dark fw-bold">CHIMIE</div>
+            <div class="list-group list-group-flush">
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/SA4SWSJR" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Réactivité chimique</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/uZwWBY5L" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Structure matière</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/7Fo2jAqS" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Chimie minérale</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/XdoSEIba" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Chimie Organique</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mecanique -->
+        <div class="col-md-6 col-lg-4" id="me" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100">
+            <div class="card-header bg-secondary text-white fw-bold">MECANIQUE</div>
+            <div class="list-group list-group-flush">
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/jQxSGQrY" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Méca. point matériel</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/SQxi1IzJ" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Méca. des solides</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/aIxkkI7C" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Méca. Quantique</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Autres Modules -->
+        <div class="col-md-6 col-lg-4" id="ps" data-aos="fade-up">
+          <div class="card h-100">
+            <div class="card-header bg-dark text-white fw-bold border-white">AUTRES MODULES</div>
+            <div class="list-group list-group-flush">
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/2Y50QYhL" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Probabilités & Stats</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/PJ5SSSiT" target="_blank" class="list-group-item list-group-item-action" id="th"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Thermodynamique</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Langue -->
+        <div class="col-md-6 col-lg-4" id="lc" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100">
+            <div class="card-header bg-primary text-white fw-bold">LANGUE & COM</div>
+            <div class="list-group list-group-flush">
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/HFowkQQQ" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Langue & Com II</a>
+              <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/SQ5C2KzQ" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>LC III</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bonus -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100 border-warning">
+            <div class="card-header bg-warning text-dark fw-bold">BONUS - EXAMENS FST</div>
+            <div class="card-body">
+              <p class="card-text small">Examens des 4 semestres de la FST (Beni Mellal).</p>
+              <div class="list-group list-group-flush">
+                <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/zZ42xQYR" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-file-pdf me-2 text-danger"></i>Semestre 1</a>
+                <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/uMoWiarD" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-file-pdf me-2 text-danger"></i>Semestre 2</a>
+                <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/rMgUWAjD" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-file-pdf me-2 text-danger"></i>Semestre 3</a>
+                <a href="https://mega.nz/folder/bIZTjTKa#0RcdIf78jMds6UQ5RbTKsg/folder/WRxwjaAQ" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-file-pdf me-2 text-danger"></i>Semestre 4</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button onclick="scrollToTop()" class="retour" id="btn-back-to-top" title="Retour en haut"><i class="fa-solid fa-arrow-turn-up"></i></button>
     </main>
 
-    <footer>
-      <p>
-        &copy; 2023 EtudePrepas.com - Tous droits réservés.
-        <strong id="jr">Efraruto.Jr</strong>
-      </p>
+    <footer class="text-center text-white py-4 mt-5">
+      <p>&copy; 2023 EtudePrepas.com - Tous droits réservés. <strong id="jr">Efraruto.Jr</strong></p>
     </footer>
-    <script>document.addEventListener("DOMContentLoaded", function () {
-      var scrollLinks = document.querySelectorAll(".scroll-link");
-    
-      scrollLinks.forEach(function (link) {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-    
-          var target = document.querySelector(link.getAttribute("data-target"));
-    
-          target.scrollIntoView({
-            behavior: "smooth",
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var scrollLinks = document.querySelectorAll(".scroll-link");
+        scrollLinks.forEach(function (link) {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            var target = document.querySelector(link.getAttribute("data-target"));
+            if(target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
           });
         });
       });
-    });</script>
+    </script>
     <script src="index.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true, offset: 50, duration: 600 });
+    </script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
   </body>

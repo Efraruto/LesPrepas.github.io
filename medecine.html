@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClassePrepas - Médecine</title>
+    
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-TXJQWKXWVC"
@@ -14,706 +18,423 @@
 
       gtag("config", "G-TXJQWKXWVC");
     </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ClassePrepas</title>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom Styles -->
     <style>
       body {
-        font-family: Lora, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-          Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-          Segoe UI Symbol, Noto Color Emoji;
-        background-color: #f0f0f0;
-        color: #212529;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0px;
-        text-align: center;
+        font-family: 'Lora', serif;
+        background-color: #212529;
         background-image: linear-gradient(
             rgb(0 0 0 / 65%),
             rgb(129 129 129 / 65%)
           ),
-          url(../assets/img/bg.jpg);
+          url(./assets/img/bg4.jpeg);
         background-attachment: fixed;
         background-position: center;
         background-size: cover;
+        color: #f8f9fa;
+        padding-top: 76px; /* Height of fixed navbar */
+      }
+      .card {
+        background-color: rgba(255, 255, 255, 0.95);
+        border: none;
+        transition: transform 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      .section-title {
+        border-bottom: 3px solid #ffc107;
+        display: inline-block;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+      }
+      .scroll-link {
+        transition: all 0.3s;
+      }
+      .retour {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        z-index: 1000;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border: none;
+        background-color: #ffc107;
+        color: #000;
       }
     </style>
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="./images/Pi-symbol.svg.png" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="shortcut icon" href="./assets/img/logoep.jpeg" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
   </head>
   <body>
-    <header>
-      <h1 id="haut-de-page">Facultés de médecine - Maroc</h1>
-
-      <div id="cours">MEDECINE</div>
-    </header>
-    <nav id="nav">
-      <ul>
-        <li><a id="na" href="index.html">Accueil</a></li>
-        <li class="nav-item px-lg-4">
-          <a
-            id="ensaliste"
-            class="nav-link dropdown-toggle"
-            data-bs-toggle="dropdown"
-            href="#"
-            role="button"
-            aria-expanded="false"
-            >ENSA</a
-          >
-          <ul class="dropdown-menu">
-            <li id="dropdown">
-              <a class="dropdown-item" href="ensabm.html">ENSA Beni Mellal</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+          <img src="./assets/img/logoep.jpeg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2 rounded-circle">
+          ClassePrepas
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">ENSA</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="ensabm.html">ENSA Beni Mellal</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="ensakech.html">ENSA Marrakech</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="ensak.html">ENSA Kenitra</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="ensah.html">ENSA Al Hoceima</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="ensaa.html">ENSA Agadir</a></li>
+              </ul>
             </li>
-            <li id="dropdown"><hr class="dropdown-divider" /></li>
-            <li id="dropdown">
-              <a class="dropdown-item" href="ensakech.html">ENSA Marrakech</a>
-            </li>
-            <li id="dropdown"><hr class="dropdown-divider" /></li>
-            <li id="dropdown">
-              <a class="dropdown-item" href="ensak.html">ENSA Kenitra</a>
-            </li>
-            <li id="dropdown"><hr class="dropdown-divider" /></li>
-            <li id="dropdown">
-              <a class="dropdown-item" href="ensah.html">ENSA Al Hoceima</a>
-            </li>
-            <li id="dropdown"><hr class="dropdown-divider" /></li>
-            <li id="dropdown">
-              <a class="dropdown-item" href="ensaa.html">ENSA Agadir</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="gegm.html">GE-GM</a></li>
+            <li class="nav-item"><a class="nav-link" href="mipc.html">MIPC</a></li>
           </ul>
-        </li>
-        <li><a id="na" href="gegm.html">GE-GM</a></li>
-        <li><a id="na" href="mipc.html"> MIPC</a></li>
-      </ul>
+        </div>
+      </div>
     </nav>
 
-    <main>
-      <h1 id="h1"><em>FAC DE MEDECINE</em></h1>
-      <br />
-      <img
-        id="image"
-        class="image"
-        src="./assets/img/medecine.jpg"
-        alt="ensak"
-      />
-      <!-- <a
-        class="bm"
-        id="site"
-        href="http://www.ensa-agadir.ac.ma/"
-        target="_blank"
-        >Site de l'ENSA Agadir
-      </a> -->
-      <br />
-      <br />
-      <div>
-        <p>
-          Sur cette page, vous trouverez les cours, TDs et Examens des
-          <a id="color" href="#s1">Semestre 1</a>,
-          <a id="color" href="#s2">Semestre 2</a>,
-          <a id="color" href="#s3">Semestre 3</a> et
-          <a id="color" href="#s4">Semestre 4</a> de Medecine. Il vous suffit
-          juste de cliquer sur le cours que vous recherchez pour le télécharger
-          <i class="fa-solid fa-download fa-bounce"></i>.
-        </p>
-      </div>
-      <h2 id="s1"><strong>SEMESTRE 1</strong></h2>
-      <div  class="courses"></div>
-      <h2>Cours, TDs et Exams S1:</h2>
-      <p> Voici les catégories de cours que nous vous proposons dans cette section:</p>
+    <header class="container text-center text-white my-5">
+      <h1 class="display-4 fw-bold" id="haut-de-page">Facultés de médecine - Maroc</h1>
+      <span class="badge bg-warning text-dark fs-5 mt-2">MEDECINE</span>
+    </header>
 
-      <ul class="sectiongegm">
-        <li>
-          <a class="scroll-link" href="#algebr1" data-target="#algebr1">ANATOMIE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#analy1" data-target="#analy1">BIOLOGIE-GENETIQUE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#e1" data-target="#e1">CHIMIE-BIOCHIMIE  </a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#i1" data-target="#i1">SANTE PUBLIQUE-BIOSTATISTIQUE</a>
-        </li>
-        <li><a class="scroll-link" href="#c1" data-target="#c1">METHODO-TERMINO</a></li>
-       
-          <a class="scroll-link" href="#l1" data-target="#l1"
-            >LANGUE-COM</a
-          >
-        </li>
-      </ul>
-      <section>
-        <h2>Détails des cours:</h2>
-      </div>
-      <p>
-        
-      </p>
-      <section class="section">
-      <div id="analy1"  class="courses"></div>
-        <h3 >BIOLOGIE-GENETIQUE</h3>
-
-        <div>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1WPdmy38O2z6pdsaIuNQmRHX2JojrCrTr?usp=sharing"
-              target="_blank"
-              >Biologie Cellulaire</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1fpE1QQe78LhpJbHKOV5mkGZUJsAK7vJc?usp=sharing"
-              target="_blank"
-              >Génétique</a
-            >
-          </li>
-         
-        </ul>
-        <div id="algebr1"></div>
-        <br />
-        <h3>ANATOMIE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1XrdWm3c_SWCOfY6B3yDcsxD8KvrGSyYP?usp=sharing"
-              target="_blank"
-              >Anatomie</a
-            >
-          </li>
-        
-        <div id="i1"></div>
-      </section>
-      <section class="section">
-        <h3 >SANTE PUBLIQUE-BIOSTATISTIQUE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1-7WCL8JtMQGuATjObzZM5WzXO-5huL30?usp=sharing"
-              target="_blank"
-              >Santé Publique</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1IaMeb7ep4XkNU6wy1DhLkUbX8tJKHgOY?usp=sharing"
-              target="_blank"
-              >Biostatique</a
-            >
-          </li>
+    <main class="container">
+      <!-- Intro -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10 text-center">
+          <h1 class="mb-4 fst-italic">FAC DE MEDECINE</h1>
+          <img class="img-fluid rounded shadow mb-4" src="./assets/img/medecine.jpg" alt="medecine" />
           
-        </ul>
-      </section>
-      <div id="e1"></div>
-      <section class="section">
-        <h3 >CHIMIE-BIOCHIMIE</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1tkJcXylvRtKLM_4yNeBSp6bW7N1L7yL2?usp=sharing"
-              target="_blank"
-              >Chimie et Biochimie</a
-            >
-          </li>
-          
-        </ul>
-        <h3 id="c1">METHODO-TERMINO</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1RFKFhjOscxRnxC8s5ntI2Xdea9v8B6YJ?usp=sharing"
-              target="_blank"
-              >Méthodologie d'apprentissage</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/12f_JgILGrWglOYpjcHIRYIiRcvXqn8hx?usp=sharing"
-              target="_blank"
-              >Therminologie</a
-            >
-          </li>
-        </ul>
-       
-        <div id="l1"></div>
-      </section>
-        
-      <section class="section">
-        <h3 >COMMUNICATION ET LANGUE</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/152MJPvm1tJ7OH5YQrSfJ_8LfbfMkQroF?usp=sharing"
-              target="_blank"
-              >Anglais Médical</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1DDBTLWx7CtStxxeF-V1GOZCraNEulH7o?usp=sharing"
-              target="_blank"
-              >Tice</a
-            >
-          </li>
-          
-          <button onclick="scrollToTop()" class="retour" href="#haut-de-page" id="retour-haut" ><i class="fa-solid fa-arrow-turn-up"></i></button>
-
-        </ul>
-        
+          <div class="card bg-dark text-white border-secondary p-4 shadow">
+            <p class="lead mb-0">
+              Sur cette page, vous trouverez les cours, TDs et Examens des
+              <a class="link-warning text-decoration-none" href="#s1">Semestre 1</a>,
+              <a class="link-warning text-decoration-none" href="#s2">Semestre 2</a>,
+              <a class="link-warning text-decoration-none" href="#s3">Semestre 3</a> et
+              <a class="link-warning text-decoration-none" href="#s4">Semestre 4</a> de Médecine. 
+              Il vous suffit de cliquer sur le cours pour le télécharger <i class="fa-solid fa-download fa-bounce"></i>.
+            </p>
+          </div>
+        </div>
       </div>
-    
-      </div>
-      
+
+      <!-- SEMESTRE 1 -->
+      <section id="s1" class="mb-5">
+        <div class="text-center mb-4">
+          <h2 class="section-title text-white">SEMESTRE 1</h2>
+          <p class="text-white">Catégories de cours :</p>
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a class="btn btn-outline-light scroll-link" href="#algebr1" data-target="#algebr1">ANATOMIE</a>
+            <a class="btn btn-outline-light scroll-link" href="#analy1" data-target="#analy1">BIOLOGIE-GENETIQUE</a>
+            <a class="btn btn-outline-light scroll-link" href="#e1" data-target="#e1">CHIMIE-BIOCHIMIE</a>
+            <a class="btn btn-outline-light scroll-link" href="#i1" data-target="#i1">SANTE PUBLIQUE</a>
+            <a class="btn btn-outline-light scroll-link" href="#c1" data-target="#c1">METHODO-TERMINO</a>
+            <a class="btn btn-outline-light scroll-link" href="#l1" data-target="#l1">LANGUE-COM</a>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Biologie-Genetique -->
+          <div class="col-md-6 col-lg-4" id="analy1">
+            <div class="card h-100">
+              <div class="card-header bg-primary text-white fw-bold">BIOLOGIE-GENETIQUE</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1WPdmy38O2z6pdsaIuNQmRHX2JojrCrTr?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Biologie Cellulaire</a>
+                <a href="https://drive.google.com/drive/folders/1fpE1QQe78LhpJbHKOV5mkGZUJsAK7vJc?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Génétique</a>
+              </div>
+            </div>
+          </div>
+          <!-- Anatomie -->
+          <div class="col-md-6 col-lg-4" id="algebr1">
+            <div class="card h-100">
+              <div class="card-header bg-danger text-white fw-bold">ANATOMIE</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1XrdWm3c_SWCOfY6B3yDcsxD8KvrGSyYP?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Anatomie</a>
+              </div>
+            </div>
+          </div>
+          <!-- Sante Publique -->
+          <div class="col-md-6 col-lg-4" id="i1">
+            <div class="card h-100">
+              <div class="card-header bg-success text-white fw-bold">SANTE PUBLIQUE</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1-7WCL8JtMQGuATjObzZM5WzXO-5huL30?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Santé Publique</a>
+                <a href="https://drive.google.com/drive/folders/1IaMeb7ep4XkNU6wy1DhLkUbX8tJKHgOY?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Biostatistique</a>
+              </div>
+            </div>
+          </div>
+          <!-- Chimie -->
+          <div class="col-md-6 col-lg-4" id="e1">
+            <div class="card h-100">
+              <div class="card-header bg-info text-white fw-bold">CHIMIE-BIOCHIMIE</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1tkJcXylvRtKLM_4yNeBSp6bW7N1L7yL2?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Chimie et Biochimie</a>
+              </div>
+            </div>
+          </div>
+          <!-- Methodo -->
+          <div class="col-md-6 col-lg-4" id="c1">
+            <div class="card h-100">
+              <div class="card-header bg-warning text-dark fw-bold">METHODO-TERMINO</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1RFKFhjOscxRnxC8s5ntI2Xdea9v8B6YJ?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Méthodologie</a>
+                <a href="https://drive.google.com/drive/folders/12f_JgILGrWglOYpjcHIRYIiRcvXqn8hx?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Terminologie</a>
+              </div>
+            </div>
+          </div>
+          <!-- Langue -->
+          <div class="col-md-6 col-lg-4" id="l1">
+            <div class="card h-100">
+              <div class="card-header bg-secondary text-white fw-bold">COMMUNICATION</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/152MJPvm1tJ7OH5YQrSfJ_8LfbfMkQroF?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Anglais Médical</a>
+                <a href="https://drive.google.com/drive/folders/1DDBTLWx7CtStxxeF-V1GOZCraNEulH7o?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Tice</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-    </section>
-  <hr><br>
-  <h2 id="s2"><strong>SEMESTRE 2</strong></h2>
-  <div  class="courses"></div>
-  <h2>Cours, TDs et Exams S2:</h2>
-  <p> Voici les catégories de cours que nous vous proposons dans cette section:</p>
 
-  <ul class="sectiongegm">
-    <li>
-      <a class="scroll-link" href="#algebr12" data-target="#algebr12">ANATOMIE 2</a>
-    </li>
-    <li>
-      <a class="scroll-link" href="#analy12" data-target="#analy12">BIOPHYSIQUE</a>
-    </li>
-    <li>
-      <a class="scroll-link" href="#e12" data-target="#e12">HISTO-EMBRYOLOGIE</a>
-    </li>
-    <li>
-      <a class="scroll-link" href="#i12" data-target="#i12">HISTOIRE DE LA MEDECINE-PSYCHOSOCIOLOGIE</a>
-    </li>
-    <li><a class="scroll-link" href="#c12" data-target="#c12">STAGE D'IMMERSION</a></li>
-   
-      <a class="scroll-link" href="#l12" data-target="#l12"
-        >TECHNIQUE DE COMMUNICATION</a
-      >
-    </li>
-  </ul>
-  <section>
-    <h2>Détails des cours:</h2>
-  </div>
-  <p>
-    
-  </p>
-  <section class="section">
-  <div id="analy12"  class="courses"></div>
-    <h3 >BIOPHYSIQUE</h3>
+      <hr class="text-white my-5">
 
-    <div>
-    <ul>
-      <li>
-        <a id="a"
-          href="https://drive.google.com/drive/folders/1FmE_geK6C8Lvvqw9lI73hfS92S6Kj7Mz?usp=sharing"
-          target="_blank"
-          >Biophysique</a
-        >
-      </li>
+      <!-- SEMESTRE 2 -->
+      <section id="s2" class="mb-5">
+        <div class="text-center mb-4">
+          <h2 class="section-title text-white">SEMESTRE 2</h2>
+          <p class="text-white">Catégories de cours :</p>
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a class="btn btn-outline-light scroll-link" href="#algebr12" data-target="#algebr12">ANATOMIE 2</a>
+            <a class="btn btn-outline-light scroll-link" href="#analy12" data-target="#analy12">BIOPHYSIQUE</a>
+            <a class="btn btn-outline-light scroll-link" href="#e12" data-target="#e12">HISTO-EMBRYOLOGIE</a>
+            <a class="btn btn-outline-light scroll-link" href="#i12" data-target="#i12">HISTOIRE/PSYCHO</a>
+            <a class="btn btn-outline-light scroll-link" href="#c12" data-target="#c12">STAGE</a>
+            <a class="btn btn-outline-light scroll-link" href="#l12" data-target="#l12">COMMUNICATION</a>
+          </div>
+        </div>
 
-    </ul>
-    <div id="algebr12"></div>
-    <br />
-    <h3>ANATOMIE 2</h3>
-    <ul class="sectiongegm">
-      <li>
-        <a id="a"
-          href="https://drive.google.com/drive/folders/1HW24H26_7Erdc7oCal8S5P2_9qPV0rTo?usp=sharing"
-          target="_blank"
-          >Anatomie 2</a
-        >
-      </li>
-    
-    <div id="i12"></div>
-  </section>
-  <section class="section">
-    <h3 >HISTOIRE DE LA MEDECINE-PSYCHOSOCIOLOGIE</h3>
-    <ul class="sectiongegm">
-      <li>
-        <a id="a"
-          href="https://drive.google.com/drive/folders/1Kl4Tb-sIOgtOUSELxUHA63Qdo-XA-DrH?usp=sharing"
-          target="_blank"
-          >Histoire de la médecine</a
-        >
-      </li>
-      <li>
-        <a id="a"
-          href="https://drive.google.com/drive/folders/1JGfXJJxVogZIgWS5krxBgSm8zwDxXt2Z?usp=sharing"
-          target="_blank"
-          >Psychosociologie</a
-        >
-      </li>
-      
-    </ul>
-  </section>
-  <div id="e12"></div>
-  <section class="section">
-    <h3 >HISTO-EMBRYOLOGIE</h3>
-    <ul>
-      <li>
-        <a id="a"
-          href="https://drive.google.com/drive/folders/13ma9Z5UAfCtb_FR8NngCUusyx1GzLYBT?usp=sharing"
-          target="_blank"
-          >Histologie et Embryologie</a
-        >
-      </li>
-
-    </ul>
-    <h3 id="c12">STAGE D'IMMERSION</h3>
-    <ul>
-      <li>
-        <a id="a"
-          href="https://drive.google.com/drive/folders/1wyKwPtFKgQbReu1f_usn_0QMfrtbJd3d?usp=sharing"
-          target="_blank"
-          >Stage d'immersion</a
-        >
-      </li>
-    </ul>
-   
-    <div id="l12"></div>
-  </section>
-    
-  <section class="section">
-    <h3 >TECHNIQUE DE COMMUNICATION</h3>
-    <ul>
-      <li>
-        <a id="a"
-          href="https://drive.google.com/drive/folders/1K4h7XCKKOP5VcdMHHDpEDn6x1wtg18ZZ?usp=sharing"
-          target="_blank"
-          >Communication Personnelle</a
-        >
-      </li>
-      <li>
-        <a id="a"
-          href="https://drive.google.com/drive/folders/1GKjqmxMf2We6rgCctTjHkafBd_ktYwg0?usp=sharing"
-          target="_blank"
-          >Communication Scientique</a
-        >
-      </li>
-      
-      <button onclick="scrollToTop()" class="retour" href="#haut-de-page" id="retour-haut" ><i class="fa-solid fa-arrow-turn-up"></i></button>
-
-    </ul>
-    
-  </div>
-
-  </div>
-  
-  </section>
-</section>
-<hr>
-<h2 id="s3"><strong>SEMESTRE 3</strong></h2>
-      <div  class="courses"></div>
-      <h2>Cours, TDs et Exams S3:</h2>
-      <p> Voici les catégories de cours que nous vous proposons dans cette section:</p>
-
-      <ul class="sectiongegm">
-        <li>
-          <a class="scroll-link" href="#algebr13" data-target="#algebr13">ANATOMIE 3</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#analy13" data-target="#analy13">HISTO-EMBRYOLOGIE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#e13" data-target="#e13">MICROBIOLOGIE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#i13" data-target="#i13">PHYSIOLOGIE</a>
-        </li>
-        <li><a class="scroll-link" href="#c13" data-target="#c13">SECOURISME-MEDEX</a></li>
-       
-          <a class="scroll-link" href="#l13" data-target="#l13"
-            >SEMIOLOGIE</a
-          >
-        </li>
-      </ul>
-      <section>
-        <h2>Détails des cours:</h2>
-      </div>
-      <p>
-        
-      </p>
-      <section class="section">
-      <div id="analy13"  class="courses"></div>
-        <h3 >HISTO-EMBRYOLOGIE</h3>
-
-        <div>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1GBuNSJx5e5vPqJn-qzS2--HoVb-Utpo6?usp=sharing"
-              target="_blank"
-              >Histologie et Embryologie</a
-            >
-          </li>
-
-        </ul>
-        <div id="algebr13"></div>
-        <br />
-        <h3>ANATOMIE 3</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1S05pB6gCweUqrYvrEqedXXLK1GKcYA6t?usp=sharing"
-              target="_blank"
-              >Anatomie 3</a
-            >
-          </li>
-        
-        <div id="i13"></div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" id="analy12">
+            <div class="card h-100">
+              <div class="card-header bg-primary text-white fw-bold">BIOPHYSIQUE</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1FmE_geK6C8Lvvqw9lI73hfS92S6Kj7Mz?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Biophysique</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="algebr12">
+            <div class="card h-100">
+              <div class="card-header bg-danger text-white fw-bold">ANATOMIE 2</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1HW24H26_7Erdc7oCal8S5P2_9qPV0rTo?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Anatomie 2</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="i12">
+            <div class="card h-100">
+              <div class="card-header bg-success text-white fw-bold">HISTOIRE/PSYCHO</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1Kl4Tb-sIOgtOUSELxUHA63Qdo-XA-DrH?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Histoire de la médecine</a>
+                <a href="https://drive.google.com/drive/folders/1JGfXJJxVogZIgWS5krxBgSm8zwDxXt2Z?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Psychosociologie</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="e12">
+            <div class="card h-100">
+              <div class="card-header bg-info text-white fw-bold">HISTO-EMBRYOLOGIE</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/13ma9Z5UAfCtb_FR8NngCUusyx1GzLYBT?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Histologie et Embryologie</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="c12">
+            <div class="card h-100">
+              <div class="card-header bg-warning text-dark fw-bold">STAGE D'IMMERSION</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1wyKwPtFKgQbReu1f_usn_0QMfrtbJd3d?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Stage d'immersion</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="l12">
+            <div class="card h-100">
+              <div class="card-header bg-secondary text-white fw-bold">COMMUNICATION</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1K4h7XCKKOP5VcdMHHDpEDn6x1wtg18ZZ?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Communication Personnelle</a>
+                <a href="https://drive.google.com/drive/folders/1GKjqmxMf2We6rgCctTjHkafBd_ktYwg0?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Communication Scientifique</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-      <section class="section">
-        <h3 >PHYSIOLOGIE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1bThhzUgGyO-1iozyirDeH8OAe_nEFG8f?usp=sharing"
-              target="_blank"
-              >Physiologie</a
-            >
-          </li>
-          
-        </ul>
-      </section>
-      <div id="e13"></div>
-      <section class="section">
-        <h3 >MICROBIOLOGIE</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1QUYFkvdGRPEdvjwLbw7EN53Mlo4OYtbB?usp=sharing"
-              target="_blank"
-              >Bactériologie</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1yfTjJJ-1f1J6-jTZEUc4D3OtTOSpLw23?usp=sharing"
-              target="_blank"
-              >Immunologie</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/14MpJsxChaWRrDhFRuzlBV7n_pBaYS-n_?usp=sharing"
-              target="_blank"
-              >Virologie</a
-            >
-          </li>
-          
-        </ul>
-        <h3 id="c13">SECOURISME-MEDEX</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1boEbRVHT8oFiEjUGe0mhM0GyGd20JTF-?usp=sharing"
-              target="_blank"
-              >Secourisme</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1KH2oNVQlKjK0nDwoB9H5KKp0tloxTE0j?usp=sharing"
-              target="_blank"
-              >Medex</a
-            >
-          </li>
-        </ul>
-       
-        <div id="l13"></div>
-      </section>
-        
-      <section class="section">
-        <h3 >SEMIOLOGIE</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1IyZxCwvbk-FSMXznVo-7i4nxtKZbm4-l?usp=sharing"
-              target="_blank"
-              >Cardiaque</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1BnPzT8lJrY6lkl5YKist9yKFaKCMXqyI?usp=sharing"
-              target="_blank"
-              >Digestive</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1y7uCspRqhk-u89FK2UBsNc9Pf2BxUJmM?usp=sharing"
-              target="_blank"
-              >Endocrine</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1ZxOBVasMW9u5hj9Y-h8c4ae4BB286yRD?usp=sharing"
-              target="_blank"
-              >Respiratoire</a
-            >
-          </li>
-          
-          <button onclick="scrollToTop()" class="retour" href="#haut-de-page" id="retour-haut" ><i class="fa-solid fa-arrow-turn-up"></i></button>
 
-        </ul>
-        
-      </div>
-    
-      </div>
-      
-      </section>
-    </section>
-  <hr>
-  <h2 id="s4"><strong>SEMESTRE 4</strong></h2>
-      <div  class="courses"></div>
-      <h2>Cours, TDs et Exams S4:</h2>
-      <p> Voici les catégories de cours que nous vous proposons dans cette section:</p>
+      <hr class="text-white my-5">
 
-      <ul class="sectiongegm">
-        <li>
-          <a class="scroll-link" href="#algebr14" data-target="#algebr14">ANATOMIE 4</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#analy14" data-target="#analy14">BIOCHIMIE CLINIQUE</a>
-        </li>
-        <li> <a class="scroll-link" href="#l14" data-target="#l14"
-          >STAGE D'IMMERSION</a
-        >
-      </li>
+      <!-- SEMESTRE 3 -->
+      <section id="s3" class="mb-5">
+        <div class="text-center mb-4">
+          <h2 class="section-title text-white">SEMESTRE 3</h2>
+          <p class="text-white">Catégories de cours :</p>
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a class="btn btn-outline-light scroll-link" href="#algebr13" data-target="#algebr13">ANATOMIE 3</a>
+            <a class="btn btn-outline-light scroll-link" href="#analy13" data-target="#analy13">HISTO-EMBRYOLOGIE</a>
+            <a class="btn btn-outline-light scroll-link" href="#e13" data-target="#e13">MICROBIOLOGIE</a>
+            <a class="btn btn-outline-light scroll-link" href="#i13" data-target="#i13">PHYSIOLOGIE</a>
+            <a class="btn btn-outline-light scroll-link" href="#c13" data-target="#c13">SECOURISME-MEDEX</a>
+            <a class="btn btn-outline-light scroll-link" href="#l13" data-target="#l13">SEMIOLOGIE</a>
+          </div>
+        </div>
 
-        <li>
-          <a class="scroll-link" href="#i14" data-target="#i14">PHYSIOLOGIE 2</a>
-        </li>
-        <li><a class="scroll-link" href="#c14" data-target="#c14">SEMIOLOGIE 2</a></li>
-        <li>
-          <a class="scroll-link" href="#e14" data-target="#e14">HEMATO FONDAMENTALE</a>
-        </li>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" id="analy13">
+            <div class="card h-100">
+              <div class="card-header bg-primary text-white fw-bold">HISTO-EMBRYOLOGIE</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1GBuNSJx5e5vPqJn-qzS2--HoVb-Utpo6?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Histologie et Embryologie</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="algebr13">
+            <div class="card h-100">
+              <div class="card-header bg-danger text-white fw-bold">ANATOMIE 3</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1S05pB6gCweUqrYvrEqedXXLK1GKcYA6t?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Anatomie 3</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="i13">
+            <div class="card h-100">
+              <div class="card-header bg-success text-white fw-bold">PHYSIOLOGIE</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1bThhzUgGyO-1iozyirDeH8OAe_nEFG8f?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Physiologie</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="e13">
+            <div class="card h-100">
+              <div class="card-header bg-info text-white fw-bold">MICROBIOLOGIE</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1QUYFkvdGRPEdvjwLbw7EN53Mlo4OYtbB?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Bactériologie</a>
+                <a href="https://drive.google.com/drive/folders/1yfTjJJ-1f1J6-jTZEUc4D3OtTOSpLw23?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Immunologie</a>
+                <a href="https://drive.google.com/drive/folders/14MpJsxChaWRrDhFRuzlBV7n_pBaYS-n_?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Virologie</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="c13">
+            <div class="card h-100">
+              <div class="card-header bg-warning text-dark fw-bold">SECOURISME-MEDEX</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1boEbRVHT8oFiEjUGe0mhM0GyGd20JTF-?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Secourisme</a>
+                <a href="https://drive.google.com/drive/folders/1KH2oNVQlKjK0nDwoB9H5KKp0tloxTE0j?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Medex</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="l13">
+            <div class="card h-100">
+              <div class="card-header bg-secondary text-white fw-bold">SEMIOLOGIE</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1IyZxCwvbk-FSMXznVo-7i4nxtKZbm4-l?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Cardiaque</a>
+                <a href="https://drive.google.com/drive/folders/1BnPzT8lJrY6lkl5YKist9yKFaKCMXqyI?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Digestive</a>
+                <a href="https://drive.google.com/drive/folders/1y7uCspRqhk-u89FK2UBsNc9Pf2BxUJmM?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Endocrine</a>
+                <a href="https://drive.google.com/drive/folders/1ZxOBVasMW9u5hj9Y-h8c4ae4BB286yRD?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Respiratoire</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      </ul>
-      <section>
-        <h2>Détails des cours:</h2>
-      </div>
-      <p>
-        
-      </p>
-      <section class="section">
-      <div id="analy14"  class="courses"></div>
-        <h3 >BIOCHIMIE CLINIQUE</h3>
+      <hr class="text-white my-5">
 
-        <div>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1suvSdA4nH6OMoq2ZvTEvvq6rG60aKfzg?usp=sharing"
-              target="_blank"
-              >Biochimie I et II</a
-            >
-          </li>
-         
-        </ul>
-        <div id="algebr14"></div>
-        <br />
-        <h3>ANATOMIE 4</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1cRy4gyFLTV2JPWAoUFseamff1-HU8KmX?usp=sharing"
-              target="_blank"
-              >Anatomie 4</a
-            >
-          </li>
-        
-        <div id="i14"></div>
-      </section>
-      <section class="section">
-        <h3 >PHYSIOLOGIE 2</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1J7hOotGUpgysJlPQd8RnzxYccwWaFTGp?usp=sharing"
-              target="_blank"
-              >Physiologie 2</a
-            >
-          </li>
-          
-        </ul>
-      </section>
-      <div id="e14"></div>
-      <section class="section">
-        <h3 >HEMATOLOGIE FONDAMENTALE</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1i-wjn8tsChgjlov6tHm2LcZ5r8bbTAWf?usp=sharing"
-              target="_blank"
-              >Hématologie fondamentale</a
-            >
-          </li>
-          
-        </ul>
-        <h3 id="c14">SEMIOLOGIE 2</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1Tz_rxIzEe8Y_C9CXmU5Urn8TAUcnBUXa?usp=sharing"
-              target="_blank"
-              >Sémiologie 2</a
-            >
-          </li>
-        </ul>
-       
-        <div id="l14"></div>
-      </section>
-        
-      <section class="section">
-        <h3 >STAGE D'IMMERSION</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1XYBHIwl-jAwjqNIRX43AW3bBzOegXaT_?usp=sharing"
-              target="_blank"
-              >Stage d'immersion</a
-            >
-          </li>
-          
-          <button onclick="scrollToTop()" class="retour" href="#haut-de-page" id="retour-haut" ><i class="fa-solid fa-arrow-turn-up"></i></button>
+      <!-- SEMESTRE 4 -->
+      <section id="s4" class="mb-5">
+        <div class="text-center mb-4">
+          <h2 class="section-title text-white">SEMESTRE 4</h2>
+          <p class="text-white">Catégories de cours :</p>
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a class="btn btn-outline-light scroll-link" href="#algebr14" data-target="#algebr14">ANATOMIE 4</a>
+            <a class="btn btn-outline-light scroll-link" href="#analy14" data-target="#analy14">BIOCHIMIE CLINIQUE</a>
+            <a class="btn btn-outline-light scroll-link" href="#l14" data-target="#l14">STAGE D'IMMERSION</a>
+            <a class="btn btn-outline-light scroll-link" href="#i14" data-target="#i14">PHYSIOLOGIE 2</a>
+            <a class="btn btn-outline-light scroll-link" href="#c14" data-target="#c14">SEMIOLOGIE 2</a>
+            <a class="btn btn-outline-light scroll-link" href="#e14" data-target="#e14">HEMATO FONDAMENTALE</a>
+          </div>
+        </div>
 
-        </ul>
-        
-      </div>
-    
-      </div>
-      
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" id="analy14">
+            <div class="card h-100">
+              <div class="card-header bg-primary text-white fw-bold">BIOCHIMIE CLINIQUE</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1suvSdA4nH6OMoq2ZvTEvvq6rG60aKfzg?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Biochimie I et II</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="algebr14">
+            <div class="card h-100">
+              <div class="card-header bg-danger text-white fw-bold">ANATOMIE 4</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1cRy4gyFLTV2JPWAoUFseamff1-HU8KmX?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Anatomie 4</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="i14">
+            <div class="card h-100">
+              <div class="card-header bg-success text-white fw-bold">PHYSIOLOGIE 2</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1J7hOotGUpgysJlPQd8RnzxYccwWaFTGp?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Physiologie 2</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="e14">
+            <div class="card h-100">
+              <div class="card-header bg-info text-white fw-bold">HEMATO FONDAMENTALE</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1i-wjn8tsChgjlov6tHm2LcZ5r8bbTAWf?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Hématologie fondamentale</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="c14">
+            <div class="card h-100">
+              <div class="card-header bg-warning text-dark fw-bold">SEMIOLOGIE 2</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1Tz_rxIzEe8Y_C9CXmU5Urn8TAUcnBUXa?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Sémiologie 2</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4" id="l14">
+            <div class="card h-100">
+              <div class="card-header bg-secondary text-white fw-bold">STAGE D'IMMERSION</div>
+              <div class="list-group list-group-flush">
+                <a href="https://drive.google.com/drive/folders/1XYBHIwl-jAwjqNIRX43AW3bBzOegXaT_?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-brands fa-google-drive me-2 text-success"></i>Stage d'immersion</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-    </section>
-  <hr> 
+
+      <button onclick="scrollToTop()" class="retour" id="btn-back-to-top" title="Retour en haut"><i class="fa-solid fa-arrow-turn-up"></i></button>
     </main>
 
-    <footer>
+    <footer class="text-center text-white py-4 mt-5">
       <p>
         &copy; 2023 EtudePrepas.com - Tous droits réservés.
         <strong id="jr">Efraruto.Jr</strong>
       </p>
     </footer>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var scrollLinks = document.querySelectorAll(".scroll-link");
@@ -734,7 +455,7 @@
       });
     </script>
     <script src="index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="js/scripts.js"></script>
   </body>

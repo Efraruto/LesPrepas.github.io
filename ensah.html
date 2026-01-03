@@ -1,577 +1,335 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TXJQWKXWVC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TXJQWKXWVC');
-</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ClassePrepas</title>
-    <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-    crossorigin="anonymous"
-  />
-    <link rel="shortcut icon" href="./images/Pi-symbol.svg.png" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>ClassePrepas - ENSA Al Hoceima</title>
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXJQWKXWVC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TXJQWKXWVC');
+    </script>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="./assets/img/logoep.jpeg" />
+    <!-- Custom Styles -->
+    <style>
+      body {
+        font-family: 'Lora', serif;
+        background-color: #212529;
+        background-image: linear-gradient(
+            rgb(0 0 0 / 65%),
+            rgb(129 129 129 / 65%)
+          ),
+          url(./assets/img/bg4.jpeg);
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        color: #f8f9fa;
+        padding-top: 76px;
+      }
+      .card {
+        background-color: rgba(255, 255, 255, 0.95);
+        border: none;
+        transition: transform 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      /* Custom Tabs Style */
+      .nav-pills .nav-link {
+        color: #0dcaf0; /* Info color */
+        background-color: rgba(33, 37, 41, 0.8);
+        margin: 0 5px;
+        border: 1px solid #0dcaf0;
+        transition: all 0.3s;
+      }
+      .nav-pills .nav-link:hover {
+        background-color: rgba(13, 202, 240, 0.2);
+      }
+      .nav-pills .nav-link.active {
+        background-color: #0dcaf0;
+        color: #000;
+        font-weight: bold;
+      }
+      .retour {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        z-index: 1000;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border: none;
+        background-color: #ffc107;
+        color: #000;
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <h1 id="haut-de-page">Ecole Nationale des Sciences Appliquées - Al Hoceima</h1>
-      
-      <div id="cours">ENSAH</div>
-    </header>
-    <nav id="nav">
-      <ul>
-        <li><a id="na" href="index.html">Accueil</a></li>
-        <li class="nav-item px-lg-4"><a id="ensaliste" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">ENSA</a>
-          <ul class="dropdown-menu">
-            <li id="dropdown"><a class="dropdown-item" href="ensabm.html">ENSA Beni Mellal</a></li>
-            <li id="dropdown"><hr class="dropdown-divider"></li>
-            <li id="dropdown"><a class="dropdown-item" href="ensakech.html">ENSA Marrakech</a></li>
-            <li id="dropdown" ><hr class="dropdown-divider"></li>
-            <li id="dropdown"><a class="dropdown-item" href="ensak.html">ENSA Kenitra</a></li>
-            <li id="dropdown"><hr class="dropdown-divider"></li>
-            <li id="dropdown"><a class="dropdown-item" href="ensah.html">ENSA Al Hoceima</a></li>
-            <li id="dropdown"><hr class="dropdown-divider"></li>
-                  <li id="dropdown"><a class="dropdown-item" href="ensaa.html">ENSA Agadir</a></li>
-          </ul></li> 
-        <li><a id="na" href="gegm.html">GE-GM</a></li>
-        <li><a id="na" href="mipc.html"> MIPC</a></li>
-      </ul>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+          <img src="./assets/img/logoep.jpeg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2 rounded-circle">
+          ClassePrepas
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">ENSA</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="ensabm.html">ENSA Beni Mellal</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="ensakech.html">ENSA Marrakech</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="ensak.html">ENSA Kenitra</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="ensah.html">ENSA Al Hoceima</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="ensaa.html">ENSA Agadir</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="gegm.html">GE-GM</a></li>
+            <li class="nav-item"><a class="nav-link" href="mipc.html">MIPC</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
-    
-    <main>
-      
-      <h1 id="h1"><em>ENSA AL HOCEIMA:</em></h1>
-      <br>
-      <img class="image" src="./assets/img/ensah.png" alt="imgensakech">
-      <a id="site" href="https://ensah.ma/" target="_blank" rel="noopener noreferrer">Site de l'ENSA Al Hoceima</a>
-      <br>
-      <br>
-      <div>
-      <p>
-        Sur cette page, vous trouverez les cours, TDs et Examens des <a id="color" href="#s1">Semestre 1</a>, <a id="color" href="#s2">Semestre 2</a>, <a id="color" href="#s3">Semestre 3</a> et <a id="color" href="#s4">Semestre 4</a>  de l'ENSAH. Il
-        vous suffit juste de cliquer sur le cours que vous recherchez pour le
-        télécharger <i class="fa-solid fa-download fa-bounce"></i>.
-       
-      </p></div>
-      <h2 id="s1"><strong>SEMESTRE 1</strong></h2>
-      <div  class="courses"></div>
-      <h2>Cours, TDs et Exams S1:</h2>
-      <p> Voici les catégories de cours que nous vous proposons dans cette section:</p>
 
-      <ul class="sectiongegm">
-        <li>
-          <a class="scroll-link" href="#algebr1" data-target="#algebr1">ALGEBRE</a>
+    <header class="container text-center text-white my-5">
+      <h1 class="display-4 fw-bold" id="haut-de-page" data-aos="fade-down">ENSA Al Hoceima</h1>
+      <span class="badge bg-info text-dark fs-5 mt-2" data-aos="zoom-in" data-aos-delay="200">Al Hoceima</span>
+    </header>
+
+    <main class="container">
+      <!-- Intro -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10 text-center">
+          <img class="img-fluid rounded shadow mb-4" src="./assets/img/ensah.png" alt="ENSA Al Hoceima" data-aos="fade-up" />
+          
+          <div class="card bg-dark text-white border-secondary p-4 shadow" data-aos="fade-up" data-aos-delay="100">
+            <p class="lead mb-0">
+              Bienvenue sur la page de l'ENSA Al Hoceima. Retrouvez ici l'ensemble des ressources pédagogiques (Cours, TDs, Examens) classées par semestre.
+            </p>
+            <div class="mt-3">
+              <a href="https://ensah.ma/" target="_blank" class="btn btn-outline-info btn-sm">Site officiel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Semester Tabs -->
+      <ul class="nav nav-pills justify-content-center mb-5" id="semesterTabs" role="tablist" data-aos="fade-up">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="s1-tab" data-bs-toggle="pill" data-bs-target="#s1" type="button" role="tab">Semestre 1</button>
         </li>
-        <li>
-          <a class="scroll-link" href="#analy1" data-target="#analy1">ANALYSE</a>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="s2-tab" data-bs-toggle="pill" data-bs-target="#s2" type="button" role="tab">Semestre 2</button>
         </li>
-        <li>
-          <a class="scroll-link" href="#e1" data-target="#e1">MECANIQUE</a>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="s3-tab" data-bs-toggle="pill" data-bs-target="#s3" type="button" role="tab">Semestre 3</button>
         </li>
-        <li>
-          <a class="scroll-link" href="#i1" data-target="#i1">INFORMATIQUE</a>
-        </li>
-        <li><a class="scroll-link" href="#c1" data-target="#c1">PHYSIQUE</a></li>
-       
-          <a class="scroll-link" href="#l1" data-target="#l1"
-            >LANGUE-COM</a
-          >
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="s4-tab" data-bs-toggle="pill" data-bs-target="#s4" type="button" role="tab">Semestre 4</button>
         </li>
       </ul>
-      <section>
-        <h2>Détails des cours:</h2>
-      </div>
-      <p>
-        
-      </p>
-      <section class="section">
-      <div id="analy1"  class="courses"></div>
-        <h3 >ANALYSE</h3>
 
-        <div>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1Vjy9AvkIxERimqKCM4x9BVClcN5-ZL35?usp=sharing"
-              target="_blank"
-              >Analyse I</a
-            >
-          </li>
-         
-        </ul>
-        <div id="algebr1"></div>
-        <br />
-        <h3>ALGEBRE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1gzBWPUFnTKW5qWcpQy1zsK56bTZgbz8R?usp=sharing"
-              target="_blank"
-              >Algèbre I</a
-            >
-          </li>
-        
-        <div id="i1"></div>
-      </section>
-      <section class="section">
-        <h3 >INFORMATIQUE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1xIGTqd-8PmRs0D9m4qjvYOboCdBg268U?usp=sharing"
-              target="_blank"
-              >Informatique I</a
-            >
-          </li>
-          
-        </ul>
-      </section>
-      <div id="e1"></div>
-      <section class="section">
-        <h3 >MECANIQUE 1</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1LQSr6knP-bLX5WQ9Blbqr03Eq958jbmN?usp=sharing"
-              target="_blank"
-              >Mecanique 1</a
-            >
-          </li>
-          
-        </ul>
-        <h3 id="c1">PHYSIQUE1</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1niKjjPBjsZy6rnxBhgggFOGtURma7Lkp?usp=sharing"
-              target="_blank"
-              >Physique 1</a
-            >
-          </li>
-        </ul>
-       
-        <div id="l1"></div>
-      </section>
-        
-      <section class="section">
-        <h3 >LANGUE ET COMMUNICATION</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1Sgf6TmSWo8WAe2eYoShGW_le-Px-bds-?usp=sharing"
-              target="_blank"
-              >TEC</a
-            >
-          </li>
-          
-          <button onclick="scrollToTop()" class="retour" href="#haut-de-page" id="retour-haut" ><i class="fa-solid fa-arrow-turn-up"></i></button>
+      <!-- Tab Content -->
+      <div class="tab-content" id="semesterTabsContent">
+        <!-- S1 -->
+        <div class="tab-pane fade show active" id="s1" role="tabpanel">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-primary text-white fw-bold">MATHS</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/1Vjy9AvkIxERimqKCM4x9BVClcN5-ZL35?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Analyse I</a>
+                            <a href="https://drive.google.com/drive/folders/1gzBWPUFnTKW5qWcpQy1zsK56bTZgbz8R?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Algèbre I</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-success text-white fw-bold">INFORMATIQUE</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/1xIGTqd-8PmRs0D9m4qjvYOboCdBg268U?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Informatique I</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-warning text-dark fw-bold">PHYSIQUE</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/1LQSr6knP-bLX5WQ9Blbqr03Eq958jbmN?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-gear me-2 text-danger"></i>Mécanique 1</a>
+                            <a href="https://drive.google.com/drive/folders/1niKjjPBjsZy6rnxBhgggFOGtURma7Lkp?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-atom me-2 text-danger"></i>Physique 1</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-dark text-white fw-bold border-white">LANGUE</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/1Sgf6TmSWo8WAe2eYoShGW_le-Px-bds-?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-comments me-2 text-warning"></i>TEC</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        </ul>
-        
-      </div>
-    
-      </div>
-      
-      </section>
-    </section>
-  <hr>
-    <br>
-      <h2 id="s2"><strong>SEMESTRE 2</strong></h2>
-      <div  class="courses"></div>
-      <h2>Cours, TDs et Exams S2:</h2>
-      <p> Voici les catégories de cours que nous vous proposons dans cette section:</p>
+        <!-- S2 -->
+        <div class="tab-pane fade" id="s2" role="tabpanel">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-primary text-white fw-bold">MATHS</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/153twjiWWdDbyAb1786Co1Ss2iXvvyazp?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Analyse II</a>
+                            <a href="https://drive.google.com/drive/folders/1DSSlA0JP0hcdJDeIGBVJHgC8E0s71hwz?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Algèbre II</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-success text-white fw-bold">INFORMATIQUE</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/10KpW7REn9qWTyBjgyWNn8RR6O_VBTd9q?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Informatique II</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-info text-white fw-bold">PHYSIQUE & CHIMIE</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/1eTcD7qjJW05maUS3TK0SucJjQj-F2dvS?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-flask me-2 text-warning"></i>Chimie</a>
+                            <a href="https://drive.google.com/drive/folders/1niKjjPBjsZy6rnxBhgggFOGtURma7Lkp?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-bolt me-2 text-warning"></i>Electrocinétique</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-dark text-white fw-bold border-white">LANGUE</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/1Zv764EwC3Jx9Z-ZDUGAKc_xXiKL7LStp?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-comments me-2 text-warning"></i>TEC</a>
+                            <a href="https://drive.google.com/drive/folders/1j4Fm05zldCYxT485jpsy4mMZvDZ2w3rA?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-language me-2 text-warning"></i>Anglais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-      <ul class="sectiongegm">
-        <li>
-          <a class="scroll-link" href="#algebr" data-target="#algebr">ALGEBRE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#analy" data-target="#analy">ANALYSE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#e" data-target="#e">CHIMIE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#i" data-target="#i">INFORMATIQUE</a>
-        </li>
-        <li><a class="scroll-link" href="#c" data-target="#c">ELECTRICITE</a></li>
-       
-          <a class="scroll-link" href="#l" data-target="#l"
-            >LANGUE-COM</a
-          >
-        </li>
-      </ul>
-      <section>
-        <h2>Détails des cours:</h2>
-      </div>
-      <p>
-        
-      </p>
-      <section class="section">
-      <div id="analy"  class="courses"></div>
-        <h3 >ANALYSE</h3>
+        <!-- S3 -->
+        <div class="tab-pane fade" id="s3" role="tabpanel">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-primary text-white fw-bold">MATHS</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/1IoqBvpPnCPJrya49wOedPuFY_Di9QHAY?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Analyse 3</a>
+                            <a href="https://drive.google.com/drive/folders/1D7D_hHq40HRfe1YbKWHVV9RLLb-4TXlW?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Algèbre 3</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-success text-white fw-bold">INFORMATIQUE</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/1XMKlcz08UIo6dL2p1lUV3k0gaovBy_y0?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Informatique 2</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-info text-white fw-bold">PHYSIQUE</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/1M1alry0BV9Mfic4jPeG4kZsQa4w-UcNV?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-gear me-2 text-warning"></i>Mécanique du solide</a>
+                            <a href="https://drive.google.com/drive/folders/1ciUevoGX4p0SNHCvcokfHzuNA3SrhMpj?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-atom me-2 text-warning"></i>Physique 3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <div>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/153twjiWWdDbyAb1786Co1Ss2iXvvyazp?usp=sharing"
-              target="_blank"
-              >Analyse II</a
-            >
-          </li>
-         
-        </ul>
-        <div id="algebr"></div>
-        <br />
-        <h3>ALGEBRE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1DSSlA0JP0hcdJDeIGBVJHgC8E0s71hwz?usp=sharing"
-              target="_blank"
-              >Algèbre II</a
-            >
-          </li>
-        
-        <div id="i"></div>
-      </section>
-      <section class="section">
-        <h3 >INFORMATIQUE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/10KpW7REn9qWTyBjgyWNn8RR6O_VBTd9q?usp=sharing"
-              target="_blank"
-              >Informatique II</a
-            >
-          </li>
-          
-        </ul>
-      </section>
-      <div id="e"></div>
-      <section class="section">
-        <h3 >CHIMIE</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1eTcD7qjJW05maUS3TK0SucJjQj-F2dvS?usp=sharing"
-              target="_blank"
-              >Chimie</a
-            >
-          </li>
-          
-        </ul>
-        <h3 id="c">ELECTROCINETIQUE</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1niKjjPBjsZy6rnxBhgggFOGtURma7Lkp?usp=sharing"
-              target="_blank"
-              >Electrocinétique</a
-            >
-          </li>
-        </ul>
-       
-        <div id="l"></div>
-      </section>
-        
-      <section class="section">
-        <h3 >LANGUE ET COMMUNICATION</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1Zv764EwC3Jx9Z-ZDUGAKc_xXiKL7LStp?usp=sharing"
-              target="_blank"
-              >TEC</a
-            >
-          </li>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1j4Fm05zldCYxT485jpsy4mMZvDZ2w3rA?usp=sharing"
-              target="_blank"
-              >ANGLAIS</a
-            >
-          </li>
-          <button onclick="scrollToTop()" class="retour" href="#haut-de-page" id="retour-haut" ><i class="fa-solid fa-arrow-turn-up"></i></button>
-
-        </ul>
-        
+        <!-- S4 -->
+        <div class="tab-pane fade" id="s4" role="tabpanel">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-primary text-white fw-bold">MATHS</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/1robxVu19_SBblcMhXVfqEXgzR0OgcmVu?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Analyse 4</a>
+                            <a href="https://drive.google.com/drive/folders/1cVVg0M4vozzZo_LsM9M1Ez7MQqAZyrWy?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Maths Appliquées</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-secondary text-white fw-bold">SCIENCES ING.</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/17izBOO_5tYUJ_jbszsBui1ekIwtlToRX?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-bolt me-2 text-warning"></i>Electronique</a>
+                            <a href="https://drive.google.com/drive/folders/1UJX3AzArpSX8KppWAkq9vJJ5EQB7Zx8T?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-atom me-2 text-warning"></i>Physique 4</a>
+                            <a href="https://drive.google.com/drive/folders/1VKN1VE07SPS9HlfmUC0kKSfJHfDNHViY?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-flask me-2 text-warning"></i>Chimie 2</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-success text-white fw-bold">INFORMATIQUE</div>
+                        <div class="list-group list-group-flush">
+                            <a href="https://drive.google.com/drive/folders/1n-YUmvhduXorNg7R8SH0TShGa6wPDTjt?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Informatique 3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
-    
-      </div>
-      
-      </section>
-    </section>
-  <hr>
-    <br>
-      <h2 id="s3"><strong>SEMESTRE 3</strong></h2>
-      <div  class="courses"></div>
-      <h2>Cours, TDs et Exams S3:</h2>
-      <p> Voici les catégories de cours que nous vous proposons dans cette section:</p>
 
-      <ul class="sectiongegm">
-        <li>
-          <a class="scroll-link" href="#algebr0" data-target="#algebr0">ALGEBRE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#analy0" data-target="#analy0">ANALYSE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#e0" data-target="#e0">MECANIQUE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#i0" data-target="#i0">INFORMATIQUE</a>
-        </li>
-        <li>
-            <a class="scroll-link" href="#c0" data-target="#c0">PHYSIQUE 3</a>
-          </li>
-      </ul>
-      <section>
-        <h2>Détails des cours:</h2>
-      </div>
-      <p>
-        
-      </p>
-      <section class="section">
-      <div id="analy0"  class="courses"></div>
-        <h3 >ANALYSE</h3>
-
-        <div>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1IoqBvpPnCPJrya49wOedPuFY_Di9QHAY?usp=sharing"
-              target="_blank"
-              >Analyse 3</a
-            >
-          </li>
-         
-        </ul>
-        <div id="algebr0"></div>
-        <br />
-        <h3>ALGEBRE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1D7D_hHq40HRfe1YbKWHVV9RLLb-4TXlW?usp=sharing"
-              target="_blank"
-              >Algèbre 3</a
-            >
-          </li>
-        
-        <div id="i0"></div>
-      </section>
-      <section class="section">
-        <h3 >INFORMATIQUE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1XMKlcz08UIo6dL2p1lUV3k0gaovBy_y0?usp=sharing"
-              target="_blank"
-              >Informatique 2</a
-            >
-          </li>
-          
-        </ul>
-      </section>
-      <div id="e0"></div>
-      <section class="section">
-        <h3 >MECANIQUE DU SOLIDE</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1M1alry0BV9Mfic4jPeG4kZsQa4w-UcNV?usp=sharing"
-              target="_blank"
-              >Mecanique du solide</a
-            >
-          </li>
-          
-        </ul>
-        <h3 id="c0">PHYSIQUE 3</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1ciUevoGX4p0SNHCvcokfHzuNA3SrhMpj?usp=sharing"
-              target="_blank"
-              >Physique 3</a
-            >
-          </li>
-          <button onclick="scrollToTop()" class="retour" href="#haut-de-page" id="retour-haut" ><i class="fa-solid fa-arrow-turn-up"></i></button>
-
-        </ul>
-       
-        
-      </section>
-          
-
-        </ul>
-        
-      </div>
-    
-      </div>
-      
-    </section>
-<hr>
-    <br>
-      <h2 id="s4"><strong>SEMESTRE 4</strong></h2>
-      <div  class="courses"></div>
-      <h2>Cours, TDs et Exams S4:</h2>
-      <p> Voici les catégories de cours que nous vous proposons dans cette section:</p>
-
-      <ul class="sectiongegm">
-        <li> <a class="scroll-link" href="#l4" data-target="#l4"
-            >CHIMIE 2</a
-          >
-        </li>
-        <li>
-          <a class="scroll-link" href="#algebr4" data-target="#algebr4">MATH APPLIQUEE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#analy4" data-target="#analy4">ANALYSE</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#e4" data-target="#e4">PHYSIQUE 4</a>
-        </li>
-        <li>
-          <a class="scroll-link" href="#i4" data-target="#i4">ELECTRONIQUE</a>
-        </li>
-        <li><a class="scroll-link" href="#c4" data-target="#c4">INFORMATIQUE</a></li>
-       
-        
-      </ul>
-      <section>
-        <h2>Détails des cours:</h2>
-      </div>
-      <p>
-        
-      </p>
-      <section class="section">
-      <div id="analy4"  class="courses"></div>
-        <h3 >ANALYSE</h3>
-
-        <div>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1robxVu19_SBblcMhXVfqEXgzR0OgcmVu?usp=sharing"
-              target="_blank"
-              >Analyse 4</a
-            >
-          </li>
-         
-        </ul>
-        <div id="algebr4"></div>
-        <br />
-        <h3>MATHEMATIQUE APPLIQUEE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1cVVg0M4vozzZo_LsM9M1Ez7MQqAZyrWy?usp=sharing"
-              target="_blank"
-              >Mathématiques appliquées</a
-            >
-          </li>
-        
-        <div id="i4"></div>
-      </section>
-      <section class="section">
-        <h3 >ELECTRONIQUE</h3>
-        <ul class="sectiongegm">
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/17izBOO_5tYUJ_jbszsBui1ekIwtlToRX?usp=sharing"
-              target="_blank"
-              >Electronique</a
-            >
-          </li>
-          
-        </ul>
-      </section>
-      <div id="e4"></div>
-      <section class="section">
-        <h3 >PHYSIQUE 4</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1UJX3AzArpSX8KppWAkq9vJJ5EQB7Zx8T?usp=sharing"
-              target="_blank"
-              >Physique 4</a
-            >
-          </li>
-          
-        </ul>
-        <h3 id="c4">INFORMATIQUE</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1n-YUmvhduXorNg7R8SH0TShGa6wPDTjt?usp=sharing"
-              target="_blank"
-              >Informatique 3</a
-            >
-          </li>
-        </ul>
-       
-        <div id="l4"></div>
-      </section>
-        
-      <section class="section">
-        <h3 >CHIMIE</h3>
-        <ul>
-          <li>
-            <a id="a"
-              href="https://drive.google.com/drive/folders/1VKN1VE07SPS9HlfmUC0kKSfJHfDNHViY?usp=sharing"
-              target="_blank"
-              >Chimie 2</a
-            >
-          </li>
-          
-          <button onclick="scrollToTop()" class="retour" href="#haut-de-page" id="retour-haut" ><i class="fa-solid fa-arrow-turn-up"></i></button>
-
-        </ul>
-        
-      </div>
-      <hr>
-      </div>
-      
-      </section>
-    </section>
+      <button onclick="scrollToTop()" class="retour" id="btn-back-to-top" title="Retour en haut"><i class="fa-solid fa-arrow-turn-up"></i></button>
     </main>
 
-    <footer>
-      <p>&copy; 2023 EtudePrepas.com - Tous droits réservés. <strong id="jr">Efraruto.Jr</strong></p>
+    <footer class="text-center text-white py-4 mt-5">
+      <p>
+        &copy; 2023 EtudePrepas.com - Tous droits réservés.
+        <strong id="jr">Efraruto.Jr</strong>
+      </p>
     </footer>
-    <script>document.addEventListener("DOMContentLoaded", function () {
-      var scrollLinks = document.querySelectorAll(".scroll-link");
-    
-      scrollLinks.forEach(function (link) {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-    
-          var target = document.querySelector(link.getAttribute("data-target"));
-    
-          target.scrollIntoView({
-            behavior: "smooth",
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var scrollLinks = document.querySelectorAll(".scroll-link");
+        scrollLinks.forEach(function (link) {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            var target = document.querySelector(link.getAttribute("data-target"));
+            if(target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
           });
         });
       });
-    });</script>
+    </script>
     <script src="index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true, offset: 50, duration: 600 });
+    </script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
   </body>
