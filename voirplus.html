@@ -87,8 +87,14 @@
                 <li><a class="dropdown-item" href="ensaa.html">ENSA Agadir</a></li>
               </ul>
             </li>
-            <li class="nav-item"><a class="nav-link" href="gegm.html">GE-GM</a></li>
-            <li class="nav-item"><a class="nav-link" href="mipc.html">MIPC</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">FST/FS</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="gegm.html">GE-GM</a></li>
+                <li><a class="dropdown-item" href="mipc.html">MIPC</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="orientation.html">Orientation</a></li>
           </ul>
         </div>
       </div>
@@ -146,16 +152,68 @@
           </div>
         </div>
 
-        <!-- Avis -->
-        <div class="col-12" data-aos="fade-up">
-          <div class="card bg-light border-primary">
-            <div class="card-body text-center">
-              <h2 class="card-title">Avis et commentaires</h2>
-              <p class="card-text">
-                Après avoir visité notre plateforme, merci de laisser vos retours et vos impressions sur les cours. Votre avis est
-                précieux pour nous et peut aider d'autres étudiants à prendre une décision éclairée.
+        <!-- Medecine -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card h-100">
+            <img src="./assets/img/medecine.jpg" class="card-img-top theme-img" alt="Médecine Maroc">
+            <div class="card-body">
+              <h2 class="card-title fw-bold">Facultés de Médecine</h2>
+              <p class="card-text"><strong>Les Facultés de Médecine et de Pharmacie</strong> forment les futurs praticiens du Maroc. Le cursus, accessible sur concours, allie théorie et pratique clinique. Retrouvez sur notre site des ressources pour les premières années (S1 à S4) afin de vous soutenir dans votre apprentissage.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orientation -->
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="card h-100">
+            <img src="./assets/img/bg4.jpeg" class="card-img-top theme-img" alt="Orientation">
+            <div class="card-body">
+              <h2 class="card-title fw-bold">Orientation & Carrière</h2>
+              <p class="card-text"><strong>Construisez votre avenir.</strong> Vous hésitez sur votre parcours ? Découvrez notre section dédiée à l'orientation : conseils, présentation des filières ingénieur, débouchés et motivation pour réussir vos études supérieures.</p>
+              <a href="orientation.html" class="btn btn-outline-primary mt-2">Découvrir la section</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="col-12" data-aos="fade-up" data-aos-delay="500">
+          <div class="card border-0 shadow">
+            <div class="card-header bg-primary text-white text-center py-4">
+                <h2 class="card-title fw-bold mb-0"><i class="fa-solid fa-paper-plane me-2"></i>Contactez-nous</h2>
+            </div>
+            <div class="card-body p-4 p-lg-5 bg-light">
+              <p class="text-center text-muted mb-4">
+                Vous avez une question, une suggestion ou vous souhaitez partager votre avis ? 
+                Remplissez le formulaire ci-dessous.
               </p>
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXn9gVJUW0fJwaaLa66fb0Ln-NdOV-FC74klohmBW3JvHc_g/viewform?usp=sf_link" target="_blank" class="btn btn-primary btn-lg">Remplir le formulaire</a>
+              <!-- Remplacez YOUR_FORM_ID par votre ID Formspree -->
+              <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre Nom" required>
+                      <label for="nom">Votre Nom</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                      <label for="email">Votre Email</label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-floating">
+                      <textarea class="form-control" placeholder="Votre message" id="message" name="message" style="height: 150px" required></textarea>
+                      <label for="message">Votre Message</label>
+                    </div>
+                  </div>
+                  <div class="col-12 text-center mt-4">
+                    <button class="btn btn-primary btn-lg px-5 rounded-pill shadow-sm" type="submit">
+                        Envoyer le message <i class="fa-solid fa-paper-plane ms-2"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -165,7 +223,7 @@
     </main>
 
     <footer class="footer text-center py-4 bg-black text-white-50">
-      <p class="m-0 small">&copy; 2023 EtudePrepas.com - Tous droits réservés. <strong class="text-warning">Efraruto.Jr</strong></p>
+      <p class="m-0 small">&copy; 2023 EtudePrepas.com - Tous droits réservés. <strong class="text-warning">Efra.Jr</strong></p>
     </footer>
 
     <script>

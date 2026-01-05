@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Orientation et conseils pour les étudiants en classes préparatoires et filières scientifiques" />
+    <title>ClassePrepas - Orientation & Carrière</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXJQWKXWVC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TXJQWKXWVC');
+    </script>
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="./assets/img/logoep.jpeg" />
+    <style>
+      body {
+        font-family: 'Lora', serif;
+        background-color: #f8f9fa;
+        padding-top: 76px;
+        overflow-x: hidden;
+      }
+      .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/img/bg4.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+      }
+      .feature-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      }
+      .icon-box {
+        width: 80px;
+        height: 80px;
+        background: #ffc107;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 2rem;
+        color: #212529;
+      }
+      .timeline-step {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 30px;
+        border-left: 3px solid #0d6efd;
+      }
+      .timeline-step::before {
+        content: '';
+        position: absolute;
+        left: -9px;
+        top: 0;
+        width: 15px;
+        height: 15px;
+        background: #0d6efd;
+        border-radius: 50%;
+      }
+      /* Preloader */
+      #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #f8f9fa; z-index: 99999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.6s ease-out, visibility 0.6s ease-out; }
+      .preloader-logo { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+      .spinner { width: 40px; height: 40px; border: 4px solid #e9ecef; border-top: 4px solid #ffc107; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px; }
+      .loading-text { font-family: 'Lora', serif; font-size: 1.1rem; color: #212529; letter-spacing: 3px; text-transform: uppercase; animation: pulse-text 1.5s infinite ease-in-out; }
+      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      @keyframes pulse-text { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+      body.loading { overflow: hidden; }
+    </style>
+  </head>
+  <body class="loading">
+    <!-- Preloader -->
+    <div id="preloader">
+      <img src="./assets/img/logoep.jpeg" alt="Logo" class="preloader-logo">
+      <div class="spinner"></div>
+      <div class="loading-text">Chargement...</div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+          <img src="./assets/img/logoep.jpeg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2 rounded-circle">
+          ClassePrepas
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">ENSA</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="ensabm.html">ENSA Beni Mellal</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="ensakech.html">ENSA Marrakech</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="ensak.html">ENSA Kenitra</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="ensah.html">ENSA Al Hoceima</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="ensaa.html">ENSA Agadir</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">FST/FS</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="gegm.html">GE-GM</a></li>
+                <li><a class="dropdown-item" href="mipc.html">MIPC</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link active" href="orientation.html">Orientation</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+      <div class="container" data-aos="fade-up">
+        <h1 class="display-3 fw-bold mb-4">Construisez Votre Avenir</h1>
+        <p class="lead mb-4">Guide d'orientation, conseils académiques et motivation pour les futurs ingénieurs et scientifiques.</p>
+        <a href="#parcours" class="btn btn-warning btn-lg rounded-pill px-5 fw-bold">Découvrir les Parcours</a>
+      </div>
+    </header>
+
+    <main class="container my-5">
+      <!-- Why Choose Science -->
+      <div class="row g-4 mb-5 text-center">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card feature-card h-100 p-4 shadow-sm">
+            <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+            <h3>Innovation</h3>
+            <p>Les filières scientifiques sont au cœur de l'innovation technologique. Devenez acteur du changement.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card feature-card h-100 p-4 shadow-sm">
+            <div class="icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h3>Excellence</h3>
+            <p>Les classes préparatoires et les cycles ingénieurs (ENSA, FST) offrent une formation d'excellence reconnue.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card feature-card h-100 p-4 shadow-sm">
+            <div class="icon-box"><i class="fa-solid fa-briefcase"></i></div>
+            <h3>Employabilité</h3>
+            <p>Un diplôme d'ingénieur ou un master spécialisé ouvre les portes d'une carrière internationale prometteuse.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="row justify-content-center mb-5" id="parcours">
+        <div class="col-lg-8">
+          <h2 class="text-center mb-5 fw-bold" data-aos="fade-down">Votre Parcours Académique</h2>
+          <div class="timeline-step" data-aos="fade-left">
+            <h4>Baccalauréat Scientifique</h4>
+            <p>Le point de départ. Une solide base en mathématiques et physique est essentielle pour réussir la suite.</p>
+          </div>
+          <div class="timeline-step" data-aos="fade-left" data-aos-delay="100">
+            <h4>Classes Préparatoires (CPGE / ENSA / FST / FS)</h4>
+            <p>2 années intensives pour acquérir les fondamentaux de l'ingénierie. Rigueur et organisation sont vos meilleurs atouts.</p>
+          </div>
+          <div class="timeline-step" data-aos="fade-left" data-aos-delay="200">
+            <h4>Cycle Ingénieur / Master</h4>
+            <p>3 années de spécialisation (Génie Info, Industriel, Civil, etc.) pour devenir un expert dans votre domaine.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secteurs Porteurs -->
+      <div class="mb-5">
+        <h2 class="text-center mb-5 fw-bold" data-aos="fade-up">Secteurs d'Avenir</h2>
+        <div class="row g-4">
+            <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card feature-card h-100 text-center p-3">
+                    <div class="text-primary mb-3"><i class="fa-solid fa-robot fa-3x"></i></div>
+                    <h5 class="card-title fw-bold">Intelligence Artificielle</h5>
+                    <p class="small text-muted">Data Science, Machine Learning</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card feature-card h-100 text-center p-3">
+                    <div class="text-success mb-3"><i class="fa-solid fa-solar-panel fa-3x"></i></div>
+                    <h5 class="card-title fw-bold">Énergies Renouvelables</h5>
+                    <p class="small text-muted">Développement durable, Efficacité</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card feature-card h-100 text-center p-3">
+                    <div class="text-warning mb-3"><i class="fa-solid fa-city fa-3x"></i></div>
+                    <h5 class="card-title fw-bold">Génie Civil & BTP</h5>
+                    <p class="small text-muted">Grands ouvrages, Urbanisme</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
+                <div class="card feature-card h-100 text-center p-3">
+                    <div class="text-danger mb-3"><i class="fa-solid fa-plane-departure fa-3x"></i></div>
+                    <h5 class="card-title fw-bold">Aéronautique & Auto</h5>
+                    <p class="small text-muted">Conception, Production, R&D</p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Conseils -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-10">
+            <div class="card bg-dark text-white shadow-lg border-0" data-aos="flip-up">
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-5 fw-bold text-warning"><i class="fa-solid fa-star me-2"></i>Clés de la Réussite</h2>
+                    <div class="row g-4">
+                        <div class="col-md-4 text-center">
+                            <div class="mb-3"><i class="fa-solid fa-calendar-check fa-2x text-primary"></i></div>
+                            <h4>Organisation</h4>
+                            <p class="text-white-50">La gestion du temps est primordiale. Établissez un planning de travail régulier et tenez-vous-y.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="mb-3"><i class="fa-solid fa-brain fa-2x text-primary"></i></div>
+                            <h4>Curiosité</h4>
+                            <p class="text-white-50">Ne vous limitez pas aux cours. Cherchez à comprendre les applications concrètes et l'actualité scientifique.</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <div class="mb-3"><i class="fa-solid fa-heart-pulse fa-2x text-primary"></i></div>
+                            <h4>Équilibre</h4>
+                            <p class="text-white-50">Le sommeil et l'activité physique sont essentiels pour maintenir vos performances intellectuelles sur la durée.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-center text-white py-4 bg-dark mt-5">
+      <p>&copy; 2023 EtudePrepas.com - Tous droits réservés. <strong class="text-warning">Efra.Jr</strong></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        document.body.classList.remove('loading');
+        preloader.style.opacity = '0';
+        preloader.style.visibility = 'hidden';
+        setTimeout(() => { preloader.remove(); }, 600);
+      });
+      AOS.init({ once: true, offset: 50, duration: 800 });
+    </script>
+  </body>
+</html>
