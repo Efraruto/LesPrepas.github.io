@@ -7,6 +7,13 @@
     <meta name="author" content="EtudesPrepas" />
     <title>EtudesPrepas - Ressources pour etudiants en ClassesPrepas</title>
     <link rel="shortcut icon" href="./assets/img/logoep.jpeg" />
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lesprepas.github.io/">
+    <meta property="og:title" content="EtudesPrepas - La référence pour CPGE, ENSA, Médecine">
+    <meta property="og:description" content="Accédez gratuitement à des centaines de cours, TDs et examens corrigés pour les classes prépas, FST, et facultés de médecine au Maroc.">
+    <meta property="og:image" content="https://lesprepas.github.io/assets/img/intro.png">
+
     <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,6 +117,12 @@
             </li>
             <li class="nav-item px-lg-2">
               <a class="nav-link text-uppercase" href="orientation.html">Orientation</a>
+            </li>
+            <!-- Bouton Recherche (UX) -->
+            <li class="nav-item px-lg-2">
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#searchModal">
+                <i class="fas fa-search"></i>
+              </a>
             </li>
           </ul>
         </div>
@@ -317,6 +330,27 @@
       </div>
     </footer>
 
+    <!-- Modal de Recherche (Structure) -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Rechercher un cours</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Ex: Analyse, Thermodynamique..." id="searchInput">
+              <button class="btn btn-primary" type="button">Rechercher</button>
+            </div>
+            <div id="searchResults" class="list-group">
+              <!-- Les résultats s'afficheraient ici via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- AOS Animation JS -->
@@ -389,6 +423,43 @@
               });
           }, { threshold: 0.5 });
           observer.observe(statsSection);
+      }
+
+      // Search Functionality
+      const searchInput = document.getElementById('searchInput');
+      const searchResults = document.getElementById('searchResults');
+      const searchModal = document.getElementById('searchModal');
+
+      const searchIndex = [
+        { title: "MIPC (FST) - Maths, Physique, Chimie", url: "mipc.html", keywords: "mipc fst analyse algebre thermodynamique mecanique point solides quantique optique chimie reactivite structure matiere minerale organique informatique algo programmation electricite electromag probabilites statistiques langue" },
+        { title: "GE-GM (FST) - Génie Electrique & Mécanique", url: "gegm.html", keywords: "gegm fst electricite electrotechnique electrostatique electronique automatisme rdm mecanique point solides fabrication construction structure matiere metrologie instrumentation probabilites statistiques thermodynamique gestion analyse numerique algebre informatique" },
+        { title: "Médecine - 1ère & 2ème Année", url: "medecine.html", keywords: "medecine anatomie biologie cellulaire genetique sante publique biostatistique chimie biochimie methodologie terminologie anglais tice biophysique histoire psychosociologie histologie embryologie stage communication physiologie bacteriologie immunologie virologie secourisme medex semiologie cardiaque digestive endocrine respiratoire hematologie" },
+        { title: "ENSA Beni Mellal", url: "ensabm.html", keywords: "ensa beni mellal bm ingenieur analyse algebre informatique mecanique point thermodynamique chimie generale langue electrocinetique electrostatique optique geometrique probabilites statistiques electromagnetisme solides structure pbm electronique fluides physique entreprenariat" },
+        { title: "ENSA Marrakech", url: "ensakech.html", keywords: "ensa marrakech kech ingenieur analyse algebre informatique aoa python c electrocinetique electrostatique chimie generale mecanique point optique thermodynamique tec ondes moderne electronique solides sciences ingenieur" },
+        { title: "ENSA Kenitra", url: "ensak.html", keywords: "ensa kenitra ingenieur maths fonctions algebre chimie mecanique solide pbm analyse numerique probabilite programmation c electronique traitement signal" },
+        { title: "ENSA Al Hoceima", url: "ensah.html", keywords: "ensa al hoceima ingenieur analyse algebre informatique mecanique physique tec chimie electrocinetique anglais solide maths appliquees electronique" },
+        { title: "ENSA Agadir", url: "ensaa.html", keywords: "ensa agadir ingenieur analyse algebre thermodynamique mecanique electricite optique informatique chimie" },
+        { title: "Orientation & Conseils", url: "orientation.html", keywords: "orientation conseil carriere metier ingenieur" }
+      ];
+
+      if(searchModal && searchInput) {
+        searchModal.addEventListener('shown.bs.modal', () => searchInput.focus());
+        
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            searchResults.innerHTML = '';
+            if(query.length < 2) return;
+
+            const results = searchIndex.filter(item => item.title.toLowerCase().includes(query) || item.keywords.includes(query));
+
+            if(results.length > 0) {
+                results.forEach(result => {
+                    searchResults.innerHTML += `<a href="${result.url}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"><span>${result.title}</span><i class="fas fa-chevron-right small text-muted"></i></a>`;
+                });
+            } else {
+                searchResults.innerHTML = '<div class="list-group-item text-muted">Aucun résultat trouvé.</div>';
+            }
+        });
       }
     </script>
     <!-- Core theme JS-->
