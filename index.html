@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" data-bs-theme="light">
+<html lang="fr" data-bs-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -27,17 +27,34 @@
     <!-- Custom CSS -->
     <link href="style.css" rel="stylesheet" />
     <style>
+      /* --- GLOBAL & TYPOGRAPHY --- */
+      html { scroll-behavior: smooth; }
+      body { overflow-x: hidden; font-family: 'Lora', serif; }
+      h1, h2, h3, h4, h5, h6, .text-uppercase { font-family: 'Raleway', sans-serif; letter-spacing: 1px; }
+      
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar { width: 10px; }
+      ::-webkit-scrollbar-track { background: #1a1a1a; }
+      ::-webkit-scrollbar-thumb { background: #444; border-radius: 5px; }
+      ::-webkit-scrollbar-thumb:hover { background: #e6a756; }
+
+      /* Scrollbar Light Mode */
+      [data-bs-theme="light"] ::-webkit-scrollbar-track { background: #f1f1f1; }
+      [data-bs-theme="light"] ::-webkit-scrollbar-thumb { background: #adb5bd; }
+      [data-bs-theme="light"] ::-webkit-scrollbar-thumb:hover { background: #e6a756; }
+
       /* Loader */
-      #global-loader { position: fixed; z-index: 99999; top: 0; left: 0; right: 0; bottom: 0; background-color: #f8f9fa; display: flex; justify-content: center; align-items: center; flex-direction: column; transition: opacity 0.6s ease-out, visibility 0.6s ease-out; }
+      #global-loader { position: fixed; z-index: 99999; top: 0; left: 0; right: 0; bottom: 0; background-color: #121212; display: flex; justify-content: center; align-items: center; flex-direction: column; transition: opacity 0.6s ease-out, visibility 0.6s ease-out; }
       .loader-logo { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 20px; animation: pulse 2s infinite; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
-      .loader-spinner { width: 50px; height: 50px; border: 4px solid rgba(0,0,0,0.1); border-top: 4px solid #e6a756; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px; }
-      .loader-text { font-family: 'Raleway', sans-serif; font-weight: 700; color: #212529; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
+      .loader-spinner { width: 50px; height: 50px; border: 4px solid rgba(255,255,255,0.1); border-top: 4px solid #e6a756; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px; }
+      .loader-text { font-family: 'Raleway', sans-serif; font-weight: 700; color: #f8f9fa; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
       @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
       @keyframes pulse { 0% { transform: scale(0.95); } 50% { transform: scale(1); } 100% { transform: scale(0.95); } }
       @media (max-width: 576px) {
         .loader-logo { width: 60px; height: 60px; margin-bottom: 15px; }
         .loader-spinner { width: 40px; height: 40px; margin-bottom: 10px; }
         .loader-text { font-size: 0.8rem; letter-spacing: 1px; }
+        .btn-xl { padding: 0.8rem 1.5rem !important; font-size: 0.9rem !important; }
       }
       body.loading { overflow: hidden; }
       
@@ -45,6 +62,7 @@
       .scroll-down-arrow {
         animation: bounce 2s infinite;
         transition: opacity 0.3s;
+        z-index: 5;
       }
       .scroll-down-arrow:hover { opacity: 0.7; }
       @keyframes bounce {
@@ -53,18 +71,257 @@
         60% {transform: translateY(-5px);}
       }
       
-      .category-icon {
+      /* Category Icons Wrappers */
+      .category-icon-wrapper {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
         transition: all 0.3s ease;
-        cursor: pointer;
+        position: relative;
+        z-index: 1;
       }
-      .category-icon:hover {
-        transform: translateY(-10px) scale(1.1);
-        color: #fff !important;
-        text-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+      .category-icon-wrapper:hover {
+        transform: scale(1.1) translateY(-5px);
+        box-shadow: 0 10px 25px rgba(230, 167, 86, 0.4);
       }
       
       .social-btn { transition: transform 0.3s; }
       .social-btn:hover { transform: translateY(-3px); color: #e6a756 !important; }
+
+      /* Theme Styles */
+      /* Dark Mode (Default) */
+      [data-bs-theme="dark"] header.masthead {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/img/bg.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      /* Light Mode */
+      [data-bs-theme="light"] header.masthead {
+        background: linear-gradient(rgba(255, 255, 255, 0.502), rgba(255, 255, 255, 0.543)), url('./assets/img/bg-light.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      
+      header.masthead {
+        background-size: cover;
+        background-position: center;
+      }
+      /* Transition Background Masthead */
+      header.masthead::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10rem;
+        pointer-events: none;
+      }
+      [data-bs-theme="dark"] header.masthead::after { background: linear-gradient(to bottom, transparent 0%, #121212 100%); }
+      [data-bs-theme="light"] header.masthead::after { background: linear-gradient(to bottom, transparent 0%, #f8f9fa 100%); }
+
+      /* Light Mode Masthead Fixes - Texte Noir */
+      [data-bs-theme="light"] header.masthead.text-white,
+      [data-bs-theme="light"] header.masthead .text-white,
+      [data-bs-theme="light"] header.masthead .masthead-heading,
+      [data-bs-theme="light"] header.masthead .masthead-subheading { 
+        color: #212529 !important; 
+        text-shadow: none;
+      }
+      
+      [data-bs-theme="light"] .scroll-down-arrow { color: #212529 !important; }
+      
+      /* Fix Light Mode Buttons in Masthead - Boutons visibles */
+      [data-bs-theme="light"] header.masthead .btn-outline-light { color: #212529; border-color: #212529; font-weight: 600; }
+      [data-bs-theme="light"] header.masthead .btn-outline-light:hover { background-color: #e6a756; border-color: #e6a756; color: #fff; }
+      
+      /* Navbar background fix on scroll for light mode */
+      [data-bs-theme="light"] #mainNav.navbar-shrink { 
+        background-color: rgba(255, 255, 255, 0.95) !important; 
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05); 
+        backdrop-filter: blur(10px);
+      }
+      
+      /* Light Mode Navbar Text - Menu en Noir */
+      [data-bs-theme="light"] #mainNav .nav-link { color: #000 !important; font-weight: 600; }
+      [data-bs-theme="light"] #mainNav .navbar-brand { color: #000 !important; }
+      [data-bs-theme="light"] #mainNav .nav-link:hover,
+      [data-bs-theme="light"] #mainNav .nav-link.active { color: #e6a756 !important; }
+      [data-bs-theme="light"] #mainNav .dropdown-menu { background-color: #fff; border: 1px solid rgba(0,0,0,0.15); }
+      [data-bs-theme="light"] #mainNav .dropdown-item { color: #212529; }
+      [data-bs-theme="light"] #mainNav .dropdown-item:hover { background-color: #f8f9fa; }
+
+      /* Fix Mobile Menu Background in Light Mode */
+      @media (max-width: 991.98px) {
+        [data-bs-theme="light"] .navbar-collapse {
+          background-color: #ffffff !important;
+          box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+        }
+        [data-bs-theme="light"] .navbar-toggler {
+          border-color: rgba(0,0,0,0.1);
+          color: rgba(0,0,0,0.55);
+        }
+        /* Fix Mobile Menu Background in Dark Mode (Harmonization) */
+        [data-bs-theme="dark"] .navbar-collapse {
+          background-color: rgba(18, 18, 18, 0.95) !important;
+          box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.5);
+        }
+      }
+
+      /* Navbar Dark Mode Glass */
+      [data-bs-theme="dark"] #mainNav.navbar-shrink {
+        background-color: rgba(18, 18, 18, 0.85) !important;
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+
+      /* Light Mode Footer - Fond clair et texte sombre */
+      [data-bs-theme="light"] footer.footer {
+        background: #f1f3f5 !important; /* Light grey background */
+        color: #212529 !important;
+        border-top: 1px solid #dee2e6 !important;
+      }
+      [data-bs-theme="light"] footer.footer .text-white-50 { color: #6c757d !important; }
+      [data-bs-theme="light"] footer.footer .text-white { color: #212529 !important; }
+      [data-bs-theme="light"] footer.footer a.footer-link { color: #495057 !important; text-decoration: none; }
+      [data-bs-theme="light"] footer.footer a.footer-link:hover { color: #e6a756 !important; }
+      [data-bs-theme="light"] footer.footer .social-btn { color: #212529 !important; }
+      [data-bs-theme="light"] footer.footer .social-btn:hover { color: #e6a756 !important; }
+
+      /* --- DARK MODE PREMIUM AESTHETICS --- */
+      [data-bs-theme="dark"] body {
+        background-color: #121212;
+        background-image: 
+            radial-gradient(circle at 15% 50%, rgba(230, 167, 86, 0.05), transparent 25%), 
+            radial-gradient(circle at 85% 30%, rgba(41, 98, 255, 0.05), transparent 25%);
+      }
+
+      /* Glassmorphism for Cards */
+      [data-bs-theme="dark"] .card, 
+      [data-bs-theme="dark"] #intro .bg-white {
+        background: rgba(30, 30, 30, 0.6) !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.15) !important; /* Highlight top */
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        color: #e0e0e0 !important;
+      }
+      
+      [data-bs-theme="dark"] .card:hover,
+      [data-bs-theme="dark"] #intro .bg-white:hover {
+        transform: translateY(-5px);
+        background: rgba(40, 40, 40, 0.7) !important;
+        border-color: rgba(230, 167, 86, 0.4) !important;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      }
+      
+      [data-bs-theme="dark"] #intro .border-primary {
+        border-color: #e6a756 !important;
+      }
+      [data-bs-theme="dark"] #intro .text-muted {
+        color: #adb5bd !important;
+      }
+      
+      /* Dark Mode Categories */
+      [data-bs-theme="dark"] .category-icon-wrapper {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      [data-bs-theme="dark"] .category-icon-wrapper:hover {
+        background: linear-gradient(45deg, #e6a756, #ffc107);
+        border-color: transparent;
+      }
+      [data-bs-theme="dark"] .category-icon-wrapper:hover i {
+        color: #fff !important;
+      }
+      [data-bs-theme="dark"] #categories {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)) !important;
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      /* --- LIGHT MODE PREMIUM AESTHETICS --- */
+      [data-bs-theme="light"] body { background-color: #f8f9fa; }
+      
+      /* Light Mode Cards */
+      [data-bs-theme="light"] .card,
+      [data-bs-theme="light"] #intro .bg-white {
+        background: #ffffff !important;
+        border: none !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        color: #212529 !important;
+        transition: all 0.3s ease;
+      }
+      [data-bs-theme="light"] #intro .bg-white:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+      }
+      [data-bs-theme="light"] #intro .text-muted { color: #6c757d !important; }
+      [data-bs-theme="light"] .section-heading-upper { color: #e6a756 !important; }
+      
+      /* Light Mode Categories */
+      [data-bs-theme="light"] #categories {
+        background: linear-gradient(135deg, #ffffff 0%, #f1f3f5 100%) !important;
+      }
+      [data-bs-theme="light"] #categories .text-white { color: #212529 !important; }
+      [data-bs-theme="light"] #categories .text-white-50 { color: #6c757d !important; }
+      [data-bs-theme="light"] .category-icon-wrapper {
+        background: #fff;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        border: 1px solid #eee;
+      }
+      [data-bs-theme="light"] .category-icon-wrapper i { color: #e6a756; }
+      [data-bs-theme="light"] .category-icon-wrapper:hover {
+        background: #e6a756;
+        border-color: #e6a756;
+      }
+      [data-bs-theme="light"] .category-icon-wrapper:hover i { color: #fff; }
+
+      /* Stats Section */
+      [data-bs-theme="dark"] #stats {
+        background: rgba(0,0,0,0.2) !important;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        backdrop-filter: blur(5px);
+      }
+      [data-bs-theme="dark"] #stats .text-dark {
+        color: #f8f9fa !important; /* Invert dark text to light */
+      }
+      [data-bs-theme="dark"] #stats .text-muted {
+        color: #adb5bd !important;
+      }
+      [data-bs-theme="light"] #stats { background: #fff !important; }
+      
+      /* Text Glow & Colors */
+      [data-bs-theme="dark"] h1, [data-bs-theme="dark"] h2, [data-bs-theme="dark"] h3 {
+        text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      }
+      [data-bs-theme="dark"] .text-primary {
+        color: #ffc107 !important;
+        text-shadow: 0 0 20px rgba(255, 193, 7, 0.2);
+      }
+      [data-bs-theme="light"] .text-primary { color: #e6a756 !important; }
+
+      /* Buttons */
+      .btn-primary {
+        background: linear-gradient(45deg, #e6a756, #ffc107);
+        border: none;
+        box-shadow: 0 4px 15px rgba(230, 167, 86, 0.3);
+      }
+      .btn-primary:hover {
+        background: linear-gradient(45deg, #ffc107, #e6a756);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(230, 167, 86, 0.5);
+      }
+      
+      .nav-link { cursor: pointer; }
     </style>
   </head>
   <body>
@@ -124,6 +381,12 @@
                 <i class="fas fa-search"></i>
               </a>
             </li>
+            <!-- Theme Toggle -->
+            <li class="nav-item px-lg-2">
+              <a class="nav-link" id="theme-toggle" title="Changer de thème">
+                <i class="fas fa-moon"></i>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -138,8 +401,8 @@
             <div class="divider-custom-line" style="height: 3px; background-color: #e6a756; width: 100px; margin: 0 auto;"></div>
         </div>
         <p class="masthead-subheading font-weight-light mb-0 h4" data-aos="fade-up" data-aos-delay="400">Plateforme de ressources pour étudiants en 1ère et 2ème année de sciences<br><span class="fs-5">(Classes Préparatoires, FST, FS, Médecine...)</span></p>
-        <div class="mt-5" data-aos="fade-up" data-aos-delay="600">
-            <a class="btn btn-primary btn-xl text-uppercase me-3 shadow" href="#categories">Nos Cours</a>
+        <div class="mt-5 d-flex justify-content-center gap-3 flex-wrap" data-aos="fade-up" data-aos-delay="600">
+            <a class="btn btn-primary btn-xl text-uppercase shadow" href="#categories">Nos Cours</a>
             <a class="btn btn-outline-light btn-xl text-uppercase shadow" href="#intro">Découvrir</a>
         </div>
       </div>
@@ -215,7 +478,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="page-section py-5 position-relative" id="categories" style="background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);">
+    <section class="page-section py-5 position-relative" id="categories">
       <div class="container position-relative z-1">
         <div class="row justify-content-center">
           <div class="col-xl-10" data-aos="zoom-in">
@@ -228,19 +491,27 @@
               <!-- Icons Row -->
               <div class="d-flex justify-content-center gap-5 mb-5 flex-wrap text-warning">
                   <div class="text-center">
-                      <i class="fas fa-square-root-variable fa-3x mb-3 category-icon" title="Mathématiques"></i>
+                      <div class="category-icon-wrapper mb-3">
+                        <i class="fas fa-square-root-variable fa-3x category-icon" title="Mathématiques"></i>
+                      </div>
                       <div class="small text-white-50 text-uppercase fw-bold">Maths</div>
                   </div>
                   <div class="text-center">
-                      <i class="fas fa-atom fa-3x mb-3 category-icon" title="Physique"></i>
+                      <div class="category-icon-wrapper mb-3">
+                        <i class="fas fa-atom fa-3x category-icon" title="Physique"></i>
+                      </div>
                       <div class="small text-white-50 text-uppercase fw-bold">Physique</div>
                   </div>
                   <div class="text-center">
-                      <i class="fas fa-flask fa-3x mb-3 category-icon" title="Chimie"></i>
+                      <div class="category-icon-wrapper mb-3">
+                        <i class="fas fa-flask fa-3x category-icon" title="Chimie"></i>
+                      </div>
                       <div class="small text-white-50 text-uppercase fw-bold">Chimie</div>
                   </div>
                   <div class="text-center">
-                      <i class="fas fa-laptop-code fa-3x mb-3 category-icon" title="Informatique"></i>
+                      <div class="category-icon-wrapper mb-3">
+                        <i class="fas fa-laptop-code fa-3x category-icon" title="Informatique"></i>
+                      </div>
                       <div class="small text-white-50 text-uppercase fw-bold">Info</div>
                   </div>
               </div>
@@ -461,6 +732,39 @@
             }
         });
       }
+
+      // Theme Toggle Logic
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const htmlElement = document.documentElement;
+      const navbar = document.getElementById('mainNav');
+      const themeIcon = themeToggleBtn.querySelector('i');
+
+      function setTheme(theme) {
+        htmlElement.setAttribute('data-bs-theme', theme);
+        localStorage.setItem('theme', theme);
+        
+        if (theme === 'light') {
+          navbar.classList.remove('navbar-dark');
+          navbar.classList.add('navbar-light');
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
+        } else {
+          navbar.classList.remove('navbar-light');
+          navbar.classList.add('navbar-dark');
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
+        }
+      }
+
+      // Check saved theme
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      setTheme(savedTheme);
+
+      themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+      });
     </script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>

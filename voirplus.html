@@ -186,7 +186,7 @@
                 Vous avez une question, une suggestion ou vous souhaitez partager votre avis ? 
                 Remplissez le formulaire ci-dessous.
               </p>
-              <!-- Remplacez YOUR_FORM_ID par votre ID Formspree -->
+              <!-- IMPORTANT : Remplacez YOUR_FORM_ID ci-dessous par votre véritable ID Formspree (créez-en un sur formspree.io), sinon le formulaire ne fonctionnera pas -->
               <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <div class="row g-3">
                   <div class="col-md-6">
@@ -226,26 +226,6 @@
       <p class="m-0 small">&copy; 2023 EtudePrepas.com - Tous droits réservés. <strong class="text-warning">Efra.Jr</strong></p>
     </footer>
 
-    <script>
-      // Fonction pour vérifier ou définir le cookie
-      function checkOrSetCookie() {
-          // Vérifiez si un cookie indiquant la première visite existe
-          var isFirstVisit = !document.cookie.includes("visited=true");
-
-          // Si c'est la première visite, attendez 3 secondes et redirigez vers la page d'accueil
-          if (isFirstVisit) {
-              setTimeout(function () {
-                  window.location.href = "index.html"; // Remplacez par l'URL de votre page d'accueil
-              }, 3000); // 3000 millisecondes équivalent à 3 secondes
-              
-              // Définissez un cookie pour indiquer que l'utilisateur a déjà visité le site
-              document.cookie = "visited=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-          }
-      }
-
-      // Appelez la fonction pour vérifier ou définir le cookie au chargement de la page
-      window.onload = checkOrSetCookie;
-  </script>
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS Animation JS -->
