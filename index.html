@@ -248,34 +248,48 @@
       }
 
       /* --- LIGHT MODE PREMIUM AESTHETICS --- */
-      [data-bs-theme="light"] body { background-color: #f8f9fa; }
+      [data-bs-theme="light"] body { 
+        background-color: #f8f9fa;
+        background-image: 
+            radial-gradient(circle at 15% 50%, rgba(230, 167, 86, 0.08), transparent 25%), 
+            radial-gradient(circle at 85% 30%, rgba(41, 98, 255, 0.08), transparent 25%);
+      }
       
       /* Light Mode Cards */
       [data-bs-theme="light"] .card,
       [data-bs-theme="light"] #intro .bg-white {
-        background: #ffffff !important;
-        border: none !important;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        background: rgba(255, 255, 255, 0.7) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         color: #212529 !important;
         transition: all 0.3s ease;
       }
+      [data-bs-theme="light"] .card:hover,
       [data-bs-theme="light"] #intro .bg-white:hover {
         transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        background: rgba(255, 255, 255, 0.9) !important;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        border-color: rgba(230, 167, 86, 0.4) !important;
       }
       [data-bs-theme="light"] #intro .text-muted { color: #6c757d !important; }
       [data-bs-theme="light"] .section-heading-upper { color: #e6a756 !important; }
       
       /* Light Mode Categories */
       [data-bs-theme="light"] #categories {
-        background: linear-gradient(135deg, #ffffff 0%, #f1f3f5 100%) !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(240, 240, 240, 0.8)) !important;
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255, 255, 255, 0.6);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.6);
       }
       [data-bs-theme="light"] #categories .text-white { color: #212529 !important; }
       [data-bs-theme="light"] #categories .text-white-50 { color: #6c757d !important; }
       [data-bs-theme="light"] .category-icon-wrapper {
-        background: #fff;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        border: 1px solid #eee;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        border: 1px solid rgba(255, 255, 255, 0.5);
       }
       [data-bs-theme="light"] .category-icon-wrapper i { color: #e6a756; }
       [data-bs-theme="light"] .category-icon-wrapper:hover {
@@ -297,7 +311,12 @@
       [data-bs-theme="dark"] #stats .text-muted {
         color: #adb5bd !important;
       }
-      [data-bs-theme="light"] #stats { background: #fff !important; }
+      [data-bs-theme="light"] #stats { 
+        background: rgba(255, 255, 255, 0.6) !important; 
+        backdrop-filter: blur(5px);
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      }
       
       /* Text Glow & Colors */
       [data-bs-theme="dark"] h1, [data-bs-theme="dark"] h2, [data-bs-theme="dark"] h3 {
@@ -322,6 +341,130 @@
       }
       
       .nav-link { cursor: pointer; }
+      
+      /* --- 3D FLOATING ELEMENTS --- */
+      .floating-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        overflow: hidden;
+        animation: fadeInBg 2.5s ease-out forwards;
+      }
+      @keyframes fadeInBg {
+        from { opacity: 0; filter: blur(5px); }
+        to { opacity: 1; filter: blur(0); }
+      }
+      .floating-item {
+        position: absolute;
+        animation: float-3d 20s infinite ease-in-out alternate;
+        will-change: transform;
+      }
+      .floating-item i {
+        text-shadow: 0 0 15px currentColor; /* Neon Glow Effect */
+      }
+      .cube-3d {
+        width: 60px;
+        height: 60px;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: rotate-3d 15s infinite linear;
+      }
+      .cube-face {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 0 15px rgba(230, 167, 86, 0.4), inset 0 0 10px rgba(230, 167, 86, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #fff;
+      }
+      .cube-face.front { transform: translateZ(30px); }
+      .cube-face.back { transform: rotateY(180deg) translateZ(30px); }
+      .cube-face.right { transform: rotateY(90deg) translateZ(30px); }
+      .cube-face.left { transform: rotateY(-90deg) translateZ(30px); }
+      .cube-face.top { transform: rotateX(90deg) translateZ(30px); }
+      .cube-face.bottom { transform: rotateX(-90deg) translateZ(30px); }
+      
+      @keyframes float-3d {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        100% { transform: translate(30px, 50px) rotate(10deg); }
+      }
+      @keyframes rotate-3d {
+        0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+        100% { transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg); }
+      }
+      
+      /* Positions */
+      .item-1 { top: 15%; left: 10%; animation-duration: 25s; }
+      .item-2 { top: 25%; right: 15%; animation-duration: 30s; animation-delay: -5s; }
+      .item-3 { bottom: 20%; left: 20%; animation-duration: 35s; animation-delay: -10s; }
+      .item-4 { bottom: 10%; right: 10%; animation-duration: 28s; animation-delay: -2s; }
+      
+      /* New Items Positions */
+      .item-5 { top: 45%; left: 5%; animation-duration: 38s; animation-delay: -5s; }
+      .item-6 { top: 65%; right: 8%; animation-duration: 32s; animation-delay: -12s; }
+      .item-7 { top: 15%; left: 45%; animation-duration: 45s; animation-delay: -20s; filter: blur(1px); }
+      .item-8 { bottom: 15%; left: 35%; animation-duration: 29s; animation-delay: -8s; }
+      .item-9 { top: 75%; right: 25%; animation-duration: 36s; animation-delay: -4s; }
+      .item-10 { top: 10%; right: 35%; animation-duration: 40s; animation-delay: -15s; filter: blur(2px); }
+      
+      /* Header 3D Effect */
+      header.masthead { perspective: 1000px; }
+      .masthead-avatar {
+        transition: transform 0.1s ease-out;
+        transform-style: preserve-3d;
+        filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
+      }
+
+      /* --- NEW: GLASSMORPHISM & HERO STYLE --- */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 3rem 2rem;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        transform-style: preserve-3d;
+        transition: transform 0.1s ease-out;
+        max-width: 950px;
+        margin: 0 auto;
+      }
+      [data-bs-theme="light"] .glass-panel {
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      }
+
+      .hero-title {
+        font-weight: 800;
+        letter-spacing: 3px;
+        background: linear-gradient(45deg, #ffffff, #e6a756);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 2px 15px rgba(230, 167, 86, 0.4));
+      }
+      @media (max-width: 576px) {
+        .glass-panel {
+          padding: 2rem 1rem; /* Réduit les marges internes pour gagner de la place */
+        }
+        .hero-title {
+          letter-spacing: 0px; /* Supprime l'espacement large entre les lettres */
+        }
+      }
+      [data-bs-theme="light"] .hero-title {
+        background: linear-gradient(45deg, #212529, #e6a756);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     </style>
   </head>
   <body>
@@ -336,6 +479,64 @@
       <img src="./assets/img/logoep.jpeg" alt="Logo" class="loader-logo">
       <div class="loader-spinner"></div>
       <div class="loader-text">Chargement...</div>
+    </div>
+    
+    <!-- Background 3D Elements -->
+    <div class="floating-background">
+      <!-- Element 1: 3D Cube -->
+      <div class="floating-item item-1">
+        <div class="cube-3d">
+          <div class="cube-face front"><i class="fas fa-square-root-variable"></i></div>
+          <div class="cube-face back"></div>
+          <div class="cube-face right"></div>
+          <div class="cube-face left"></div>
+          <div class="cube-face top"></div>
+          <div class="cube-face bottom"></div>
+        </div>
+      </div>
+      <!-- Element 2: Floating Icon (Atom) -->
+      <div class="floating-item item-2">
+        <i class="fas fa-atom fa-4x text-primary" style="opacity: 0.2; transform: rotate(15deg);"></i>
+      </div>
+      <!-- Element 3: Floating Icon (Flask) -->
+      <div class="floating-item item-3">
+        <i class="fas fa-flask fa-3x text-success" style="opacity: 0.2; transform: rotate(-15deg);"></i>
+      </div>
+      <!-- Element 4: Floating Icon (Code) -->
+      <div class="floating-item item-4">
+        <i class="fas fa-code fa-3x text-info" style="opacity: 0.2; transform: rotate(10deg);"></i>
+      </div>
+      <!-- Element 5: DNA (Biology/Medicine) -->
+      <div class="floating-item item-5">
+        <i class="fas fa-dna fa-3x text-danger" style="opacity: 0.15; transform: rotate(45deg);"></i>
+      </div>
+      <!-- Element 6: Microchip (GEGM/Info) -->
+      <div class="floating-item item-6">
+        <i class="fas fa-microchip fa-4x text-warning" style="opacity: 0.15; transform: rotate(-20deg);"></i>
+      </div>
+      <!-- Element 7: Brain (General Knowledge) -->
+      <div class="floating-item item-7">
+        <i class="fas fa-brain fa-2x text-primary" style="opacity: 0.2;"></i>
+      </div>
+      <!-- Element 8: Globe (Orientation) -->
+      <div class="floating-item item-8">
+        <i class="fas fa-globe fa-3x text-info" style="opacity: 0.15;"></i>
+      </div>
+      <!-- Element 9: Another 3D Cube (Blue Variant) -->
+      <div class="floating-item item-9">
+         <div class="cube-3d" style="transform: scale(0.7);">
+          <div class="cube-face front" style="border-color: rgba(13, 110, 253, 0.5); box-shadow: 0 0 30px rgba(13, 110, 253, 0.6), inset 0 0 20px rgba(13, 110, 253, 0.2); color: #0d6efd;"><i class="fas fa-code"></i></div>
+          <div class="cube-face back" style="border-color: rgba(13, 110, 253, 0.5); box-shadow: 0 0 30px rgba(13, 110, 253, 0.6), inset 0 0 20px rgba(13, 110, 253, 0.2);"></div>
+          <div class="cube-face right" style="border-color: rgba(13, 110, 253, 0.5); box-shadow: 0 0 30px rgba(13, 110, 253, 0.6), inset 0 0 20px rgba(13, 110, 253, 0.2);"></div>
+          <div class="cube-face left" style="border-color: rgba(13, 110, 253, 0.5); box-shadow: 0 0 30px rgba(13, 110, 253, 0.6), inset 0 0 20px rgba(13, 110, 253, 0.2);"></div>
+          <div class="cube-face top" style="border-color: rgba(13, 110, 253, 0.5); box-shadow: 0 0 30px rgba(13, 110, 253, 0.6), inset 0 0 20px rgba(13, 110, 253, 0.2);"></div>
+          <div class="cube-face bottom" style="border-color: rgba(13, 110, 253, 0.5); box-shadow: 0 0 30px rgba(13, 110, 253, 0.6), inset 0 0 20px rgba(13, 110, 253, 0.2);"></div>
+        </div>
+      </div>
+      <!-- Element 10: Stethoscope (Medicine) -->
+      <div class="floating-item item-10">
+        <i class="fas fa-stethoscope fa-3x text-success" style="opacity: 0.15; transform: rotate(30deg);"></i>
+      </div>
     </div>
 
     <!-- Navigation-->
@@ -395,15 +596,17 @@
     <!-- Header -->
     <header class="masthead text-center text-white d-flex flex-column justify-content-center align-items-center">
       <div class="container">
-        <img class="masthead-avatar mb-4 rounded-circle border border-4 border-primary shadow-lg floating-logo" src="./assets/img/logoep.jpeg" alt="Logo" width="150" height="150" data-aos="zoom-in" />
-        <h1 class="masthead-heading text-uppercase mb-0" data-aos="fade-down" data-aos-duration="1000">Classes Préparatoires</h1>
-        <div class="divider-custom divider-light my-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="divider-custom-line" style="height: 3px; background-color: #e6a756; width: 100px; margin: 0 auto;"></div>
-        </div>
-        <p class="masthead-subheading font-weight-light mb-0 h4" data-aos="fade-up" data-aos-delay="400">Plateforme de ressources pour étudiants en 1ère et 2ème année de sciences<br><span class="fs-5">(Classes Préparatoires, FST, FS, Médecine...)</span></p>
-        <div class="mt-5 d-flex justify-content-center gap-3 flex-wrap" data-aos="fade-up" data-aos-delay="600">
-            <a class="btn btn-primary btn-xl text-uppercase shadow" href="#categories">Nos Cours</a>
-            <a class="btn btn-outline-light btn-xl text-uppercase shadow" href="#intro">Découvrir</a>
+        <div class="glass-panel position-relative" data-aos="zoom-in" data-aos-duration="1000">
+            <img class="masthead-avatar mb-4 rounded-circle border border-4 border-primary shadow-lg floating-logo" src="./assets/img/logoep.jpeg" alt="Logo" width="150" height="150" />
+            <h1 class="masthead-heading text-uppercase mb-0 hero-title">Classes Préparatoires</h1>
+            <div class="divider-custom divider-light my-4">
+                <div class="divider-custom-line" style="height: 3px; background-color: #e6a756; width: 100px; margin: 0 auto;"></div>
+            </div>
+            <p class="masthead-subheading font-weight-light mb-0 h4">Plateforme de ressources pour étudiants en 1ère et 2ème année de sciences<br><span class="fs-5">(Classes Préparatoires, FST, FS, Médecine...)</span></p>
+            <div class="mt-5 d-flex justify-content-center gap-3 flex-wrap">
+                <a class="btn btn-primary btn-xl text-uppercase shadow" href="#categories">Nos Cours</a>
+                <a class="btn btn-outline-light btn-xl text-uppercase shadow" href="#intro">Découvrir</a>
+            </div>
         </div>
       </div>
       <!-- Scroll Down Arrow -->
@@ -659,6 +862,24 @@
         });
         introImg.addEventListener('mouseleave', () => {
           introImg.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        });
+      }
+      
+      // Header Glass Panel 3D Tilt
+      const header = document.querySelector('header.masthead');
+      const glassPanel = document.querySelector('.glass-panel');
+      if (header && glassPanel) {
+        header.addEventListener('mousemove', (e) => {
+          const { width, height, left, top } = header.getBoundingClientRect();
+          const x = e.clientX - left;
+          const y = e.clientY - top;
+          const xPct = (x / width - 0.5) * 2;
+          const yPct = (y / height - 0.5) * 2;
+          
+          glassPanel.style.transform = `rotateX(${yPct * -5}deg) rotateY(${xPct * 5}deg) scale(1.02)`;
+        });
+        header.addEventListener('mouseleave', () => {
+          glassPanel.style.transform = 'rotateX(0) rotateY(0) scale(1)';
         });
       }
 
