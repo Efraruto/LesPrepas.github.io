@@ -1032,6 +1032,8 @@
       const aiSend = document.getElementById('ai-send');
       const aiChatBox = document.getElementById('ai-chat-box');
 
+      let chatHistory = []; // Historique de la conversation
+
       if (aiToggle && aiPanel) {
         aiToggle.addEventListener('click', () => aiPanel.classList.toggle('active'));
         closeAi.addEventListener('click', () => aiPanel.classList.remove('active'));
@@ -1067,7 +1069,7 @@
             if (lowerText.startsWith('image') || lowerText.startsWith('dessine') || lowerText.startsWith('génère') || lowerText.startsWith('schéma')) {
                 const prompt = userText.replace(/^(image|dessine|génère|schéma)\s*(de|d'|une|un)?/i, '').trim();
                 // URL optimisée avec seed aléatoire et nologo
-                const imgUrl = `https://pollinations.ai/p/${encodeURIComponent(prompt)}?width=768&height=768&seed=${Math.floor(Math.random() * 10000)}&nologo=true`;
+                const imgUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=768&height=768&seed=${Math.floor(Math.random() * 10000)}&nologo=true`;
                 
                 const img = new Image();
                 img.src = imgUrl;
@@ -1098,9 +1100,16 @@
             // 3. MODE CHAT (IA Pollinations)
             try {
                 // Contexte pédagogique pour l'IA
-                const context = "Tu es un mentor virtuel bienveillant pour étudiants. Tu peux conseiller sur la vie, la motivation, l'organisation et les études (sciences, orientation). Réponds en français. Sois concis et va à l'essentiel. Si le sujet est vaste, fais un résumé structuré avec des listes à puces et du gras. ENSA=Ecole Nationale des Sciences Appliquées";
+                const context = "Tu es l'assistant du site 'EtudesPrepas'. Ce site offre des ressources gratuites (cours, TDs, examens) pour les étudiants en sciences au Maroc : ENSA, FST (MIPC, GE-GM), Médecine et CPGE. Tu aides aussi sur l'orientation et la motivation. (Note: ENSA = École Nationale des Sciences Appliquées). Réponds en français, sois concis et utile. Ne répète pas les salutations (Bonjour, Salut) à chaque message, sois direct.";
+                
+                // Gestion de l'historique
+                chatHistory.push({ role: "user", content: userText });
+                if (chatHistory.length > 10) chatHistory = chatHistory.slice(-10); // Garder les 10 derniers messages pour ne pas saturer l'URL
+                const conversation = chatHistory.map(msg => `${msg.role === 'user' ? 'Etudiant' : 'Mentor'}: ${msg.content}`).join('\n');
+                const fullPrompt = `${context}\n\nHistorique de la conversation:\n${conversation}\n\nMentor:`;
+
                 // Utilisation de l'API Texte Pollinations (Nouvelle méthode)
-                const url = `https://text.pollinations.ai/${encodeURIComponent(context + " Question: " + userText)}?model=mistral&seed=${Math.floor(Math.random() * 1000)}`;
+                const url = `https://text.pollinations.ai/${encodeURIComponent(fullPrompt)}?model=mistral&seed=${Math.floor(Math.random() * 1000)}`;
                 
                 const response = await fetch(url);
                 if (!response.ok) throw new Error('Erreur API IA');
@@ -1126,6 +1135,9 @@
                 if (textData.includes("deprecated") || textData.length < 2) {
                     throw new Error("Réponse IA invalide");
                 } else {
+                    // Sauvegarder la réponse dans l'historique
+                    chatHistory.push({ role: "assistant", content: textData });
+
                     // Utilisation de marked.parse pour formater le Markdown en HTML
                     const formattedText = marked.parse(textData);
                     addMessage(formattedText, 'bot');
