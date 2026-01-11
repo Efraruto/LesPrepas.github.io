@@ -1097,10 +1097,29 @@
                 } catch (e) { /* Continuer vers l'IA si échec */ }
             }
 
-            // 3. MODE CHAT (IA Pollinations)
+            // 3. MODE RECHERCHE (Wikipédia en temps réel)
+            let wikiContext = "";
+            if (lowerText.includes("wiki") || lowerText.startsWith("c'est quoi") || lowerText.startsWith("définition") || lowerText.startsWith("qui est")) {
+                try {
+                    // Nettoyage de la requête pour garder le mot clé principal
+                    const query = userText.replace(/^(wiki|c'est quoi|définition|qu'est-ce que|qui est|cherche)\s*(de|du|d'|le|la|les|un|une)?/i, '').trim();
+                    if (query.length > 1) {
+                        const wikiUrl = `https://fr.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&exintro&explaintext&redirects=1&titles=${encodeURIComponent(query)}&origin=*`;
+                        const res = await fetch(wikiUrl);
+                        const data = await res.json();
+                        const pageId = Object.keys(data.query.pages)[0];
+                        if (pageId !== "-1") {
+                            wikiContext = `[INFO WIKIPEDIA: ${data.query.pages[pageId].extract.substring(0, 800)}...]`;
+                        }
+                    }
+                } catch (e) { console.log("Erreur Wiki", e); }
+            }
+
+            // 4. MODE CHAT (IA Pollinations)
             try {
                 // Contexte pédagogique pour l'IA
-                const context = "Tu es l'assistant du site 'EtudesPrepas'. Ce site offre des ressources gratuites (cours, TDs, examens) pour les étudiants en sciences au Maroc : ENSA, FST (MIPC, GE-GM), Médecine et CPGE. Tu aides aussi sur l'orientation et la motivation. (Note: ENSA = École Nationale des Sciences Appliquées). Réponds en français, sois concis et utile. Ne répète pas les salutations (Bonjour, Salut) à chaque message, sois direct.";
+                const today = new Date().toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
+                const context = `Tu es l'assistant du site 'EtudesPrepas'. Nous sommes le ${today}. ${wikiContext} Ce site offre des ressources gratuites (cours, TDs, examens) pour les étudiants en sciences au Maroc : ENSA, FST (MIPC, GE-GM), Médecine et CPGE. Tu aides aussi sur l'orientation et la motivation. (Note: ENSA = École Nationale des Sciences Appliquées). Réponds en français, sois concis et utile. Ne répète pas les salutations (Bonjour, Salut) à chaque message, sois direct.`;
                 
                 // Gestion de l'historique
                 chatHistory.push({ role: "user", content: userText });
