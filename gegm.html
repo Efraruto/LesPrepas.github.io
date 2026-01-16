@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,123 +25,417 @@
     <link rel="shortcut icon" href="./assets/img/logoep.jpeg" />
     <!-- Custom Styles -->
     <style>
-      body {
-        font-family: 'Lora', serif;
-        background-color: #212529;
-        background-image: linear-gradient(
-            rgb(0 0 0 / 65%),
-            rgb(129 129 129 / 65%)
-          ),
-          url(./assets/img/bg4.jpeg);
-        background-attachment: fixed;
-        background-position: center;
-        background-size: cover;
-        color: #f8f9fa;
-        padding-top: 76px;
-      }
-      .card {
-        background-color: rgba(255, 255, 255, 0.95);
-        border: none;
-        transition: transform 0.2s;
-      }
-      .card:hover {
-        transform: translateY(-5px);
-      }
-      .section-title {
-        border-bottom: 3px solid #ffc107;
-        display: inline-block;
-        padding-bottom: 10px;
-        margin-bottom: 30px;
-      }
-      .scroll-link {
-        transition: all 0.3s;
-      }
-      .retour {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        display: none;
-        z-index: 1000;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        border: none;
-        background-color: #ffc107;
-        color: #000;
-      }
-      /* Preloader */
-      #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #212529; z-index: 99999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 0.6s ease-out, visibility 0.6s ease-out; }
-      .preloader-logo { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-      .spinner { width: 40px; height: 40px; border: 4px solid #343a40; border-top: 4px solid #ffc107; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px; }
-      .loading-text { font-family: 'Lora', serif; font-size: 1.1rem; color: #f8f9fa; letter-spacing: 3px; text-transform: uppercase; animation: pulse-text 1.5s infinite ease-in-out; }
+      /* --- GLOBAL & TYPOGRAPHY --- */
+      html { scroll-behavior: smooth; }
+      body { overflow-x: hidden; font-family: 'Lora', serif; padding-top: 0; } /* Navbar is floating now */
+      h1, h2, h3, h4, h5, h6, .text-uppercase { font-family: 'Raleway', sans-serif; letter-spacing: 1px; }
+      
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar { width: 10px; }
+      ::-webkit-scrollbar-track { background: #0f0f0f; }
+      ::-webkit-scrollbar-thumb { background: #444; border-radius: 5px; }
+      ::-webkit-scrollbar-thumb:hover { background: #e6a756; }
+      [data-bs-theme="light"] ::-webkit-scrollbar-track { background: #f1f1f1; }
+      [data-bs-theme="light"] ::-webkit-scrollbar-thumb { background: #adb5bd; }
+      [data-bs-theme="light"] ::-webkit-scrollbar-thumb:hover { background: #e6a756; }
+
+      /* Loader */
+      #global-loader { position: fixed; z-index: 99999; top: 0; left: 0; right: 0; bottom: 0; background-color: #121212; display: flex; justify-content: center; align-items: center; flex-direction: column; transition: opacity 0.6s ease-out, visibility 0.6s ease-out; }
+      .loader-logo { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 20px; animation: pulse 2s infinite; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+      .loader-spinner { width: 50px; height: 50px; border: 4px solid rgba(255,255,255,0.1); border-top: 4px solid #e6a756; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px; }
+      .loader-text { font-family: 'Raleway', sans-serif; font-weight: 700; color: #f8f9fa; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
       @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-      @keyframes pulse-text { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+      @keyframes pulse { 0% { transform: scale(0.95); } 50% { transform: scale(1); } 100% { transform: scale(0.95); } }
       body.loading { overflow: hidden; }
+
+      /* --- MENU "CHIC & OUF" (Floating Glass Island) --- */
+      #mainNav {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 1100px;
+        padding: 10px 25px;
+        border-radius: 50px;
+        background: rgba(18, 18, 18, 0.6);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        z-index: 1000;
+      }
+      
+      #mainNav.navbar-shrink {
+        top: 10px;
+        width: 95%;
+        max-width: 1200px;
+        background: rgba(10, 10, 10, 0.85);
+        padding: 8px 20px;
+        border-color: rgba(230, 167, 86, 0.3); /* Bordure dorée au scroll */
+      }
+
+      [data-bs-theme="light"] #mainNav {
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+      [data-bs-theme="light"] #mainNav.navbar-shrink {
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(230, 167, 86, 0.3);
+      }
+
+      /* Logo Animation */
+      .navbar-brand img {
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        border: 2px solid rgba(230, 167, 86, 0.5) !important;
+      }
+      .navbar-brand:hover img {
+        transform: rotate(360deg) scale(1.1);
+        border-color: #e6a756 !important;
+      }
+      [data-bs-theme="light"] .navbar-brand { color: #000 !important; }
+
+      /* Menu Items Styling */
+      #mainNav .nav-link {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.8) !important;
+        padding: 8px 16px !important;
+        margin: 0 2px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      [data-bs-theme="light"] #mainNav .nav-link { color: #444 !important; }
+
+      /* Hover & Active State (Glowing Pill Effect) */
+      #mainNav .nav-link:hover,
+      #mainNav .nav-link.active {
+        color: #fff !important;
+        background: linear-gradient(45deg, #e6a756, #ff9f43);
+        box-shadow: 0 4px 15px rgba(230, 167, 86, 0.4);
+        transform: translateY(-2px);
+      }
+      
+      /* Dropdown Menu Chic */
+      #mainNav .dropdown-menu {
+        border: none;
+        border-radius: 20px;
+        background: rgba(30, 30, 30, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 10px;
+        margin-top: 20px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        animation: dropdownFade 0.3s ease forwards;
+        transform-origin: top center;
+      }
+      [data-bs-theme="light"] #mainNav .dropdown-menu {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      }
+      @keyframes dropdownFade {
+        from { opacity: 0; transform: translateY(10px) scale(0.95); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+
+      #mainNav .dropdown-item {
+        border-radius: 10px;
+        padding: 8px 15px;
+        font-weight: 600;
+        color: #ccc;
+        transition: all 0.2s;
+      }
+      [data-bs-theme="light"] #mainNav .dropdown-item { color: #555; }
+      
+      #mainNav .dropdown-item:hover {
+        background: rgba(230, 167, 86, 0.15);
+        color: #e6a756;
+        padding-left: 20px; /* Slide effect */
+      }
+
+      /* Mobile Adjustments */
+      @media (max-width: 991.98px) {
+        #mainNav {
+          width: 95%;
+          top: 10px;
+          padding: 10px 20px;
+          border-radius: 25px;
+        }
+        #mainNav .navbar-collapse {
+          background: transparent;
+          margin-top: 15px;
+          padding: 10px 0;
+          border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        [data-bs-theme="light"] #mainNav .navbar-collapse {
+          border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        #mainNav .nav-link {
+          margin: 5px 0;
+          border-radius: 10px;
+        }
+        #mainNav .nav-link:hover, #mainNav .nav-link.active {
+          transform: none;
+          background: rgba(230, 167, 86, 0.2);
+          color: #e6a756 !important;
+          box-shadow: none;
+        }
+      }
+
+      footer.footer { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem; padding-bottom: 2rem; }
+      [data-bs-theme="light"] footer.footer { background: #f1f3f5 !important; color: #212529 !important; border-top: 1px solid #dee2e6; }
+      [data-bs-theme="light"] footer.footer a { color: #495057 !important; text-decoration: none; }
+
+      /* --- THEME STYLES --- */
+      [data-bs-theme="dark"] body {
+        background-color: #0f0f0f;
+        color: #f0f0f0;
+      }
+      [data-bs-theme="light"] body {
+        background-color: #f8f9fa;
+        background-image: 
+            radial-gradient(circle at 15% 50%, rgba(230, 167, 86, 0.15), transparent 25%), 
+            radial-gradient(circle at 85% 30%, rgba(13, 110, 253, 0.1), transparent 25%);
+        color: #212529;
+      }
+      
+      /* Animated Background Orbs */
+      .animated-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden; pointer-events: none; }
+      .orb { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.3; animation: floatOrb 20s infinite ease-in-out; }
+      .orb-1 { width: 400px; height: 400px; background: #7b2cbf; top: -100px; left: -100px; }
+      .orb-2 { width: 500px; height: 500px; background: #ff9e00; bottom: -150px; right: -150px; animation-delay: -5s; }
+      .orb-3 { width: 300px; height: 300px; background: #00b4d8; top: 40%; left: 30%; animation-delay: -10s; opacity: 0.2; }
+      @keyframes floatOrb {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(50px, -50px) scale(1.1); }
+        66% { transform: translate(-30px, 50px) scale(0.9); }
+      }
+      
+      /* Noise Overlay for Texture */
+      .noise-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjA1Ii8+PC9zdmc+');
+        pointer-events: none; z-index: -1; opacity: 0.07;
+      }
+
+      /* Ultra Glass Cards */
+      .glass-card {
+        background: rgba(20, 20, 20, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+      }
+      [data-bs-theme="light"] .glass-card {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        color: #212529;
+      }
+      .glass-card::before {
+        content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+        transition: 0.6s;
+        pointer-events: none;
+      }
+      .glass-card:hover { 
+        transform: translateY(-10px) scale(1.02); 
+        box-shadow: 0 20px 50px rgba(230, 167, 86, 0.15); 
+        border-color: rgba(230, 167, 86, 0.4); 
+      }
+      [data-bs-theme="light"] .glass-card:hover {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      }
+      .glass-card:hover::before { left: 100%; }
+      
+      .card-header-custom {
+        padding: 1.5rem;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, rgba(255,255,255,0.05), transparent);
+      }
+      [data-bs-theme="light"] .card-header-custom {
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        background: linear-gradient(90deg, rgba(0,0,0,0.03), transparent);
+        color: #212529;
+      }
+      
+      /* Module Chips */
+      .module-chip {
+        display: flex; align-items: center; padding: 12px 16px; margin-bottom: 10px; border-radius: 12px;
+        background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);
+        color: #e0e0e0; text-decoration: none; transition: all 0.3s ease;
+      }
+      [data-bs-theme="light"] .module-chip {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0,0,0,0.05);
+        color: #495057;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      }
+      .module-chip:hover { 
+        background: linear-gradient(90deg, rgba(230, 167, 86, 0.15), transparent); 
+        border-color: #e6a756; 
+        color: #fff; 
+        transform: translateX(8px); 
+        box-shadow: -5px 0 15px rgba(230, 167, 86, 0.1);
+      }
+      [data-bs-theme="light"] .module-chip:hover {
+        background: #f8f9fa;
+        color: #e6a756;
+        border-color: #e6a756;
+      }
+      .module-chip i { margin-right: 12px; color: #e6a756; transition: transform 0.3s; }
+      .module-chip:hover i { transform: scale(1.2); }
+
+      /* Enhanced Buttons */
+      .btn-outline-warning {
+        border-width: 2px; font-weight: 700; letter-spacing: 1px;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .btn-outline-warning:hover {
+        box-shadow: 0 0 25px rgba(255, 193, 7, 0.6); transform: translateY(-3px) scale(1.05);
+      }
+
+      /* Header & Titles */
+      .hero-title { 
+        font-size: 4rem; 
+        font-weight: 900; 
+        background: linear-gradient(135deg, #ffffff 0%, #e6a756 50%, #ffffff 100%); 
+        background-size: 200% auto;
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; 
+        filter: drop-shadow(0 0 25px rgba(230, 167, 86, 0.3)); 
+        letter-spacing: -1px;
+        animation: shine 6s linear infinite;
+      }
+      @keyframes shine {
+        to { background-position: 200% center; }
+      }
+      @media (max-width: 768px) {
+        .hero-title { font-size: 2.5rem; }
+      }
+      [data-bs-theme="light"] .hero-title { background: linear-gradient(to right, #212529, #495057); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); }
+      .glass-panel { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 2rem; }
+      [data-bs-theme="light"] .glass-panel { 
+        background: rgba(255,255,255,0.6); 
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255,255,255,0.8); 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+      }
+      
+      /* Floating Elements */
+      .floating-item { position: absolute; animation: float-3d 20s infinite ease-in-out alternate; opacity: 0.15; }
+      @keyframes float-3d { 0% { transform: translate(0, 0) rotate(0deg); } 100% { transform: translate(30px, 50px) rotate(10deg); } }
+      
+      .retour { position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000; border-radius: 50%; width: 50px; height: 50px; border: none; background: linear-gradient(45deg, #e6a756, #ffc107); color: #000; box-shadow: 0 4px 15px rgba(230, 167, 86, 0.4); }
+      .retour:hover { transform: scale(1.1); }
+      
+      /* Floating Image Animation */
+      .floating-img { animation: float-img 6s ease-in-out infinite; }
+      @keyframes float-img { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+      
+      .tracking-widest { letter-spacing: 3px; }
     </style>
   </head>
   <body class="loading">
-    <!-- Preloader -->
-    <div id="preloader">
-      <img src="./assets/img/logoep.jpeg" alt="Logo" class="preloader-logo">
-      <div class="spinner"></div>
-      <div class="loading-text">Chargement...</div>
+    <!-- Loader -->
+    <div id="global-loader">
+      <img src="./assets/img/logoep.jpeg" alt="Logo" class="loader-logo">
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Chargement...</div>
     </div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">
-          <img src="./assets/img/logoep.jpeg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2 rounded-circle">
-          ClassePrepas
+        <a class="navbar-brand text-uppercase fw-bold" href="index.html">
+          <img src="./assets/img/logoep.jpeg" alt="Logo" width="35" height="35" class="d-inline-block align-text-top me-2 rounded-circle border border-2 border-primary p-1">
+          Etudes_Prepas
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">ENSA</a>
-              <ul class="dropdown-menu">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html">Accueil</a></li>
+            <li class="nav-item px-lg-2 dropdown">
+              <a class="nav-link dropdown-toggle text-uppercase" href="#" role="button" data-bs-toggle="dropdown">ENSA</a>
+              <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="ensabm.html">ENSA Beni Mellal</a></li>
-                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="ensakech.html">ENSA Marrakech</a></li>
-                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="ensak.html">ENSA Kenitra</a></li>
-                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="ensah.html">ENSA Al Hoceima</a></li>
-                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="ensaa.html">ENSA Agadir</a></li>
               </ul>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">FST/FS</a>
-              <ul class="dropdown-menu">
+            <li class="nav-item px-lg-2 dropdown">
+              <a class="nav-link dropdown-toggle text-uppercase active" href="#" role="button" data-bs-toggle="dropdown">FST/FS</a>
+              <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="gegm.html">GE-GM</a></li>
                 <li><a class="dropdown-item" href="mipc.html">MIPC</a></li>
               </ul>
             </li>
-            <li class="nav-item"><a class="nav-link" href="orientation.html">Orientation</a></li>
+            <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="medecine.html">Médecine</a></li>
+            <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="orientation.html">Orientation</a></li>
+            <li class="nav-item px-lg-2">
+              <a class="nav-link" id="theme-toggle" title="Changer de thème" style="cursor: pointer;">
+                <i class="fas fa-moon"></i>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <header class="container text-center text-white my-5">
-      <h1 class="display-4 fw-bold" id="haut-de-page" data-aos="fade-down">Génie Electrique - Génie Mécanique</h1>
-      <span class="badge bg-warning text-dark fs-5 mt-2" data-aos="zoom-in" data-aos-delay="200">GE-GM</span>
+    <header class="container text-center" style="margin-top: 120px; margin-bottom: 80px;">
+      <div data-aos="zoom-in" data-aos-duration="1000">
+        <h1 class="hero-title text-uppercase mb-3" id="haut-de-page">Génie Electrique & Mécanique</h1>
+        <div class="divider-custom divider-light my-3">
+            <div style="height: 4px; background: linear-gradient(90deg, transparent, #e6a756, transparent); width: 200px; margin: 0 auto; border-radius: 2px;"></div>
+        </div>
+        <span class="badge rounded-pill bg-warning text-dark fs-6 mt-3 px-4 py-2 shadow-lg fw-bold tracking-wider">FST - GE-GM</span>
+      </div>
     </header>
 
     <main class="container">
       <!-- Intro -->
       <div class="row justify-content-center mb-5">
         <div class="col-lg-10 text-center">
-          <img class="img-fluid rounded shadow mb-4" src="./assets/img/gegm.png" alt="GE-GM" data-aos="fade-up" />
+          <div class="glass-panel p-2 mb-5 floating-img" data-aos="fade-up" style="box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+            <img class="img-fluid rounded-4" src="./assets/img/gegm.png" alt="GE-GM" style="width: 100%;" />
+          </div>
           
-          <div class="card bg-dark text-white border-secondary p-4 shadow" data-aos="fade-up" data-aos-delay="100">
-            <p class="lead mb-0">
+          <div class="glass-panel p-5" data-aos="fade-up" data-aos-delay="100">
+            <p class="lead mb-0" style="font-size: 1.2rem; line-height: 1.8;">
               Dans cette section, vous trouverez les cours avec quelques résumés, TDs et TP. Il
               vous suffit juste de cliquer sur le cours que vous recherchez pour le
-              télécharger <i class="fa-solid fa-download fa-bounce"></i>.
+              télécharger <i class="fa-solid fa-download fa-bounce text-warning ms-2"></i>.
             </p>
           </div>
         </div>
@@ -149,16 +443,16 @@
 
       <!-- Navigation Buttons -->
       <div class="text-center mb-5" data-aos="fade-up">
-        <p class="text-white">Accès rapide aux modules :</p>
+        <p class="fw-bold mb-4 small tracking-widest" style="opacity: 0.7;">ACCÈS RAPIDE AUX MODULES</p>
         <div class="d-flex flex-wrap justify-content-center gap-2">
-          <a class="btn btn-outline-light scroll-link" href="#analyse" data-target="#analyse">ANALYSE</a>
-          <a class="btn btn-outline-light scroll-link" href="#algebre" data-target="#algebre">ALGEBRE</a>
-          <a class="btn btn-outline-light scroll-link" href="#in" data-target="#in">INFORMATIQUE</a>
-          <a class="btn btn-outline-light scroll-link" href="#el" data-target="#el">ELECTRICITE</a>
-          <a class="btn btn-outline-light scroll-link" href="#me" data-target="#me">MECANIQUE</a>
-          <a class="btn btn-outline-light scroll-link" href="#ch" data-target="#ch">STRUCTURE</a>
-          <a class="btn btn-outline-light scroll-link" href="#op" data-target="#op">AUTRES</a>
-          <a class="btn btn-outline-light scroll-link" href="#lc" data-target="#lc">LANGUE</a>
+          <a class="btn btn-outline-warning rounded-pill px-4 py-2 scroll-link shadow-sm" href="#analyse" data-target="#analyse">ANALYSE</a>
+          <a class="btn btn-outline-warning rounded-pill px-4 py-2 scroll-link shadow-sm" href="#algebre" data-target="#algebre">ALGEBRE</a>
+          <a class="btn btn-outline-warning rounded-pill px-4 py-2 scroll-link shadow-sm" href="#in" data-target="#in">INFORMATIQUE</a>
+          <a class="btn btn-outline-warning rounded-pill px-4 py-2 scroll-link shadow-sm" href="#el" data-target="#el">ELECTRICITE</a>
+          <a class="btn btn-outline-warning rounded-pill px-4 py-2 scroll-link shadow-sm" href="#me" data-target="#me">MECANIQUE</a>
+          <a class="btn btn-outline-warning rounded-pill px-4 py-2 scroll-link shadow-sm" href="#ch" data-target="#ch">STRUCTURE</a>
+          <a class="btn btn-outline-warning rounded-pill px-4 py-2 scroll-link shadow-sm" href="#op" data-target="#op">AUTRES</a>
+          <a class="btn btn-outline-warning rounded-pill px-4 py-2 scroll-link shadow-sm" href="#lc" data-target="#lc">LANGUE</a>
         </div>
       </div>
 
@@ -166,96 +460,96 @@
       <div class="row g-4 mb-5">
         <!-- Analyse -->
         <div class="col-md-6 col-lg-4" id="analyse" data-aos="fade-up">
-          <div class="card h-100">
-            <div class="card-header bg-primary text-white fw-bold">ANALYSE</div>
-            <div class="list-group list-group-flush">
-              <a href="https://drive.google.com/drive/folders/1ZBVRjUIsSYDYohJ5cKk_Nw1n97rPvLNu?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Analyse I</a>
-              <a href="https://drive.google.com/drive/folders/14JpoxKnSIohevKAVf_Sj_xMlygiiwMF8?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Analyse II</a>
-              <a href="https://drive.google.com/drive/folders/1WzGoxKC1HsG1slET7IXzmA-TyZigpuiw?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Analyse numérique</a>
+          <div class="glass-card js-tilt">
+            <div class="card-header-custom text-primary"><i class="fas fa-chart-line me-2"></i>ANALYSE</div>
+            <div class="p-3">
+              <a href="https://drive.google.com/drive/folders/1ZBVRjUIsSYDYohJ5cKk_Nw1n97rPvLNu?usp=sharing" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Analyse I</a>
+              <a href="https://drive.google.com/drive/folders/14JpoxKnSIohevKAVf_Sj_xMlygiiwMF8?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Analyse II</a>
+              <a href="https://drive.google.com/drive/folders/1WzGoxKC1HsG1slET7IXzmA-TyZigpuiw?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Analyse numérique</a>
             </div>
           </div>
         </div>
 
         <!-- Algebre -->
         <div class="col-md-6 col-lg-4" id="algebre" data-aos="fade-up" data-aos-delay="100">
-          <div class="card h-100">
-            <div class="card-header bg-danger text-white fw-bold">ALGEBRE</div>
-            <div class="list-group list-group-flush">
-              <a href="https://drive.google.com/drive/folders/1u8B85-YtSqFp3BCPNZq8d4uXIXjkno5f?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Algèbre I</a>
-              <a href="https://drive.google.com/drive/folders/1dV499h2SoyExLOtbQSRS6EPaqph5R2ic?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Algèbre II</a>
+          <div class="glass-card js-tilt">
+            <div class="card-header-custom text-danger"><i class="fas fa-superscript me-2"></i>ALGEBRE</div>
+            <div class="p-3">
+              <a href="https://drive.google.com/drive/folders/1u8B85-YtSqFp3BCPNZq8d4uXIXjkno5f?usp=sharing" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Algèbre I</a>
+              <a href="https://drive.google.com/drive/folders/1dV499h2SoyExLOtbQSRS6EPaqph5R2ic?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Algèbre II</a>
             </div>
           </div>
         </div>
 
         <!-- Informatique -->
         <div class="col-md-6 col-lg-4" id="in" data-aos="fade-up" data-aos-delay="200">
-          <div class="card h-100">
-            <div class="card-header bg-success text-white fw-bold">INFORMATIQUE</div>
-            <div class="list-group list-group-flush">
-              <a href="https://drive.google.com/drive/folders/1fCNQtwQcu90WSSB35XIXVpFuHPGlQ4Uh?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Informatique I</a>
-              <a href="https://drive.google.com/drive/folders/1Q3ekQ2c8LKJhXKxRhqS6_NUEewqA6Cl_?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Informatique III</a>
+          <div class="glass-card js-tilt">
+            <div class="card-header-custom text-success"><i class="fas fa-laptop-code me-2"></i>INFORMATIQUE</div>
+            <div class="p-3">
+              <a href="https://drive.google.com/drive/folders/1fCNQtwQcu90WSSB35XIXVpFuHPGlQ4Uh?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Informatique I</a>
+              <a href="https://drive.google.com/drive/folders/1Q3ekQ2c8LKJhXKxRhqS6_NUEewqA6Cl_?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Informatique III</a>
             </div>
           </div>
         </div>
 
         <!-- Electricite -->
         <div class="col-md-6 col-lg-4" id="el" data-aos="fade-up">
-          <div class="card h-100">
-            <div class="card-header bg-info text-white fw-bold">ELECTRICITE</div>
-            <div class="list-group list-group-flush">
-              <a href="https://drive.google.com/drive/folders/1vM5kjgWsQx6a6wfYtnkVfciqw6PUB6XD?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Electrotechnique</a>
-              <a href="https://drive.google.com/drive/folders/1wsjiEJeJyeBHqm2-rD47njJtU4yBk7y-?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Electrostatique</a>
-              <a href="https://drive.google.com/drive/folders/19_Kv2kiLlXJYKQlzE6iMf-6N-NGYHQB4?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Circuit élec.</a>
-              <a href="https://drive.google.com/drive/folders/1qBOZwBmB1czib_cspeFTKY-FBk2KdXL6?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Electronique</a>
+          <div class="glass-card js-tilt">
+            <div class="card-header-custom text-info"><i class="fas fa-bolt me-2"></i>ELECTRICITE</div>
+            <div class="p-3">
+              <a href="https://drive.google.com/drive/folders/1vM5kjgWsQx6a6wfYtnkVfciqw6PUB6XD?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Electrotechnique</a>
+              <a href="https://drive.google.com/drive/folders/1wsjiEJeJyeBHqm2-rD47njJtU4yBk7y-?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Electrostatique</a>
+              <a href="https://drive.google.com/drive/folders/19_Kv2kiLlXJYKQlzE6iMf-6N-NGYHQB4?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Circuit élec.</a>
+              <a href="https://drive.google.com/drive/folders/1qBOZwBmB1czib_cspeFTKY-FBk2KdXL6?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Electronique</a>
             </div>
           </div>
         </div>
 
         <!-- Mecanique -->
         <div class="col-md-6 col-lg-4" id="me" data-aos="fade-up" data-aos-delay="100">
-          <div class="card h-100">
-            <div class="card-header bg-secondary text-white fw-bold">MECANIQUE</div>
-            <div class="list-group list-group-flush">
-              <a href="https://drive.google.com/drive/folders/1rElmgCvHlfRHIy1iPVZuejo2cbw1NbAW?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Méca. point matériel</a>
-              <a href="https://drive.google.com/drive/folders/1zE4bBZG7EF-eAWeuvSp4IXsH6dIDb8tU?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Méca. des solides</a>
-              <a href="https://drive.google.com/drive/folders/1mcqhD2uklDZI7uJct6d4uWV0Ave6PR8M?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Fabrication méca.</a>
-              <a href="https://drive.google.com/drive/folders/1mgtmc8PXFqPXjy1nBzDjmsRKIMYt1n-l?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Construction méca.</a>
-              <a href="https://drive.google.com/drive/folders/1OL6lrAj7VF_cysGzzhlIATsitm24397g?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Automatique</a>
+          <div class="glass-card js-tilt">
+            <div class="card-header-custom text-secondary"><i class="fas fa-cogs me-2"></i>MECANIQUE</div>
+            <div class="p-3">
+              <a href="https://drive.google.com/drive/folders/1rElmgCvHlfRHIy1iPVZuejo2cbw1NbAW?usp=sharing" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Méca. point matériel</a>
+              <a href="https://drive.google.com/drive/folders/1zE4bBZG7EF-eAWeuvSp4IXsH6dIDb8tU?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Méca. des solides</a>
+              <a href="https://drive.google.com/drive/folders/1mcqhD2uklDZI7uJct6d4uWV0Ave6PR8M?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Fabrication méca.</a>
+              <a href="https://drive.google.com/drive/folders/1mgtmc8PXFqPXjy1nBzDjmsRKIMYt1n-l?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Construction méca.</a>
+              <a href="https://drive.google.com/drive/folders/1OL6lrAj7VF_cysGzzhlIATsitm24397g?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Automatique</a>
             </div>
           </div>
         </div>
 
         <!-- Structure -->
         <div class="col-md-6 col-lg-4" id="ch" data-aos="fade-up" data-aos-delay="200">
-          <div class="card h-100">
-            <div class="card-header bg-warning text-dark fw-bold">STRUCTURE MATIERE</div>
-            <div class="list-group list-group-flush">
-              <a href="https://drive.google.com/drive/folders/1Fsr0jg1hKhaNMpRLplY3Aac4A6iIE9i4?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Structure matière</a>
+          <div class="glass-card js-tilt">
+            <div class="card-header-custom text-warning"><i class="fas fa-atom me-2"></i>STRUCTURE MATIERE</div>
+            <div class="p-3">
+              <a href="https://drive.google.com/drive/folders/1Fsr0jg1hKhaNMpRLplY3Aac4A6iIE9i4?usp=sharing" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Structure matière</a>
             </div>
           </div>
         </div>
 
         <!-- Autres Modules -->
         <div class="col-md-6 col-lg-4" id="op" data-aos="fade-up">
-          <div class="card h-100">
-            <div class="card-header bg-dark text-white fw-bold border-white">AUTRES MODULES</div>
-            <div class="list-group list-group-flush">
-              <a href="https://drive.google.com/drive/folders/1LT30Va4X03716KV6xHTOP1UUYX7QA169?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Metrologie</a>
-              <a href="https://drive.google.com/drive/folders/1uSck5uJHau0mgWVHS9bhZA_IH7fMG8ps?usp=drive_link" target="_blank" class="list-group-item list-group-item-action" id="pbm"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Instrumentation</a>
-              <a href="https://drive.google.com/drive/folders/1yqZXEYdbEeQNqy7R_XQ0NPPPrjtipLWn?usp=drive_link" target="_blank" class="list-group-item list-group-item-action" id="ps"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Proba & Stats</a>
-              <a href="https://drive.google.com/drive/folders/1PzHx7FxuhgGuZSxHW7eJav9KW8JUsym3?usp=sharing" target="_blank" class="list-group-item list-group-item-action" id="th"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Thermodynamique</a>
-              <a href="https://drive.google.com/drive/folders/1ITMuRpWWEXTSHBJwzstZSzBtKr5D7Wh6?usp=sharing" target="_blank" class="list-group-item list-group-item-action" id="eli"><i class="fa-solid fa-folder-open me-2 text-warning"></i>Gestion</a>
+          <div class="glass-card js-tilt">
+            <div class="card-header-custom"><i class="fas fa-box-open me-2"></i>AUTRES MODULES</div>
+            <div class="p-3">
+              <a href="https://drive.google.com/drive/folders/1LT30Va4X03716KV6xHTOP1UUYX7QA169?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Metrologie</a>
+              <a href="https://drive.google.com/drive/folders/1uSck5uJHau0mgWVHS9bhZA_IH7fMG8ps?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Instrumentation</a>
+              <a href="https://drive.google.com/drive/folders/1yqZXEYdbEeQNqy7R_XQ0NPPPrjtipLWn?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Proba & Stats</a>
+              <a href="https://drive.google.com/drive/folders/1PzHx7FxuhgGuZSxHW7eJav9KW8JUsym3?usp=sharing" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Thermodynamique</a>
+              <a href="https://drive.google.com/drive/folders/1ITMuRpWWEXTSHBJwzstZSzBtKr5D7Wh6?usp=sharing" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>Gestion</a>
             </div>
           </div>
         </div>
 
         <!-- Langue -->
         <div class="col-md-6 col-lg-4" id="lc" data-aos="fade-up" data-aos-delay="100">
-          <div class="card h-100">
-            <div class="card-header bg-primary text-white fw-bold">LANGUE & COM</div>
-            <div class="list-group list-group-flush">
-              <a href="https://drive.google.com/drive/folders/1Y0j71mwqLUKp0xryhJplbwOAHdZ-KOAw?usp=sharing" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>LC I</a>
-              <a href="https://drive.google.com/drive/folders/1AtzM9o5DfUcx2q60t6B7TdzI4tSZOSL1?usp=drive_link" target="_blank" class="list-group-item list-group-item-action"><i class="fa-solid fa-folder-open me-2 text-warning"></i>LC II</a>
+          <div class="glass-card js-tilt">
+            <div class="card-header-custom text-primary"><i class="fas fa-language me-2"></i>LANGUE & COM</div>
+            <div class="p-3">
+              <a href="https://drive.google.com/drive/folders/1Y0j71mwqLUKp0xryhJplbwOAHdZ-KOAw?usp=sharing" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>LC I</a>
+              <a href="https://drive.google.com/drive/folders/1AtzM9o5DfUcx2q60t6B7TdzI4tSZOSL1?usp=drive_link" target="_blank" class="module-chip"><i class="fa-solid fa-folder-open"></i>LC II</a>
             </div>
           </div>
         </div>
@@ -267,11 +561,10 @@
       <button onclick="scrollToTop()" class="retour" id="btn-back-to-top" title="Retour en haut"><i class="fa-solid fa-arrow-turn-up"></i></button>
     </main>
 
-    <footer class="text-center text-white py-4 mt-5">
-      <p>
-        &copy; 2023 EtudePrepas.com - Tous droits réservés.
-        <strong id="jr">Efra.Jr</strong>
-      </p>
+    <footer class="footer text-center mt-5">
+      <div class="container">
+        <p class="m-0 small text-muted">&copy; 2023 EtudePrepas.com - Tous droits réservés. <strong class="text-warning">Efra.Jr</strong></p>
+      </div>
     </footer>
 
     <script>
@@ -294,13 +587,74 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       window.addEventListener('load', function() {
-        const preloader = document.getElementById('preloader');
-        document.body.classList.remove('loading');
-        preloader.style.opacity = '0';
-        preloader.style.visibility = 'hidden';
-        setTimeout(() => { preloader.remove(); }, 600);
+        const loader = document.getElementById('global-loader');
+        if(loader) {
+          // Si le loader est déjà masqué par le script inline, on le supprime du DOM
+          if (sessionStorage.getItem('siteLoaded') && getComputedStyle(loader).display === 'none') {
+             loader.remove();
+             return;
+          }
+          setTimeout(function() {
+            loader.style.opacity = '0';
+            loader.style.visibility = 'hidden';
+            document.body.classList.remove('loading');
+            sessionStorage.setItem('siteLoaded', 'true');
+            setTimeout(function() { loader.remove(); }, 600);
+          }, 1000);
+        }
       });
       AOS.init({ once: true, offset: 50, duration: 600 });
+      
+      // Vanilla Tilt Effect
+      const tiltCards = document.querySelectorAll('.js-tilt');
+      tiltCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = ((y - centerY) / centerY) * -5; // Max rotation deg
+          const rotateY = ((x - centerX) / centerX) * 5;
+          
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        });
+      });
+
+      // Theme Toggle Logic
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const htmlElement = document.documentElement;
+      const navbar = document.getElementById('mainNav');
+      const themeIcon = themeToggleBtn.querySelector('i');
+
+      function setTheme(theme) {
+        htmlElement.setAttribute('data-bs-theme', theme);
+        localStorage.setItem('theme', theme);
+        
+        if (theme === 'light') {
+          navbar.classList.remove('navbar-dark');
+          navbar.classList.add('navbar-light');
+          themeIcon.className = 'fas fa-sun';
+        } else {
+          navbar.classList.remove('navbar-light');
+          navbar.classList.add('navbar-dark');
+          themeIcon.className = 'fas fa-moon';
+        }
+      }
+
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      setTheme(savedTheme);
+
+      themeToggleBtn.addEventListener('click', () => {
+        const newTheme = htmlElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+      });
     </script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>

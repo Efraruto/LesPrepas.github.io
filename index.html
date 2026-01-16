@@ -29,7 +29,7 @@
     <style>
       /* --- GLOBAL & TYPOGRAPHY --- */
       html { scroll-behavior: smooth; }
-      body { overflow-x: hidden; font-family: 'Lora', serif; }
+      html, body { overflow-x: hidden; font-family: 'Lora', serif; width: 100%; }
       h1, h2, h3, h4, h5, h6, .text-uppercase { font-family: 'Raleway', sans-serif; letter-spacing: 1px; }
       
       /* Custom Scrollbar */
@@ -140,44 +140,142 @@
       [data-bs-theme="light"] header.masthead .btn-outline-light { color: #212529; border-color: #212529; font-weight: 600; }
       [data-bs-theme="light"] header.masthead .btn-outline-light:hover { background-color: #e6a756; border-color: #e6a756; color: #fff; }
       
-      /* Navbar background fix on scroll for light mode */
-      [data-bs-theme="light"] #mainNav.navbar-shrink { 
-        background-color: rgba(255, 255, 255, 0.95) !important; 
-        box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05); 
-        backdrop-filter: blur(10px);
+      /* --- MENU "CHIC & OUF" (Floating Glass Island) --- */
+      #mainNav {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 1100px;
+        padding: 10px 25px;
+        border-radius: 50px;
+        background: rgba(18, 18, 18, 0.6);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        z-index: 1000;
       }
       
-      /* Light Mode Navbar Text - Menu en Noir */
-      [data-bs-theme="light"] #mainNav .nav-link { color: #000 !important; font-weight: 600; }
-      [data-bs-theme="light"] #mainNav .navbar-brand { color: #000 !important; }
-      [data-bs-theme="light"] #mainNav .nav-link:hover,
-      [data-bs-theme="light"] #mainNav .nav-link.active { color: #e6a756 !important; }
-      [data-bs-theme="light"] #mainNav .dropdown-menu { background-color: #fff; border: 1px solid rgba(0,0,0,0.15); }
-      [data-bs-theme="light"] #mainNav .dropdown-item { color: #212529; }
-      [data-bs-theme="light"] #mainNav .dropdown-item:hover { background-color: #f8f9fa; }
-
-      /* Fix Mobile Menu Background in Light Mode */
-      @media (max-width: 991.98px) {
-        [data-bs-theme="light"] .navbar-collapse {
-          background-color: #ffffff !important;
-          box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
-        }
-        [data-bs-theme="light"] .navbar-toggler {
-          border-color: rgba(0,0,0,0.1);
-          color: rgba(0,0,0,0.55);
-        }
-        /* Fix Mobile Menu Background in Dark Mode (Harmonization) */
-        [data-bs-theme="dark"] .navbar-collapse {
-          background-color: rgba(18, 18, 18, 0.95) !important;
-          box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.5);
-        }
+      #mainNav.navbar-shrink {
+        top: 10px;
+        width: 95%;
+        max-width: 1200px;
+        background: rgba(10, 10, 10, 0.85);
+        padding: 8px 20px;
+        border-color: rgba(230, 167, 86, 0.3); /* Bordure dorée au scroll */
       }
 
-      /* Navbar Dark Mode Glass */
-      [data-bs-theme="dark"] #mainNav.navbar-shrink {
-        background-color: rgba(18, 18, 18, 0.85) !important;
-        backdrop-filter: blur(15px);
-        border-bottom: 1px solid rgba(255,255,255,0.05);
+      [data-bs-theme="light"] #mainNav {
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+      [data-bs-theme="light"] #mainNav.navbar-shrink {
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(230, 167, 86, 0.3);
+      }
+
+      /* Logo Animation */
+      .navbar-brand img {
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        border: 2px solid rgba(230, 167, 86, 0.5) !important;
+      }
+      .navbar-brand:hover img {
+        transform: rotate(360deg) scale(1.1);
+        border-color: #e6a756 !important;
+      }
+      [data-bs-theme="light"] .navbar-brand { color: #000 !important; }
+
+      /* Menu Items Styling */
+      #mainNav .nav-link {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.8) !important;
+        padding: 8px 16px !important;
+        margin: 0 2px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      [data-bs-theme="light"] #mainNav .nav-link { color: #444 !important; }
+
+      /* Hover & Active State (Glowing Pill Effect) */
+      #mainNav .nav-link:hover,
+      #mainNav .nav-link.active {
+        color: #fff !important;
+        background: linear-gradient(45deg, #e6a756, #ff9f43);
+        box-shadow: 0 4px 15px rgba(230, 167, 86, 0.4);
+        transform: translateY(-2px);
+      }
+      
+      /* Dropdown Menu Chic */
+      #mainNav .dropdown-menu {
+        border: none;
+        border-radius: 20px;
+        background: rgba(30, 30, 30, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 10px;
+        margin-top: 20px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        animation: dropdownFade 0.3s ease forwards;
+        transform-origin: top center;
+      }
+      [data-bs-theme="light"] #mainNav .dropdown-menu {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      }
+      @keyframes dropdownFade {
+        from { opacity: 0; transform: translateY(10px) scale(0.95); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+
+      #mainNav .dropdown-item {
+        border-radius: 10px;
+        padding: 8px 15px;
+        font-weight: 600;
+        color: #ccc;
+        transition: all 0.2s;
+      }
+      [data-bs-theme="light"] #mainNav .dropdown-item { color: #555; }
+      
+      #mainNav .dropdown-item:hover {
+        background: rgba(230, 167, 86, 0.15);
+        color: #e6a756;
+        padding-left: 20px; /* Slide effect */
+      }
+
+      /* Mobile Adjustments */
+      @media (max-width: 991.98px) {
+        #mainNav {
+          width: 95%;
+          top: 10px;
+          padding: 10px 20px;
+          border-radius: 25px;
+        }
+        #mainNav .navbar-collapse {
+          background: transparent;
+          margin-top: 15px;
+          padding: 10px 0;
+          border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        [data-bs-theme="light"] #mainNav .navbar-collapse {
+          border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        #mainNav .nav-link {
+          margin: 5px 0;
+          border-radius: 10px;
+        }
+        #mainNav .nav-link:hover, #mainNav .nav-link.active {
+          transform: none;
+          background: rgba(230, 167, 86, 0.2);
+          color: #e6a756 !important;
+          box-shadow: none;
+        }
       }
 
       /* Light Mode Footer - Fond clair et texte sombre */
@@ -425,14 +523,48 @@
       }
 
       /* --- NEW: GLASSMORPHISM & HERO STYLE --- */
+      /* Hero Premium Effects (Orbs & Grid) */
+      header.masthead { position: relative; overflow: hidden; z-index: 1; }
+      header.masthead .container { position: relative; z-index: 2; }
+      
+      .hero-orbs-container {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 0; pointer-events: none; overflow: hidden;
+      }
+      .hero-orb {
+        position: absolute; border-radius: 50%;
+        filter: blur(80px); opacity: 0.6;
+        animation: heroOrbFloat 10s infinite ease-in-out alternate;
+      }
+      .hero-orb-1 { width: 400px; height: 400px; background: #e6a756; top: -100px; left: -50px; animation-delay: 0s; opacity: 0.5; }
+      .hero-orb-2 { width: 500px; height: 500px; background: #0d6efd; bottom: -100px; right: -50px; animation-delay: -4s; opacity: 0.4; }
+      .hero-orb-3 { width: 300px; height: 300px; background: #6f42c1; top: 30%; left: 40%; animation-delay: -2s; opacity: 0.3; filter: blur(100px); }
+      
+      @keyframes heroOrbFloat {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(30px, 40px) scale(1.1); }
+      }
+
+      .hero-grid-overlay {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: 0;
+        mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+        -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+      }
+
       .glass-panel {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background: rgba(10, 10, 10, 0.3); /* Plus sombre pour contraste avec les orbes */
+        backdrop-filter: blur(20px) saturate(160%); /* Effet givré intense */
+        -webkit-backdrop-filter: blur(20px) saturate(160%);
         border: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid rgba(255, 255, 255, 0.2); /* Reflet haut */
         border-radius: 20px;
         padding: 3rem 2rem;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 0 20px rgba(255,255,255,0.05);
         transform-style: preserve-3d;
         transition: transform 0.1s ease-out;
         max-width: 950px;
@@ -445,13 +577,29 @@
       }
 
       .hero-title {
-        font-weight: 800;
-        letter-spacing: 3px;
-        background: linear-gradient(45deg, #ffffff, #e6a756);
+        font-weight: 900;
+        letter-spacing: 2px;
+        background: linear-gradient(to right, #ffffff 20%, #ffc107 50%, #ffffff 80%); /* Or plus éclatant */
+        background-size: 200% auto;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        filter: drop-shadow(0 2px 15px rgba(230, 167, 86, 0.4));
+        filter: drop-shadow(0 0 25px rgba(255, 193, 7, 0.5)); /* Lueur dorée */
+        animation: shine 3s linear infinite;
       }
+      @keyframes shine {
+        to { background-position: 200% center; }
+      }
+
+      /* --- NEW AESTHETICS --- */
+      /* Noise Overlay */
+      .noise-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjA1Ii8+PC9zdmc+');
+        pointer-events: none; z-index: 9998; opacity: 0.04;
+      }
+      /* Scroll Progress */
+      .scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #e6a756, #ffc107); z-index: 10000; transition: width 0.1s; box-shadow: 0 0 10px rgba(230, 167, 86, 0.7); }
+      
       @media (max-width: 576px) {
         .glass-panel {
           padding: 2rem 1rem; /* Réduit les marges internes pour gagner de la place */
@@ -466,6 +614,56 @@
         -webkit-text-fill-color: transparent;
       }
 
+      /* --- INDEX SPECIFIC PREMIUM STYLES --- */
+      .hero-glow {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px; height: 300px;
+        background: radial-gradient(circle, rgba(230, 167, 86, 0.4) 0%, transparent 70%);
+        filter: blur(60px);
+        z-index: -1;
+        animation: pulse-glow 4s infinite alternate;
+      }
+      @keyframes pulse-glow {
+        0% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.8); }
+        100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.2); }
+      }
+
+      .feature-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        padding: 1.5rem;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        height: 100%;
+        backdrop-filter: blur(5px);
+        cursor: pointer;
+      }
+      .feature-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: #e6a756;
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(230, 167, 86, 0.2);
+      }
+      .feature-card .category-icon-wrapper { width: 70px; height: 70px; font-size: 1.8rem; background: rgba(255,255,255,0.05); margin-bottom: 1rem !important; }
+      .feature-card:hover .category-icon-wrapper { background: #e6a756; color: #fff; transform: scale(1.1) rotate(5deg); }
+      [data-bs-theme="light"] .feature-card { background: rgba(255,255,255,0.7); border-color: rgba(0,0,0,0.05); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+      [data-bs-theme="light"] .feature-card:hover { background: #fff; border-color: #e6a756; box-shadow: 0 15px 30px rgba(230, 167, 86, 0.15); }
+      [data-bs-theme="light"] .feature-card h5 { color: #212529 !important; }
+
+            
+      .hero-catchphrase {
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #fff, #e6a756, #fff);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine 4s linear infinite;
+        margin-bottom: 1.5rem;
+      }
       /* --- AI WIDGET STYLES --- */
       #ai-widget-container { position: fixed; bottom: 20px; left: 20px; z-index: 1050; font-family: 'Raleway', sans-serif; }
       #ai-toggle { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 5px 20px rgba(0,0,0,0.3); z-index: 1051; }
@@ -509,15 +707,25 @@
       @keyframes typing { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
       @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
     </style>
+    
   </head>
   <body>
     <script>
       if (sessionStorage.getItem('siteLoaded')) {
-        document.write('<style>#global-loader { display: none; }</style>');
+        document.documentElement.classList.add('loaded');
       } else {
         document.body.classList.add('loading');
       }
     </script>
+    <!-- Aesthetics Elements -->
+    <div class="scroll-progress"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Style inline critique pour cacher le loader immédiatement si déjà visité -->
+    <style>
+      html.loaded #global-loader { display: none !important; }
+    </style>
+
     <div id="global-loader">
       <img src="./assets/img/logoep.jpeg" alt="Logo" class="loader-logo">
       <div class="loader-spinner"></div>
@@ -638,15 +846,24 @@
 
     <!-- Header -->
     <header class="masthead text-center text-white d-flex flex-column justify-content-center align-items-center">
+      <!-- Hero Orbs & Grid Animation -->
+      <div class="hero-orbs-container">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
+      </div>
+      <div class="hero-grid-overlay"></div>
+      
       <div class="container">
         <div class="glass-panel position-relative" data-aos="zoom-in" data-aos-duration="1000">
+            <div class="hero-glow"></div>
             <img class="masthead-avatar mb-4 rounded-circle border border-4 border-primary shadow-lg floating-logo" src="./assets/img/logoep.jpeg" alt="Logo" width="150" height="150" />
             <h1 class="masthead-heading text-uppercase mb-0 hero-title">Classes Préparatoires</h1>
             <div class="divider-custom divider-light my-4">
                 <div class="divider-custom-line" style="height: 3px; background-color: #e6a756; width: 100px; margin: 0 auto;"></div>
             </div>
-            <p class="masthead-subheading font-weight-light mb-0 h4">Plateforme de ressources pour étudiants en 1ère et 2ème année de sciences<br><span class="fs-5">(Classes Préparatoires, FST, FS, Médecine...)</span></p>
-            <div class="mt-5 d-flex justify-content-center gap-3 flex-wrap">
+            <p class="hero-catchphrase">"Booste tes résultats : la plateforme ultime pour dompter ton semestre."</p>
+            <p class="masthead-subheading font-weight-light mb-0 h6 text-white-50">Ressources pour étudiants en 1ère et 2ème année de sciences<br><span class="small">(Classes Préparatoires, FST, FS, Médecine...)</span></p>            <div class="mt-5 d-flex justify-content-center gap-3 flex-wrap">
                 <a class="btn btn-primary btn-xl text-uppercase shadow" href="#categories">Nos Cours</a>
                 <a class="btn btn-outline-light btn-xl text-uppercase shadow" href="#intro">Découvrir</a>
             </div>
@@ -735,31 +952,43 @@
               </h2>
               
               <!-- Icons Row -->
-              <div class="d-flex justify-content-center gap-5 mb-5 flex-wrap text-warning">
-                  <div class="text-center">
-                      <div class="category-icon-wrapper mb-3">
-                        <i class="fas fa-square-root-variable fa-3x category-icon" title="Mathématiques"></i>
-                      </div>
-                      <div class="small text-white-50 text-uppercase fw-bold">Maths</div>
-                  </div>
-                  <div class="text-center">
-                      <div class="category-icon-wrapper mb-3">
-                        <i class="fas fa-atom fa-3x category-icon" title="Physique"></i>
-                      </div>
-                      <div class="small text-white-50 text-uppercase fw-bold">Physique</div>
-                  </div>
-                  <div class="text-center">
-                      <div class="category-icon-wrapper mb-3">
-                        <i class="fas fa-flask fa-3x category-icon" title="Chimie"></i>
-                      </div>
-                      <div class="small text-white-50 text-uppercase fw-bold">Chimie</div>
-                  </div>
-                  <div class="text-center">
-                      <div class="category-icon-wrapper mb-3">
-                        <i class="fas fa-laptop-code fa-3x category-icon" title="Informatique"></i>
-                      </div>
-                      <div class="small text-white-50 text-uppercase fw-bold">Info</div>
-                  </div>
+              <div class="row g-4 mb-5 justify-content-center">
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card text-center">
+                        <div class="category-icon-wrapper mx-auto">
+                            <i class="fas fa-square-root-variable"></i>
+                        </div>
+                        <h5 class="fw-bold text-white mb-1">MATHS</h5>
+                        <p class="small text-white-50 mb-0">Analyse & Algèbre</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card text-center">
+                        <div class="category-icon-wrapper mx-auto">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h5 class="fw-bold text-white mb-1">PHYSIQUE</h5>
+                        <p class="small text-white-50 mb-0">Méca & Optique</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card text-center">
+                        <div class="category-icon-wrapper mx-auto">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h5 class="fw-bold text-white mb-1">CHIMIE</h5>
+                        <p class="small text-white-50 mb-0">Organique & Minérale</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-card text-center">
+                        <div class="category-icon-wrapper mx-auto">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h5 class="fw-bold text-white mb-1">INFO</h5>
+                        <p class="small text-white-50 mb-0">Python & Algo</p>
+                    </div>
+                </div>
               </div>
 
               <p class="mb-5 lead text-white-50 mx-auto" style="max-width: 800px;">
@@ -1004,23 +1233,69 @@
         { title: "Orientation & Conseils", url: "orientation.html", keywords: "orientation conseil carriere metier ingenieur" }
       ];
 
+      // Configuration de la recherche intelligente (Fuse.js)
+      const fuseOptions = {
+        includeScore: true,
+        keys: ['title', 'keywords'],
+        threshold: 0.4, // Tolérance aux fautes (0.0 = strict, 1.0 = tout passe)
+        ignoreLocation: true
+      };
+      let fuse;
+
       if(searchModal && searchInput) {
-        searchModal.addEventListener('shown.bs.modal', () => searchInput.focus());
+        // Initialiser Fuse au chargement
+        if (typeof Fuse !== 'undefined') {
+            fuse = new Fuse(searchIndex, fuseOptions);
+        }
+
+        searchModal.addEventListener('shown.bs.modal', () => {
+            searchInput.focus();
+            searchInput.value = '';
+            searchResults.innerHTML = '<div class="text-center text-muted p-4"><i class="fas fa-search fa-2x mb-3 opacity-50"></i><p>Tapez un mot-clé (ex: "Analyse", "Méca")...</p></div>';
+        });
         
         searchInput.addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
+            const query = e.target.value;
             searchResults.innerHTML = '';
-            if(query.length < 2) return;
+            
+            if(query.length < 2) {
+                searchResults.innerHTML = '<div class="text-center text-muted p-3">Continuez à écrire...</div>';
+                return;
+            }
 
-            const results = searchIndex.filter(item => item.title.toLowerCase().includes(query) || item.keywords.includes(query));
+            let results = [];
+            if (fuse) {
+                // Recherche avec Fuse.js (Intelligente)
+                const fuseResults = fuse.search(query);
+                results = fuseResults.map(r => r.item);
+            } else {
+                // Fallback recherche simple (Si Fuse ne charge pas)
+                const lower = query.toLowerCase();
+                results = searchIndex.filter(item => item.title.toLowerCase().includes(lower) || item.keywords.includes(lower));
+            }
 
             if(results.length > 0) {
-                results.forEach(result => {
-                    searchResults.innerHTML += `<a href="${result.url}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"><span>${result.title}</span><i class="fas fa-chevron-right small text-muted"></i></a>`;
+                results.slice(0, 5).forEach(item => { // Max 5 résultats
+                    searchResults.innerHTML += `
+                    <a href="${item.url}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-3">
+                        <div>
+                            <div class="fw-bold text-warning mb-1"><i class="fas fa-book-open me-2"></i>${item.title}</div>
+                            <small class="opacity-75 d-block text-truncate" style="max-width: 300px;">${item.keywords.substring(0, 60)}...</small>
+                        </div>
+                        <i class="fas fa-chevron-right small opacity-50"></i>
+                    </a>`;
                 });
             } else {
-                searchResults.innerHTML = '<div class="list-group-item text-muted">Aucun résultat trouvé.</div>';
+                searchResults.innerHTML = `<div class="list-group-item text-center p-4 text-muted border-0">Aucun cours trouvé pour "${query}"</div>`;
             }
+            
+            // Bouton IA toujours visible à la fin
+            searchResults.innerHTML += `
+                <button onclick="triggerAI('${query.replace(/'/g, "\\'")}')" class="list-group-item list-group-item-action d-flex align-items-center justify-content-center p-3 mt-2 border-top border-warning bg-opacity-10" style="background: rgba(230, 167, 86, 0.1) !important; border-radius: 10px;">
+                    <i class="fas fa-robot text-warning me-3 fa-lg fa-beat"></i>
+                    <span class="fw-bold text-warning">Demander à l'Assistant IA</span>
+                </button>
+            `;
         });
       }
 
@@ -1198,6 +1473,27 @@
         aiInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') sendMessage();
         });
+        
+        // Fonction globale pour déclencher l'IA depuis la recherche
+        window.triggerAI = function(query) {
+            // Fermer la modale de recherche
+            const modalEl = document.getElementById('searchModal');
+            if (modalEl && window.bootstrap) {
+                const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+                modal.hide();
+            }
+            
+            // Ouvrir l'IA
+            setTimeout(() => {
+                aiPanel.classList.add('active');
+                if(query && query.length > 1) {
+                    aiInput.value = "Peux-tu m'aider à trouver des ressources ou m'expliquer : " + query;
+                    aiSend.click();
+                } else {
+                    aiInput.focus();
+                }
+            }, 500);
+        };
       }
 
       // Theme Toggle Logic
@@ -1231,6 +1527,16 @@
         const currentTheme = htmlElement.getAttribute('data-bs-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
+      });
+
+      // --- AESTHETICS JS ---
+      // Scroll Progress
+      window.addEventListener('scroll', () => {
+          const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+          const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const scrollPercent = (scrollTop / scrollHeight) * 100;
+          const progressBar = document.querySelector('.scroll-progress');
+          if(progressBar) progressBar.style.width = scrollPercent + '%';
       });
     </script>
     <!-- Core theme JS-->
