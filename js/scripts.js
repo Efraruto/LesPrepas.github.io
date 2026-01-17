@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", (event) => {
     // Navbar shrink function
     const navbarCollapsible = document.body.querySelector('#mainNav');
-    var navbarShrink = function () {
+    const navbarShrink = function () {
         if (!navbarCollapsible) {
             return;
         }
@@ -20,10 +20,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
+    const responsiveNavItems = Array.from(
         document.querySelectorAll('#navbarResponsive .nav-link')
     );
-    responsiveNavItems.map(function (responsiveNavItem) {
+    responsiveNavItems.forEach(function (responsiveNavItem) {
         responsiveNavItem.addEventListener('click', () => {
             if (window.getComputedStyle(navbarToggler).display !== 'none') {
                 navbarToggler.click();
@@ -35,13 +35,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let mybutton = document.getElementById("btn-back-to-top");
 
     if (mybutton) {
-        window.onscroll = function () {
+        window.addEventListener('scroll', function () {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                 mybutton.style.display = "block";
             } else {
                 mybutton.style.display = "none";
             }
-        };
+        });
 
         mybutton.addEventListener("click", function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
