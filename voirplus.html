@@ -257,6 +257,84 @@
 
       .retour { position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000; border-radius: 50%; width: 50px; height: 50px; border: none; background: linear-gradient(45deg, #e6a756, #ffc107); color: #fff; box-shadow: 0 4px 15px rgba(230, 167, 86, 0.4); }
       .retour:hover { transform: scale(1.1); color: #fff; }
+
+      .nav-link { cursor: pointer; }
+
+      /* Form Styles */
+      .contact-card {
+        background: rgba(20, 20, 20, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+      .contact-card:hover { transform: translateY(-5px); }
+      [data-bs-theme="light"] .contact-card {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+      }
+
+      .form-control {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff !important;
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        transition: all 0.3s ease;
+      }
+      .form-control:hover {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+      .form-control:focus {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #e6a756;
+        color: #fff !important;
+        box-shadow: 0 0 20px rgba(230, 167, 86, 0.2);
+        transform: translateY(-2px);
+      }
+      .form-floating label { 
+        color: rgba(255, 255, 255, 0.5); 
+        padding-left: 1.2rem;
+      }
+      .form-floating > .form-control:focus ~ label,
+      .form-floating > .form-control:not(:placeholder-shown) ~ label { color: #e6a756; }
+      .form-floating > .form-control:not(:placeholder-shown) ~ label { 
+        color: #e6a756;
+        transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+        background: transparent;
+      }
+      
+      .btn-primary {
+        background: linear-gradient(45deg, #e6a756, #ff9f43);
+        border: none;
+        box-shadow: 0 4px 15px rgba(230, 167, 86, 0.4);
+        font-weight: 700;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        background: linear-gradient(45deg, #ffc107, #e6a756);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 10px 25px rgba(230, 167, 86, 0.6);
+      }
+
+      /* Light Mode Form Overrides */
+      [data-bs-theme="light"] .form-control {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid #ced4da;
+        color: #212529 !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
+      [data-bs-theme="light"] .form-control:focus { 
+        border-color: #e6a756;
+        box-shadow: 0 0 0 0.25rem rgba(230, 167, 86, 0.25);
+      }
+      [data-bs-theme="light"] .form-floating label { color: #6c757d; }
     </style>
   </head>
   <body class="loading">
@@ -409,37 +487,34 @@
 
         <!-- Contact Form -->
         <div class="col-12" data-aos="fade-up" data-aos-delay="500">
-          <div class="card glass-card border-0">
-            <div class="card-header bg-transparent border-bottom border-secondary text-center py-4">
-                <h2 class="card-title fw-bold mb-0"><i class="fa-solid fa-paper-plane me-2"></i>Contactez-nous</h2>
+          <div class="contact-card">
+            <div class="text-center py-4 border-bottom border-secondary border-opacity-25" style="background: linear-gradient(to right, rgba(230, 167, 86, 0.1), transparent, rgba(230, 167, 86, 0.1));">
+                <h2 class="card-title fw-bold mb-0 text-warning"><i class="fa-solid fa-paper-plane me-2"></i>Contactez-nous</h2>
+                <p class="small text-muted mb-0 mt-2">Une question ? Une suggestion ? Nous sommes à votre écoute.</p>
             </div>
             <div class="card-body p-4 p-lg-5">
-              <p class="text-center text-muted mb-4">
-                Vous avez une question, une suggestion ou vous souhaitez partager votre avis ? 
-                Remplissez le formulaire ci-dessous.
-              </p>
               <!-- Formulaire Netlify -->
               <form name="contact" method="POST" data-netlify="true">
-                <div class="row g-3">
+                <div class="row g-4">
                   <div class="col-md-6">
-                    <div class="form-floating text-dark">
-                      <input type="text" class="form-control bg-light" id="nom" name="nom" placeholder="Votre Nom" required>
-                      <label for="nom">Votre Nom</label>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre Nom" required>
+                      <label for="nom"><i class="fas fa-user me-2"></i>Votre Nom</label>
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="form-floating text-dark">
-                      <input type="email" class="form-control bg-light" id="email" name="email" placeholder="name@example.com" required>
-                      <label for="email">Votre Email</label>
+                    <div class="form-floating">
+                      <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+                      <label for="email"><i class="fas fa-envelope me-2"></i>Votre Email</label>
                     </div>
                   </div>
                   <div class="col-12">
-                    <div class="form-floating text-dark">
-                      <textarea class="form-control bg-light" placeholder="Votre message" id="message" name="message" style="height: 150px" required></textarea>
-                      <label for="message">Votre Message</label>
+                    <div class="form-floating">
+                      <textarea class="form-control" placeholder="Votre message" id="message" name="message" style="height: 150px" required></textarea>
+                      <label for="message"><i class="fas fa-comment-alt me-2"></i>Votre Message</label>
                     </div>
                   </div>
-                  <div class="col-12 text-center mt-4">
+                  <div class="col-12 text-center mt-2">
                     <button class="btn btn-primary btn-lg px-5 rounded-pill shadow-sm" type="submit">
                         Envoyer le message <i class="fa-solid fa-paper-plane ms-2"></i>
                     </button>
