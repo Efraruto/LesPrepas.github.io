@@ -5,9 +5,9 @@ exports.handler = async function (event, context) {
     }
 
     try {
-        const { prompt } = JSON.parse(event.body);
-        if (!prompt) {
-            return { statusCode: 400, body: JSON.stringify({ error: 'Missing prompt' }) };
+        const { messages } = JSON.parse(event.body);
+        if (!messages || !Array.isArray(messages)) {
+            return { statusCode: 400, body: JSON.stringify({ error: 'Missing or invalid messages array' }) };
         }
 
         const apiKey = process.env.AI_API_KEY;
@@ -18,17 +18,21 @@ exports.handler = async function (event, context) {
             };
         }
 
-        // Call Pollinations API with the secret key
-        const aiResponse = await fetch('https://gen.pollinations.ai/v1/chat/completions', {
+        const systemPrompt = {
+            role: 'system',
+            content: "Tu es l'assistant IA du site EtudesPrepas pour étudiants marocains en prépas, FST et médecine. Réponds en français, sois concis et pédagogique."
+        };
+
+        // Call Groq API with the secret key
+        const aiResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: 'openai',
-                messages: [{ role: 'user', content: prompt }],
-                seed: Math.floor(Math.random() * 9999)
+                model: 'llama3-8b-8192',
+                messages: [systemPrompt, ...messages]
             })
         });
 

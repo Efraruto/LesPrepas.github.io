@@ -2215,17 +2215,13 @@
           chatHistory.push({ role: "user", content: userText });
           if (chatHistory.length > 10) chatHistory = chatHistory.slice(-10);
 
-          const systemPrompt = "Tu es l'assistant IA du site EtudesPrepas pour étudiants marocains en prépas, FST et médecine. Réponds en français, sois concis et pédagogique.";
-          const conversation = chatHistory.map(m => `${m.role === 'user' ? 'Étudiant' : 'Assistant'}: ${m.content}`).join('\n');
-          const fullPrompt = `${systemPrompt}\n\n${conversation}\nAssistant:`;
-
           const controller = new AbortController();
           const timeout = setTimeout(() => controller.abort(), 15000);
 
           const response = await fetch('/.netlify/functions/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt: fullPrompt }),
+            body: JSON.stringify({ messages: chatHistory }),
             signal: controller.signal
           });
           clearTimeout(timeout);
