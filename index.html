@@ -2243,7 +2243,12 @@
 
         } catch (error) {
           removeTyping();
-          addMessage("Service temporairement indisponible", 'bot');
+          console.error("Chat error:", error);
+          if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
+            addMessage("Attention: Le chatbot sécurisé ne peut être testé que sur le site en ligne (Netlify), car votre serveur local ne supporte pas les Netlify Functions.", 'bot');
+          } else {
+            addMessage(`Erreur: ${error.message}`, 'bot');
+          }
         }
       };
 
