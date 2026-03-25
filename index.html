@@ -2191,11 +2191,14 @@
       const handleAiResponse = async (userText) => {
         showTyping();
 
-        const lowerText = userText.toLowerCase();
+        const lowerText = userText.trim().toLowerCase();
 
-        // Mode Image
-        if (lowerText.startsWith('image') || lowerText.startsWith('dessine')) {
-          const prompt = userText.replace(/^(image|dessine)\s*/i, '').trim();
+        // Mode Image (regex améliorée)
+        const imgRegex = /^(?:dessine[- ]moi|dessine|image|g[eé]n[eé]re[- ]moi l'image|g[eé]n[eé]re l'image|g[eé]n[eé]rer l'image|g[eé]n[eé]re une image|g[eé]n[eé]rer une image|cr[eé]e une image)\s*(?:d'une?\s+|d'un\s+|de\s+|d')?(.*)/i;
+        const matchResult = userText.trim().match(imgRegex);
+
+        if (matchResult && lowerText.length > 5 && !lowerText.includes('ne dessine pas') && !lowerText.includes('ne genere pas')) {
+          const prompt = matchResult[1] ? matchResult[1].trim() : "une belle image";
           const imgUrl = `https://gen.pollinations.ai/image/${encodeURIComponent(prompt)}?width=512&height=512&seed=${Math.floor(Math.random() * 1000)}&nologo=true`;
 
           const img = new Image();
