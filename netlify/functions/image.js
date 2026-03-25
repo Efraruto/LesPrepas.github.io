@@ -15,7 +15,7 @@ exports.handler = async function (event, context) {
     }
 
     try {
-        const url = `https://gen.pollinations.ai/image/${encodeURIComponent(prompt)}`;
+        const url = `https://gen.pollinations.ai/image/${encodeURIComponent(prompt)}?model=flux`;
 
         const response = await fetch(url, {
             headers: {
