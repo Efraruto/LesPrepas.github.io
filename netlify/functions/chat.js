@@ -5,7 +5,7 @@ exports.handler = async function (event, context) {
     }
 
     try {
-        const { messages } = JSON.parse(event.body);
+        const { messages, customSystemPrompt } = JSON.parse(event.body);
         if (!messages || !Array.isArray(messages)) {
             return { statusCode: 400, body: JSON.stringify({ error: 'Missing or invalid messages array' }) };
         }
@@ -20,7 +20,7 @@ exports.handler = async function (event, context) {
 
         const systemPrompt = {
             role: 'system',
-            content: "Tu es l'assistant IA du site EtudesPrepas pour étudiants marocains en prépas, FST et médecine. Réponds en français, sois concis et pédagogique."
+            content: customSystemPrompt || "Tu es l'assistant IA du site EtudesPrepas pour étudiants marocains en prépas, FST et médecine. Réponds en français, sois concis et pédagogique."
         };
 
         // Call Groq API with the secret key

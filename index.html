@@ -2196,7 +2196,7 @@
         // Mode Image
         if (lowerText.startsWith('image') || lowerText.startsWith('dessine')) {
           const prompt = userText.replace(/^(image|dessine)\s*/i, '').trim();
-          const imgUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=512&height=512&seed=${Math.floor(Math.random() * 1000)}&nologo=true`;
+          const imgUrl = `https://gen.pollinations.ai/image/${encodeURIComponent(prompt)}?width=512&height=512&seed=${Math.floor(Math.random() * 1000)}&nologo=true`;
 
           const img = new Image();
           img.src = imgUrl;
