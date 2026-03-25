@@ -1,586 +1,938 @@
 <!DOCTYPE html>
 <html lang="fr" data-bs-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ClassePrepas - Informations</title>
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXJQWKXWVC"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-TXJQWKXWVC');
-    </script>
 
-    <!-- Bootstrap 5.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- AOS Animation CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <link rel="shortcut icon" href="./assets/img/logoep.jpeg" />
-    <!-- Custom CSS -->
-    <link href="style.css" rel="stylesheet" />
-    <style>
-      /* --- GLOBAL & TYPOGRAPHY --- */
-      html { scroll-behavior: smooth; }
-      body { overflow-x: hidden; font-family: 'Lora', serif; padding-top: 0; }
-      h1, h2, h3, h4, h5, h6, .text-uppercase { font-family: 'Raleway', sans-serif; letter-spacing: 1px; }
-      
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar { width: 10px; }
-      ::-webkit-scrollbar-track { background: #1a1a1a; }
-      ::-webkit-scrollbar-thumb { background: #444; border-radius: 5px; }
-      ::-webkit-scrollbar-thumb:hover { background: #e6a756; }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EtudesPrepas - Informations</title>
 
-      /* Loader */
-      #global-loader { position: fixed; z-index: 99999; top: 0; left: 0; right: 0; bottom: 0; background-color: #121212; display: flex; justify-content: center; align-items: center; flex-direction: column; transition: opacity 0.6s ease-out, visibility 0.6s ease-out; }
-      .loader-logo { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 20px; animation: pulse 2s infinite; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
-      .loader-spinner { width: 50px; height: 50px; border: 4px solid rgba(255,255,255,0.1); border-top: 4px solid #e6a756; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 15px; }
-      .loader-text { font-family: 'Raleway', sans-serif; font-weight: 700; color: #f8f9fa; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
-      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-      @keyframes pulse { 0% { transform: scale(0.95); } 50% { transform: scale(1); } 100% { transform: scale(0.95); } }
-      body.loading { overflow: hidden; }
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TXJQWKXWVC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-TXJQWKXWVC');
+  </script>
 
-      /* --- THEME STYLES --- */
-      [data-bs-theme="dark"] body {
-        background-color: #121212;
-        background-image: radial-gradient(circle at 15% 50%, rgba(230, 167, 86, 0.05), transparent 25%), radial-gradient(circle at 85% 30%, rgba(41, 98, 255, 0.05), transparent 25%);
-        color: #e0e0e0;
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="shortcut icon" href="./assets/img/logoep.jpeg" />
+  <!-- Custom CSS -->
+  <link href="style.css" rel="stylesheet" />
+  <style>
+    /* --- GLOBAL & TYPOGRAPHY --- */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      overflow-x: hidden;
+      font-family: 'Lora', serif;
+      padding-top: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .text-uppercase {
+      font-family: 'Raleway', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #1a1a1a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #e6a756;
+    }
+
+    /* Loader */
+    #global-loader {
+      position: fixed;
+      z-index: 99999;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #121212;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+    }
+
+    .loader-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .loader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      border-top: 4px solid #e6a756;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+
+    .loader-text {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      color: #f8f9fa;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
       }
-      [data-bs-theme="light"] body { 
-        background-color: #f8f9fa;
-        background-image: radial-gradient(circle at 15% 50%, rgba(230, 167, 86, 0.08), transparent 25%), radial-gradient(circle at 85% 30%, rgba(41, 98, 255, 0.08), transparent 25%);
-        color: #212529;
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.95);
       }
 
-      /* --- MENU "CHIC & OUF" (Floating Glass Island) --- */
+      50% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(0.95);
+      }
+    }
+
+    body.loading {
+      overflow: hidden;
+    }
+
+    /* --- THEME STYLES --- */
+    [data-bs-theme="dark"] body {
+      background-color: #121212;
+      background-image: radial-gradient(circle at 15% 50%, rgba(230, 167, 86, 0.05), transparent 25%), radial-gradient(circle at 85% 30%, rgba(41, 98, 255, 0.05), transparent 25%);
+      color: #e0e0e0;
+    }
+
+    [data-bs-theme="light"] body {
+      background-color: #f8f9fa;
+      background-image: radial-gradient(circle at 15% 50%, rgba(230, 167, 86, 0.08), transparent 25%), radial-gradient(circle at 85% 30%, rgba(41, 98, 255, 0.08), transparent 25%);
+      color: #212529;
+    }
+
+    /* --- MENU "CHIC & OUF" (Floating Glass Island) --- */
+    #mainNav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1100px;
+      padding: 10px 25px;
+      border-radius: 50px;
+      background: rgba(18, 18, 18, 0.6);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      z-index: 1000;
+    }
+
+    #mainNav.navbar-shrink {
+      top: 10px;
+      width: 95%;
+      max-width: 1200px;
+      background: rgba(10, 10, 10, 0.85);
+      padding: 8px 20px;
+      border-color: rgba(230, 167, 86, 0.3);
+      /* Bordure dorée au scroll */
+    }
+
+    [data-bs-theme="light"] #mainNav {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    [data-bs-theme="light"] #mainNav.navbar-shrink {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(230, 167, 86, 0.3);
+    }
+
+    /* Logo Animation */
+    .navbar-brand img {
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 2px solid rgba(230, 167, 86, 0.5) !important;
+    }
+
+    .navbar-brand:hover img {
+      transform: rotate(360deg) scale(1.1);
+      border-color: #e6a756 !important;
+    }
+
+    [data-bs-theme="light"] .navbar-brand {
+      color: #000 !important;
+    }
+
+    /* Menu Items Styling */
+    #mainNav .nav-link {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.8) !important;
+      padding: 8px 16px !important;
+      margin: 0 2px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    [data-bs-theme="light"] #mainNav .nav-link {
+      color: #444 !important;
+    }
+
+    /* Hover & Active State (Glowing Pill Effect) */
+    #mainNav .nav-link:hover,
+    #mainNav .nav-link.active {
+      color: #fff !important;
+      background: linear-gradient(45deg, #e6a756, #ff9f43);
+      box-shadow: 0 4px 15px rgba(230, 167, 86, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Dropdown Menu Chic */
+    #mainNav .dropdown-menu {
+      border: none;
+      border-radius: 20px;
+      background: rgba(30, 30, 30, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 10px;
+      margin-top: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      animation: dropdownFade 0.3s ease forwards;
+      transform-origin: top center;
+    }
+
+    [data-bs-theme="light"] #mainNav .dropdown-menu {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes dropdownFade {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    #mainNav .dropdown-item {
+      border-radius: 10px;
+      padding: 8px 15px;
+      font-weight: 600;
+      color: #ccc;
+      transition: all 0.2s;
+    }
+
+    [data-bs-theme="light"] #mainNav .dropdown-item {
+      color: #555;
+    }
+
+    #mainNav .dropdown-item:hover {
+      background: rgba(230, 167, 86, 0.15);
+      color: #e6a756;
+      padding-left: 20px;
+      /* Slide effect */
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 991.98px) {
       #mainNav {
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        max-width: 1100px;
-        padding: 10px 25px;
-        border-radius: 50px;
-        background: rgba(18, 18, 18, 0.6);
-        backdrop-filter: blur(20px) saturate(180%);
-        -webkit-backdrop-filter: blur(20px) saturate(180%);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        z-index: 1000;
-      }
-      
-      #mainNav.navbar-shrink {
-        top: 10px;
         width: 95%;
-        max-width: 1200px;
-        background: rgba(10, 10, 10, 0.85);
-        padding: 8px 20px;
-        border-color: rgba(230, 167, 86, 0.3); /* Bordure dorée au scroll */
+        top: 10px;
+        padding: 10px 20px;
+        border-radius: 25px;
       }
 
-      [data-bs-theme="light"] #mainNav {
-        background: rgba(255, 255, 255, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-      }
-      [data-bs-theme="light"] #mainNav.navbar-shrink {
-        background: rgba(255, 255, 255, 0.9);
-        border-color: rgba(230, 167, 86, 0.3);
+      #mainNav .navbar-collapse {
+        background: transparent;
+        margin-top: 15px;
+        padding: 10px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
 
-      /* Logo Animation */
-      .navbar-brand img {
-        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        border: 2px solid rgba(230, 167, 86, 0.5) !important;
+      [data-bs-theme="light"] #mainNav .navbar-collapse {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
       }
-      .navbar-brand:hover img {
-        transform: rotate(360deg) scale(1.1);
-        border-color: #e6a756 !important;
-      }
-      [data-bs-theme="light"] .navbar-brand { color: #000 !important; }
 
-      /* Menu Items Styling */
       #mainNav .nav-link {
-        font-family: 'Raleway', sans-serif;
-        font-weight: 700;
-        font-size: 0.85rem;
-        letter-spacing: 1px;
-        color: rgba(255, 255, 255, 0.8) !important;
-        padding: 8px 16px !important;
-        margin: 0 2px;
-        border-radius: 20px;
-        transition: all 0.3s ease;
-        position: relative;
+        margin: 5px 0;
+        border-radius: 10px;
       }
-      [data-bs-theme="light"] #mainNav .nav-link { color: #444 !important; }
 
-      /* Hover & Active State (Glowing Pill Effect) */
       #mainNav .nav-link:hover,
       #mainNav .nav-link.active {
-        color: #fff !important;
-        background: linear-gradient(45deg, #e6a756, #ff9f43);
-        box-shadow: 0 4px 15px rgba(230, 167, 86, 0.4);
-        transform: translateY(-2px);
+        transform: none;
+        background: rgba(230, 167, 86, 0.2);
+        color: #e6a756 !important;
+        box-shadow: none;
       }
-      
-      /* Dropdown Menu Chic */
-      #mainNav .dropdown-menu {
-        border: none;
-        border-radius: 20px;
-        background: rgba(30, 30, 30, 0.95);
-        backdrop-filter: blur(20px);
-        padding: 10px;
-        margin-top: 20px;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        animation: dropdownFade 0.3s ease forwards;
-        transform-origin: top center;
-      }
-      [data-bs-theme="light"] #mainNav .dropdown-menu {
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-      }
-      @keyframes dropdownFade {
-        from { opacity: 0; transform: translateY(10px) scale(0.95); }
-        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    footer.footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+    }
+
+    /* Hero Premium Effects */
+    header.masthead {
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+    }
+
+    .hero-orbs-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.6;
+      animation: heroOrbFloat 10s infinite ease-in-out alternate;
+    }
+
+    .hero-orb-1 {
+      width: 400px;
+      height: 400px;
+      background: #e6a756;
+      top: -100px;
+      left: -50px;
+      animation-delay: 0s;
+      opacity: 0.5;
+    }
+
+    .hero-orb-2 {
+      width: 500px;
+      height: 500px;
+      background: #0d6efd;
+      bottom: -100px;
+      right: -50px;
+      animation-delay: -4s;
+      opacity: 0.4;
+    }
+
+    @keyframes heroOrbFloat {
+      0% {
+        transform: translate(0, 0) scale(1);
       }
 
-      #mainNav .dropdown-item {
-        border-radius: 10px;
-        padding: 8px 15px;
-        font-weight: 600;
-        color: #ccc;
-        transition: all 0.2s;
+      100% {
+        transform: translate(30px, 40px) scale(1.1);
       }
-      [data-bs-theme="light"] #mainNav .dropdown-item { color: #555; }
-      
-      #mainNav .dropdown-item:hover {
-        background: rgba(230, 167, 86, 0.15);
-        color: #e6a756;
-        padding-left: 20px; /* Slide effect */
+    }
+
+    .hero-grid-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: 0;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+      -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+    }
+
+    .glass-panel {
+      background: rgba(10, 10, 10, 0.3);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.05);
+      position: relative;
+      z-index: 2;
+    }
+
+    [data-bs-theme="light"] .glass-panel {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-title {
+      font-weight: 900;
+      letter-spacing: 2px;
+      background: linear-gradient(to right, #ffffff 20%, #ffc107 50%, #ffffff 80%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 25px rgba(255, 193, 7, 0.5));
+      animation: shine 3s linear infinite;
+    }
+
+    [data-bs-theme="light"] .hero-title {
+      background: linear-gradient(45deg, #212529, #e6a756);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    /* Glass Cards */
+    .glass-card {
+      background: rgba(30, 30, 30, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(230, 167, 86, 0.4);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    [data-bs-theme="light"] .glass-card {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #212529;
+    }
+
+    [data-bs-theme="light"] .glass-card:hover {
+      background: #fff;
+    }
+
+    .theme-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+      transition: transform 0.5s;
+    }
+
+    .glass-card:hover .theme-img {
+      transform: scale(1.05);
+    }
+
+    /* Floating Background */
+    .floating-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .floating-item {
+      position: absolute;
+      animation: float-3d 20s infinite ease-in-out alternate;
+      opacity: 0.1;
+    }
+
+    @keyframes float-3d {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
       }
 
-      /* Mobile Adjustments */
-      @media (max-width: 991.98px) {
-        #mainNav {
-          width: 95%;
-          top: 10px;
-          padding: 10px 20px;
-          border-radius: 25px;
-        }
-        #mainNav .navbar-collapse {
-          background: transparent;
-          margin-top: 15px;
-          padding: 10px 0;
-          border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        [data-bs-theme="light"] #mainNav .navbar-collapse {
-          border-top: 1px solid rgba(0,0,0,0.1);
-        }
-        #mainNav .nav-link {
-          margin: 5px 0;
-          border-radius: 10px;
-        }
-        #mainNav .nav-link:hover, #mainNav .nav-link.active {
-          transform: none;
-          background: rgba(230, 167, 86, 0.2);
-          color: #e6a756 !important;
-          box-shadow: none;
-        }
+      100% {
+        transform: translate(30px, 50px) rotate(10deg);
       }
+    }
 
-      footer.footer { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem; padding-bottom: 2rem; }
+    /* Noise & Scroll */
+    .noise-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjA1Ii8+PC9zdmc+');
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.04;
+    }
 
-      /* Hero Premium Effects */
-      header.masthead { position: relative; overflow: hidden; z-index: 1; padding-top: 8rem; padding-bottom: 6rem; }
-      .hero-orbs-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; }
-      .hero-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.6; animation: heroOrbFloat 10s infinite ease-in-out alternate; }
-      .hero-orb-1 { width: 400px; height: 400px; background: #e6a756; top: -100px; left: -50px; animation-delay: 0s; opacity: 0.5; }
-      .hero-orb-2 { width: 500px; height: 500px; background: #0d6efd; bottom: -100px; right: -50px; animation-delay: -4s; opacity: 0.4; }
-      @keyframes heroOrbFloat { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, 40px) scale(1.1); } }
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #e6a756, #ffc107);
+      z-index: 10000;
+      transition: width 0.1s;
+      box-shadow: 0 0 10px rgba(230, 167, 86, 0.7);
+    }
 
-      .hero-grid-overlay {
-        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        background-size: 50px 50px; z-index: 0;
-        mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
-        -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
-      }
+    .retour {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      z-index: 1000;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      border: none;
+      background: linear-gradient(45deg, #e6a756, #ffc107);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(230, 167, 86, 0.4);
+    }
 
-      .glass-panel {
-        background: rgba(10, 10, 10, 0.3); backdrop-filter: blur(20px) saturate(160%);
-        -webkit-backdrop-filter: blur(20px) saturate(160%);
-        border: 1px solid rgba(255, 255, 255, 0.1); border-top: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 20px; padding: 3rem 2rem;
-        box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 0 20px rgba(255,255,255,0.05);
-        position: relative; z-index: 2;
-      }
-      [data-bs-theme="light"] .glass-panel { background: rgba(255, 255, 255, 0.6); border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+    .retour:hover {
+      transform: scale(1.1);
+      color: #fff;
+    }
 
-      .hero-title {
-        font-weight: 900; letter-spacing: 2px;
-        background: linear-gradient(to right, #ffffff 20%, #ffc107 50%, #ffffff 80%);
-        background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        filter: drop-shadow(0 0 25px rgba(255, 193, 7, 0.5)); animation: shine 3s linear infinite;
-      }
-      [data-bs-theme="light"] .hero-title { background: linear-gradient(45deg, #212529, #e6a756); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-      @keyframes shine { to { background-position: 200% center; } }
+    .nav-link {
+      cursor: pointer;
+    }
 
-      /* Glass Cards */
-      .glass-card {
-        background: rgba(30, 30, 30, 0.6); backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.08); border-top: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); transition: all 0.3s ease;
-        overflow: hidden;
-      }
-      .glass-card:hover { transform: translateY(-10px); border-color: rgba(230, 167, 86, 0.4); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5); }
-      [data-bs-theme="light"] .glass-card { background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.5); color: #212529; }
-      [data-bs-theme="light"] .glass-card:hover { background: #fff; }
+    /* Form Styles */
+    .contact-card {
+      background: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
 
-      .theme-img { height: 200px; object-fit: cover; width: 100%; transition: transform 0.5s; }
-      .glass-card:hover .theme-img { transform: scale(1.05); }
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
 
-      /* Floating Background */
-      .floating-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; overflow: hidden; }
-      .floating-item { position: absolute; animation: float-3d 20s infinite ease-in-out alternate; opacity: 0.1; }
-      @keyframes float-3d { 0% { transform: translate(0, 0) rotate(0deg); } 100% { transform: translate(30px, 50px) rotate(10deg); } }
-      
-      /* Noise & Scroll */
-      .noise-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIwLjA1Ii8+PC9zdmc+'); pointer-events: none; z-index: 9998; opacity: 0.04; }
-      .scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #e6a756, #ffc107); z-index: 10000; transition: width 0.1s; box-shadow: 0 0 10px rgba(230, 167, 86, 0.7); }
+    [data-bs-theme="light"] .contact-card {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    }
 
-      .retour { position: fixed; bottom: 20px; right: 20px; display: none; z-index: 1000; border-radius: 50%; width: 50px; height: 50px; border: none; background: linear-gradient(45deg, #e6a756, #ffc107); color: #fff; box-shadow: 0 4px 15px rgba(230, 167, 86, 0.4); }
-      .retour:hover { transform: scale(1.1); color: #fff; }
+    .form-control {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff !important;
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      transition: all 0.3s ease;
+    }
 
-      .nav-link { cursor: pointer; }
+    .form-control:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
 
-      /* Form Styles */
-      .contact-card {
-        background: rgba(20, 20, 20, 0.6);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 24px;
-        overflow: hidden;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease;
-      }
-      .contact-card:hover { transform: translateY(-5px); }
-      [data-bs-theme="light"] .contact-card {
-        background: rgba(255, 255, 255, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-      }
+    .form-control:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #e6a756;
+      color: #fff !important;
+      box-shadow: 0 0 20px rgba(230, 167, 86, 0.2);
+      transform: translateY(-2px);
+    }
 
-      .form-control {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: #fff !important;
-        backdrop-filter: blur(10px);
-        border-radius: 15px;
-        transition: all 0.3s ease;
-      }
-      .form-control:hover {
-        background: rgba(255, 255, 255, 0.07);
-        border-color: rgba(255, 255, 255, 0.3);
-      }
-      .form-control:focus {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: #e6a756;
-        color: #fff !important;
-        box-shadow: 0 0 20px rgba(230, 167, 86, 0.2);
-        transform: translateY(-2px);
-      }
-      .form-floating label { 
-        color: rgba(255, 255, 255, 0.5); 
-        padding-left: 1.2rem;
-      }
-      .form-floating > .form-control:focus ~ label,
-      .form-floating > .form-control:not(:placeholder-shown) ~ label { color: #e6a756; }
-      .form-floating > .form-control:not(:placeholder-shown) ~ label { 
-        color: #e6a756;
-        transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
-        background: transparent;
-      }
-      
-      .btn-primary {
-        background: linear-gradient(45deg, #e6a756, #ff9f43);
-        border: none;
-        box-shadow: 0 4px 15px rgba(230, 167, 86, 0.4);
-        font-weight: 700;
-        letter-spacing: 1px;
-        transition: all 0.3s ease;
-      }
-      .btn-primary:hover {
-        background: linear-gradient(45deg, #ffc107, #e6a756);
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 10px 25px rgba(230, 167, 86, 0.6);
-      }
+    .form-floating label {
+      color: rgba(255, 255, 255, 0.5);
+      padding-left: 1.2rem;
+    }
 
-      /* Light Mode Form Overrides */
-      [data-bs-theme="light"] .form-control {
-        background: rgba(255, 255, 255, 0.9);
-        border: 1px solid #ced4da;
-        color: #212529 !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      }
-      [data-bs-theme="light"] .form-control:focus { 
-        border-color: #e6a756;
-        box-shadow: 0 0 0 0.25rem rgba(230, 167, 86, 0.25);
-      }
-      [data-bs-theme="light"] .form-floating label { color: #6c757d; }
-    </style>
-  </head>
-  <body class="loading">
-    <!-- Loader -->
-    <div id="global-loader">
-      <img src="./assets/img/logoep.jpeg" alt="Logo" class="loader-logo">
-      <div class="loader-spinner"></div>
-      <div class="loader-text">Chargement...</div>
+    .form-floating>.form-control:focus~label,
+    .form-floating>.form-control:not(:placeholder-shown)~label {
+      color: #e6a756;
+    }
+
+    .form-floating>.form-control:not(:placeholder-shown)~label {
+      color: #e6a756;
+      transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+      background: transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, #e6a756, #ff9f43);
+      border: none;
+      box-shadow: 0 4px 15px rgba(230, 167, 86, 0.4);
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(45deg, #ffc107, #e6a756);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(230, 167, 86, 0.6);
+    }
+
+    /* Light Mode Form Overrides */
+    [data-bs-theme="light"] .form-control {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #ced4da;
+      color: #212529 !important;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    [data-bs-theme="light"] .form-control:focus {
+      border-color: #e6a756;
+      box-shadow: 0 0 0 0.25rem rgba(230, 167, 86, 0.25);
+    }
+
+    [data-bs-theme="light"] .form-floating label {
+      color: #6c757d;
+    }
+  </style>
+</head>
+
+<body class="loading">
+  <!-- Loader -->
+  <div id="global-loader">
+    <img src="./assets/img/logoep.jpeg" alt="Logo" class="loader-logo">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">Chargement...</div>
+  </div>
+
+  <!-- Aesthetics -->
+  <div class="scroll-progress"></div>
+  <div class="noise-overlay"></div>
+  <div class="floating-background">
+    <div class="floating-item" style="top: 10%; left: 10%;"><i class="fas fa-book fa-3x"></i></div>
+    <div class="floating-item" style="top: 20%; right: 20%; animation-delay: -5s;"><i
+        class="fas fa-graduation-cap fa-4x"></i></div>
+    <div class="floating-item" style="bottom: 15%; left: 15%; animation-delay: -2s;"><i class="fas fa-atom fa-3x"></i>
+    </div>
+    <div class="floating-item" style="bottom: 30%; right: 10%; animation-delay: -7s;"><i class="fas fa-dna fa-3x"></i>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand text-uppercase fw-bold" href="index.html">
+        <img src="./assets/img/logoep.jpeg" alt="Logo" width="35" height="35"
+          class="d-inline-block align-text-top me-2 rounded-circle border border-2 border-primary p-1">
+        EtudesPrepas
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html">Accueil</a></li>
+          <li class="nav-item px-lg-2 dropdown">
+            <a class="nav-link dropdown-toggle text-uppercase" href="#" role="button" data-bs-toggle="dropdown">ENSA</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="ensabm.html">ENSA Beni Mellal</a></li>
+              <li><a class="dropdown-item" href="ensakech.html">ENSA Marrakech</a></li>
+              <li><a class="dropdown-item" href="ensak.html">ENSA Kenitra</a></li>
+              <li><a class="dropdown-item" href="ensah.html">ENSA Al Hoceima</a></li>
+              <li><a class="dropdown-item" href="ensaa.html">ENSA Agadir</a></li>
+            </ul>
+          </li>
+          <li class="nav-item px-lg-2 dropdown">
+            <a class="nav-link dropdown-toggle text-uppercase" href="#" role="button"
+              data-bs-toggle="dropdown">FST/FS</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="gegm.html">GE-GM</a></li>
+              <li><a class="dropdown-item" href="mipc.html">MIPC</a></li>
+            </ul>
+          </li>
+          <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="medecine.html">Médecine</a></li>
+          <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="orientation.html">Orientation</a></li>
+          <li class="nav-item px-lg-2">
+            <a class="nav-link" id="theme-toggle" title="Changer de thème" style="cursor: pointer;">
+              <i class="fas fa-moon"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead text-center text-white d-flex flex-column justify-content-center align-items-center">
+    <!-- Hero Orbs & Grid Animation -->
+    <div class="hero-orbs-container">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+    </div>
+    <div class="hero-grid-overlay"></div>
+
+    <div class="container">
+      <div class="glass-panel position-relative" data-aos="zoom-in" data-aos-duration="1000">
+        <h1 class="hero-title text-uppercase mb-3">Quelques notions à savoir</h1>
+        <div class="divider-custom divider-light my-3">
+          <div
+            style="height: 3px; background: linear-gradient(90deg, transparent, #e6a756, transparent); width: 150px; margin: 0 auto; border-radius: 2px;">
+          </div>
+        </div>
+
+        <p class="lead mb-0 text-white-50">Informations sur les parcours et établissements</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="mb-4">
+      <a href="index.html" class="btn btn-outline-warning rounded-pill px-4"><i
+          class="fa-solid fa-arrow-left me-2"></i>Retour à l'Accueil</a>
     </div>
 
-    <!-- Aesthetics -->
-    <div class="scroll-progress"></div>
-    <div class="noise-overlay"></div>
-    <div class="floating-background">
-        <div class="floating-item" style="top: 10%; left: 10%;"><i class="fas fa-book fa-3x"></i></div>
-        <div class="floating-item" style="top: 20%; right: 20%; animation-delay: -5s;"><i class="fas fa-graduation-cap fa-4x"></i></div>
-        <div class="floating-item" style="bottom: 15%; left: 15%; animation-delay: -2s;"><i class="fas fa-atom fa-3x"></i></div>
-        <div class="floating-item" style="bottom: 30%; right: 10%; animation-delay: -7s;"><i class="fas fa-dna fa-3x"></i></div>
+    <div class="row g-4">
+      <!-- Classes Prepas -->
+      <div class="col-12" data-aos="fade-up">
+        <div class="card glass-card border-0">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="./assets/img/intro.png" class="img-fluid rounded-start h-100 object-fit-cover" alt="Etudiant">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h2 class="card-title fw-bold text-warning mb-3">Les classes Préparatoires, c'est quoi?</h2>
+                <p class="card-text text-muted"><strong>Les classes préparatoires à l'université</strong> (généralement
+                  avec une durée de deux 2 ans) sont des programmes d'enseignement supérieur conçus pour préparer les
+                  étudiants à une intégration réussie dans l'enseignement universitaire. Ils visent à renforcer les
+                  compétences académiques des étudiants, à combler d'éventuelles lacunes et à les familiariser avec les
+                  méthodes de travail universitaires. Ces classes préparatoires couvrent généralement un large éventail
+                  de matières générales et sont destinées à faciliter la transition entre l'enseignement secondaire et
+                  le niveau universitaire. Après avoir suivi ces programmes de deux ans (une durée qui varie selon les
+                  établissements), les étudiants sont mieux préparés à poursuivre des études universitaires dans le
+                  domaine de leur choix, c'est ce qu'on appelle généralement la specialisation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENSA -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="card glass-card h-100">
+          <img src="./assets/img/ensamaroc.jpg" class="card-img-top theme-img" alt="ENSA Maroc">
+          <div class="card-body">
+            <h2 class="card-title fw-bold text-warning">ENSA Maroc</h2>
+            <p class="card-text text-muted"><strong>L'École Nationale des Sciences Appliquées (ENSA)</strong> du Maroc
+              est un réseau d'établissements publics d'enseignement supérieur qui forme des ingénieurs dans divers
+              domaines techniques et scientifiques. Composé de 13 écoles réparties à travers le pays, l'ENSA propose un
+              cursus structuré en deux années de classes préparatoires intégrées suivies de trois années de cycle
+              d'ingénieur. Les spécialités couvertes incluent le génie informatique, le génie civil, le génie
+              industriel, le génie électrique, et d'autres disciplines, alliant une formation théorique rigoureuse à des
+              expériences pratiques et des stages en entreprise. L'ENSA vise à former des ingénieurs polyvalents,
+              capables de contribuer au développement économique et technologique à l'échelle nationale et
+              internationale.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FST -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="card glass-card h-100">
+          <img src="./assets/img/fstmaroc.jpg" class="card-img-top theme-img" alt="FST Maroc">
+          <div class="card-body">
+            <h2 class="card-title fw-bold text-warning">FST Maroc</h2>
+            <p class="card-text text-muted"><strong>Les Facultés des Sciences et Techniques (FST)</strong> du Maroc sont
+              des établissements publics d'enseignement supérieur qui offrent des formations diversifiées en sciences
+              fondamentales et appliquées, ainsi qu'en technologies. Implantées dans plusieurs villes du pays, telles
+              que Mohammedia, Marrakech, Tanger, Fès, Settat, etc., les FST dispensent des programmes de licence, master
+              et doctorat, couvrant des disciplines telles que la physique, la chimie, la biologie, les mathématiques,
+              l'informatique, et le génie industriel. Les filières proposées incluent notamment <strong>GE-GM (Génie
+                Électrique et Génie Mécanique)</strong>, <strong>MIPC (Mathématiques, Informatique, Physique,
+                Chimie)</strong>, <strong>BCG (Biologie, Chimie, Géologie)</strong>, ... Ces facultés visent à
+              promouvoir la recherche scientifique et à fournir une formation de qualité qui prépare les étudiants à
+              répondre aux défis technologiques et scientifiques contemporains.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medecine -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="card glass-card h-100">
+          <img src="./assets/img/medecine.jpg" class="card-img-top theme-img" alt="Médecine Maroc">
+          <div class="card-body">
+            <h2 class="card-title fw-bold text-warning">Facultés de Médecine</h2>
+            <p class="card-text text-muted"><strong>Les Facultés de Médecine et de Pharmacie</strong> forment les futurs
+              praticiens du Maroc. Le cursus, accessible sur concours, allie théorie et pratique clinique. Retrouvez sur
+              notre site des ressources pour les premières années (S1 à S4) afin de vous soutenir dans votre
+              apprentissage.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orientation -->
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="card glass-card h-100">
+          <img src="./assets/img/bg4.jpeg" class="card-img-top theme-img" alt="Orientation">
+          <div class="card-body">
+            <h2 class="card-title fw-bold text-warning">Orientation & Carrière</h2>
+            <p class="card-text text-muted"><strong>Construisez votre avenir.</strong> Vous hésitez sur votre parcours ?
+              Découvrez notre section dédiée à l'orientation : conseils, présentation des filières ingénieur, débouchés
+              et motivation pour réussir vos études supérieures.</p>
+            <a href="orientation.html" class="btn btn-outline-warning mt-2 rounded-pill">Découvrir la section</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="col-12" data-aos="fade-up" data-aos-delay="500">
+        <div class="contact-card">
+          <div class="text-center py-4 border-bottom border-secondary border-opacity-25"
+            style="background: linear-gradient(to right, rgba(230, 167, 86, 0.1), transparent, rgba(230, 167, 86, 0.1));">
+            <h2 class="card-title fw-bold mb-0 text-warning"><i class="fa-solid fa-paper-plane me-2"></i>Contactez-nous
+            </h2>
+            <p class="small text-muted mb-0 mt-2">Une question ? Une suggestion ? Nous sommes à votre écoute.</p>
+          </div>
+          <div class="card-body p-4 p-lg-5">
+            <!-- Formulaire Netlify -->
+            <form name="contact" method="POST" data-netlify="true">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre Nom" required>
+                    <label for="nom"><i class="fas fa-user me-2"></i>Votre Nom</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"
+                      required>
+                    <label for="email"><i class="fas fa-envelope me-2"></i>Votre Email</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Votre message" id="message" name="message"
+                      style="height: 150px" required></textarea>
+                    <label for="message"><i class="fas fa-comment-alt me-2"></i>Votre Message</label>
+                  </div>
+                </div>
+                <div class="col-12 text-center mt-2">
+                  <button class="btn btn-primary btn-lg px-5 rounded-pill shadow-sm" type="submit">
+                    Envoyer le message <i class="fa-solid fa-paper-plane ms-2"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand text-uppercase fw-bold" href="index.html">
-          <img src="./assets/img/logoep.jpeg" alt="Logo" width="35" height="35" class="d-inline-block align-text-top me-2 rounded-circle border border-2 border-primary p-1">
-          Etudes_Prepas
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="index.html">Accueil</a></li>
-            <li class="nav-item px-lg-2 dropdown">
-              <a class="nav-link dropdown-toggle text-uppercase" href="#" role="button" data-bs-toggle="dropdown">ENSA</a>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="ensabm.html">ENSA Beni Mellal</a></li>
-                <li><a class="dropdown-item" href="ensakech.html">ENSA Marrakech</a></li>
-                <li><a class="dropdown-item" href="ensak.html">ENSA Kenitra</a></li>
-                <li><a class="dropdown-item" href="ensah.html">ENSA Al Hoceima</a></li>
-                <li><a class="dropdown-item" href="ensaa.html">ENSA Agadir</a></li>
-              </ul>
-            </li>
-            <li class="nav-item px-lg-2 dropdown">
-              <a class="nav-link dropdown-toggle text-uppercase" href="#" role="button" data-bs-toggle="dropdown">FST/FS</a>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="gegm.html">GE-GM</a></li>
-                <li><a class="dropdown-item" href="mipc.html">MIPC</a></li>
-              </ul>
-            </li>
-            <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="medecine.html">Médecine</a></li>
-            <li class="nav-item px-lg-2"><a class="nav-link text-uppercase" href="orientation.html">Orientation</a></li>
-            <li class="nav-item px-lg-2">
-              <a class="nav-link" id="theme-toggle" title="Changer de thème" style="cursor: pointer;">
-                <i class="fas fa-moon"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <button class="retour" id="btn-back-to-top" title="Retour en haut"><i
+        class="fa-solid fa-arrow-turn-up"></i></button>
+  </main>
 
-    <header class="masthead text-center text-white d-flex flex-column justify-content-center align-items-center">
-      <!-- Hero Orbs & Grid Animation -->
-      <div class="hero-orbs-container">
-        <div class="hero-orb hero-orb-1"></div>
-        <div class="hero-orb hero-orb-2"></div>
-      </div>
-      <div class="hero-grid-overlay"></div>
+  <footer class="footer text-center py-4 mt-5 border-top border-secondary">
+    <p class="m-0 small text-muted">&copy; 2023 EtudesPrepas - Tous droits réservés. <strong
+        class="text-warning">Efra.Jr</strong></p>
+  </footer>
 
-      <div class="container">
-        <div class="glass-panel position-relative" data-aos="zoom-in" data-aos-duration="1000">
-            <h1 class="hero-title text-uppercase mb-3">Quelques notions à savoir</h1>
-            <div class="divider-custom divider-light my-3">
-                <div style="height: 3px; background: linear-gradient(90deg, transparent, #e6a756, transparent); width: 150px; margin: 0 auto; border-radius: 2px;"></div>
-            </div>
-            
-            <p class="lead mb-0 text-white-50">Informations sur les parcours et établissements</p>
-        </div>
-      </div>
-    </header>
-
-    <main class="container">
-      <div class="mb-4">
-        <a href="index.html" class="btn btn-outline-warning rounded-pill px-4"><i class="fa-solid fa-arrow-left me-2"></i>Retour à l'Accueil</a>
-      </div>
-
-      <div class="row g-4">
-        <!-- Classes Prepas -->
-        <div class="col-12" data-aos="fade-up">
-          <div class="card glass-card border-0">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="./assets/img/intro.png" class="img-fluid rounded-start h-100 object-fit-cover" alt="Etudiant">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h2 class="card-title fw-bold text-warning mb-3">Les classes Préparatoires, c'est quoi?</h2>
-                  <p class="card-text text-muted"><strong>Les classes préparatoires à l'université</strong> (généralement avec une durée de deux 2 ans) sont des programmes d'enseignement supérieur conçus pour préparer les étudiants à une intégration réussie dans l'enseignement universitaire. Ils visent à renforcer les compétences académiques des étudiants, à combler d'éventuelles lacunes et à les familiariser avec les méthodes de travail universitaires. Ces classes préparatoires couvrent généralement un large éventail de matières générales et sont destinées à faciliter la transition entre l'enseignement secondaire et le niveau universitaire. Après avoir suivi ces programmes de deux ans (une durée qui varie selon les établissements), les étudiants sont mieux préparés à poursuivre des études universitaires dans le domaine de leur choix, c'est ce qu'on appelle généralement la specialisation.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ENSA -->
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="card glass-card h-100">
-            <img src="./assets/img/ensamaroc.jpg" class="card-img-top theme-img" alt="ENSA Maroc">
-            <div class="card-body">
-              <h2 class="card-title fw-bold text-warning">ENSA Maroc</h2>
-              <p class="card-text text-muted"><strong>L'École Nationale des Sciences Appliquées (ENSA)</strong> du Maroc est un réseau d'établissements publics d'enseignement supérieur qui forme des ingénieurs dans divers domaines techniques et scientifiques. Composé de 13 écoles réparties à travers le pays, l'ENSA propose un cursus structuré en deux années de classes préparatoires intégrées suivies de trois années de cycle d'ingénieur. Les spécialités couvertes incluent le génie informatique, le génie civil, le génie industriel, le génie électrique, et d'autres disciplines, alliant une formation théorique rigoureuse à des expériences pratiques et des stages en entreprise. L'ENSA vise à former des ingénieurs polyvalents, capables de contribuer au développement économique et technologique à l'échelle nationale et internationale.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- FST -->
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="card glass-card h-100">
-            <img src="./assets/img/fstmaroc.jpg" class="card-img-top theme-img" alt="FST Maroc">
-            <div class="card-body">
-              <h2 class="card-title fw-bold text-warning">FST Maroc</h2>
-              <p class="card-text text-muted"><strong>Les Facultés des Sciences et Techniques (FST)</strong> du Maroc sont des établissements publics d'enseignement supérieur qui offrent des formations diversifiées en sciences fondamentales et appliquées, ainsi qu'en technologies. Implantées dans plusieurs villes du pays, telles que Mohammedia, Marrakech, Tanger, Fès, Settat, etc., les FST dispensent des programmes de licence, master et doctorat, couvrant des disciplines telles que la physique, la chimie, la biologie, les mathématiques, l'informatique, et le génie industriel. Les filières proposées incluent notamment <strong>GE-GM (Génie Électrique et Génie Mécanique)</strong>, <strong>MIPC (Mathématiques, Informatique, Physique, Chimie)</strong>, <strong>BCG (Biologie, Chimie, Géologie)</strong>, ... Ces facultés visent à promouvoir la recherche scientifique et à fournir une formation de qualité qui prépare les étudiants à répondre aux défis technologiques et scientifiques contemporains.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Medecine -->
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="card glass-card h-100">
-            <img src="./assets/img/medecine.jpg" class="card-img-top theme-img" alt="Médecine Maroc">
-            <div class="card-body">
-              <h2 class="card-title fw-bold text-warning">Facultés de Médecine</h2>
-              <p class="card-text text-muted"><strong>Les Facultés de Médecine et de Pharmacie</strong> forment les futurs praticiens du Maroc. Le cursus, accessible sur concours, allie théorie et pratique clinique. Retrouvez sur notre site des ressources pour les premières années (S1 à S4) afin de vous soutenir dans votre apprentissage.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Orientation -->
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="card glass-card h-100">
-            <img src="./assets/img/bg4.jpeg" class="card-img-top theme-img" alt="Orientation">
-            <div class="card-body">
-              <h2 class="card-title fw-bold text-warning">Orientation & Carrière</h2>
-              <p class="card-text text-muted"><strong>Construisez votre avenir.</strong> Vous hésitez sur votre parcours ? Découvrez notre section dédiée à l'orientation : conseils, présentation des filières ingénieur, débouchés et motivation pour réussir vos études supérieures.</p>
-              <a href="orientation.html" class="btn btn-outline-warning mt-2 rounded-pill">Découvrir la section</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contact Form -->
-        <div class="col-12" data-aos="fade-up" data-aos-delay="500">
-          <div class="contact-card">
-            <div class="text-center py-4 border-bottom border-secondary border-opacity-25" style="background: linear-gradient(to right, rgba(230, 167, 86, 0.1), transparent, rgba(230, 167, 86, 0.1));">
-                <h2 class="card-title fw-bold mb-0 text-warning"><i class="fa-solid fa-paper-plane me-2"></i>Contactez-nous</h2>
-                <p class="small text-muted mb-0 mt-2">Une question ? Une suggestion ? Nous sommes à votre écoute.</p>
-            </div>
-            <div class="card-body p-4 p-lg-5">
-              <!-- Formulaire Netlify -->
-              <form name="contact" method="POST" data-netlify="true">
-                <div class="row g-4">
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre Nom" required>
-                      <label for="nom"><i class="fas fa-user me-2"></i>Votre Nom</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-floating">
-                      <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
-                      <label for="email"><i class="fas fa-envelope me-2"></i>Votre Email</label>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-floating">
-                      <textarea class="form-control" placeholder="Votre message" id="message" name="message" style="height: 150px" required></textarea>
-                      <label for="message"><i class="fas fa-comment-alt me-2"></i>Votre Message</label>
-                    </div>
-                  </div>
-                  <div class="col-12 text-center mt-2">
-                    <button class="btn btn-primary btn-lg px-5 rounded-pill shadow-sm" type="submit">
-                        Envoyer le message <i class="fa-solid fa-paper-plane ms-2"></i>
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <button class="retour" id="btn-back-to-top" title="Retour en haut"><i class="fa-solid fa-arrow-turn-up"></i></button>
-    </main>
-
-    <footer class="footer text-center py-4 mt-5 border-top border-secondary">
-      <p class="m-0 small text-muted">&copy; 2023 EtudePrepas.com - Tous droits réservés. <strong class="text-warning">Efra.Jr</strong></p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS Animation JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      // Loader Logic
-      window.addEventListener('load', function() {
-        const loader = document.getElementById('global-loader');
-        if(loader) {
-          setTimeout(function() {
-            loader.style.opacity = '0';
-            loader.style.visibility = 'hidden';
-            document.body.classList.remove('loading');
-            setTimeout(function() { loader.remove(); }, 600);
-          }, 1000);
-        }
-      });
-
-      AOS.init({ once: true, offset: 50, duration: 600 });
-
-      // Scroll Progress
-      window.addEventListener('scroll', () => {
-          const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-          const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-          const scrollPercent = (scrollTop / scrollHeight) * 100;
-          const progressBar = document.querySelector('.scroll-progress');
-          if(progressBar) progressBar.style.width = scrollPercent + '%';
-      });
-
-      // Theme Toggle Logic
-      const themeToggleBtn = document.getElementById('theme-toggle');
-      const htmlElement = document.documentElement;
-      const navbar = document.getElementById('mainNav');
-      const themeIcon = themeToggleBtn.querySelector('i');
-
-      function setTheme(theme) {
-        htmlElement.setAttribute('data-bs-theme', theme);
-        localStorage.setItem('theme', theme);
-        if (theme === 'light') { themeIcon.className = 'fas fa-sun'; } 
-        else { themeIcon.className = 'fas fa-moon'; }
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS Animation JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Loader Logic
+    window.addEventListener('load', function () {
+      const loader = document.getElementById('global-loader');
+      if (loader) {
+        setTimeout(function () {
+          loader.style.opacity = '0';
+          loader.style.visibility = 'hidden';
+          document.body.classList.remove('loading');
+          setTimeout(function () { loader.remove(); }, 600);
+        }, 1000);
       }
-      const savedTheme = localStorage.getItem('theme') || 'dark';
-      setTheme(savedTheme);
-      themeToggleBtn.addEventListener('click', () => {
-        const newTheme = htmlElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-      });
-    </script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-  </body>
+    });
+
+    AOS.init({ once: true, offset: 50, duration: 600 });
+
+    // Scroll Progress
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      const progressBar = document.querySelector('.scroll-progress');
+      if (progressBar) progressBar.style.width = scrollPercent + '%';
+    });
+
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+    const navbar = document.getElementById('mainNav');
+    const themeIcon = themeToggleBtn.querySelector('i');
+
+    function setTheme(theme) {
+      htmlElement.setAttribute('data-bs-theme', theme);
+      localStorage.setItem('theme', theme);
+      if (theme === 'light') { themeIcon.className = 'fas fa-sun'; }
+      else { themeIcon.className = 'fas fa-moon'; }
+    }
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+    themeToggleBtn.addEventListener('click', () => {
+      const newTheme = htmlElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    });
+  </script>
+  <!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+</body>
+
 </html>
