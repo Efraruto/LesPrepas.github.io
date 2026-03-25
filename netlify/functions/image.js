@@ -15,7 +15,7 @@ exports.handler = async function (event, context) {
     }
 
     try {
-        const url = `https://gen.pollinations.ai/image/${encodeURIComponent(prompt)}?width=512&height=512&seed=${Math.floor(Math.random() * 1000)}&nologo=true`;
+        const url = `https://gen.pollinations.ai/image/${encodeURIComponent(prompt)}`;
 
         const response = await fetch(url, {
             headers: {
