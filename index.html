@@ -2199,18 +2199,25 @@
 
         if (matchResult && lowerText.length > 5 && !lowerText.includes('ne dessine pas') && !lowerText.includes('ne genere pas')) {
           const prompt = matchResult[1] ? matchResult[1].trim() : "une belle image";
-          const imgUrl = `/.netlify/functions/image?prompt=${encodeURIComponent(prompt)}`;
 
-          const img = new Image();
-          img.src = imgUrl;
-          img.onload = () => {
-            removeTyping();
-            addMessage(`<img src="${imgUrl}" class="img-fluid rounded" alt="${prompt}">`, 'bot');
+          const doImageFetch = async () => {
+            try {
+              const res = await fetch(`/.netlify/functions/image?prompt=${encodeURIComponent(prompt)}`);
+              const data = await res.json();
+
+              if (!res.ok) {
+                throw new Error(data.error || 'Erreur serveur inconnue');
+              }
+
+              removeTyping();
+              addMessage(`<img src="${data.imageBase64}" class="img-fluid rounded" alt="${prompt}">`, 'bot');
+            } catch (e) {
+              removeTyping();
+              console.error("Image gen error:", e);
+              addMessage(`Impossible de générer l'image : ${e.message}`, 'bot');
+            }
           };
-          img.onerror = () => {
-            removeTyping();
-            addMessage("Impossible de générer l'image", 'bot');
-          };
+          doImageFetch();
           return;
         }
 
